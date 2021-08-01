@@ -1,0 +1,40 @@
+#SearchIcon{
+    transform: translate(-26px,15px);
+    color: rgb(116, 116, 116);
+}
+
+.icons{
+    font-size: 2.5rem;
+    color: rgb(116, 115, 115);
+}
+
+.myNavbar{
+    background-color: #f6f8f8;
+    min-height: 5rem;
+}
+.shopping_parent{
+    position: relative;
+}
+.shopping_cart_number{
+    width: 25px;
+    height: 25px;
+    padding: .8rem;
+    border-radius: 100%;
+    background-color: rgb(221, 9, 9);
+    color: white;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    position: absolute;
+    top: -10px;
+    right: 85px;
+}
+
+.mynav{
+
+    min-height: 5rem;
+    max-height: 20rem;
+}
+.second{
+    margin-right: -70px;
+}
