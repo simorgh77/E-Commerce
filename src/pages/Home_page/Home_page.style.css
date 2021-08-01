@@ -182,3 +182,9 @@
     transition: opacity 0.3s ;
     transform: scale(110%);
 }
+
+
+.for_man_btn{
+    background-color: rgb(199,211,199) !important;
+    border: none;
+}

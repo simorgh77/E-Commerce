@@ -1,12 +1,14 @@
 import React ,{useState,useEffect}from "react";
 import Mycarousel from "../../components/Mycarousel/Mycarousel";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row,Button } from "react-bootstrap";
 import { Link,useHistory } from "react-router-dom";
 import "./Home_page.style.css";
 import Brands from "../../components/Brands/Brands";
 import Swiper from "../../components/Swiper/Swiper";
 import axios from "axios";
+import  for_man  from "../../assest/img/for_man.jpg"
 
+import { BsChevronCompactLeft } from "react-icons/bs";
 type IProducts={
   products:[
     id: string,
@@ -46,35 +48,53 @@ const Home_page = () => {
       </div>
 
 {       
-      <Container>
-        <Row>
+      <Container >
+        <Row >
           <div className="homepage">
-            <div className="gender_categories mt-5">
-              <div className="man flex-wrap">
-                <Col xs={12} md={4} onClick={()=>history.push('/Product_Categoriesمردانه')} >
-                  <div className="man_pic text-center" >
-                      <button className='btn btn-transparent bold'>{'مردانه'}</button>
+            <div className="gender_categories mt-5 ">
+              <div className="man flex-wrap ">
+                <Col xs={12} md={3} className="my-auto"
+                onClick={()=>history.push('/Product_Categoriesمردانه')} >
+                  <div className="man_pic text-center bg-dark " >
+                    <div>
+                      <Button className='for_man_btn w-100 rounded-0' variant="outline-secondary">
+                        {'پوشاک مردانه'} <BsChevronCompactLeft /></Button>
+                        </div>
+                        <div >
+                    <img src={for_man} alt="for_man" className='img-fluid'style={{width:'100%',maxHeight:'20rem'}}/>
+                    </div>
                   </div>
                 </Col>
-                <Col xs={12} md={8} className="m-0 p-0 ">
+                <Col xs={12} md={8} style={{maxHeight:'100%',backgroundColor:'white',width:'75%'}} className="mr-5 h-100 p-0 my-auto">
                   <Swiper slidesPerView={3} Products={Products} setProducrs={setProducrs}/>
                 </Col>
               
               </div>
 
-              {/* <div className="woman flex-row-reverse">
-                <Col xs={12} md={8} className="m-0 p-0 ">
-                  <Swiper slidesPerView={3} Products={Products} setProducrs={setProducrs}/>
-                </Col>
 
-                <Col xs={12} md={4} onClick={()=>history.push('/list_woman')} >
-                <div className="woman_pic text-center">
-                <span className='mx-auto'>زنانه</span>
-                      
+
+
+
+
+              <div className="man flex-row-reverse flex-wrap ">
+                <Col xs={12} md={3} className="my-auto"
+                onClick={()=>history.push('/Product_Categoriesمردانه')} >
+                  <div className="man_pic text-center bg-dark " >
+                    <div>
+                      <Button className='for_man_btn w-100 rounded-0' variant="outline-secondary">
+                        {'پوشاک مردانه'} <BsChevronCompactLeft /></Button>
+                        </div>
+                        <div >
+                    <img src={for_man} alt="for_man" className='img-fluid'style={{width:'100%',maxHeight:'20rem'}}/>
+                    </div>
                   </div>
                 </Col>
+                <Col xs={12} md={8} style={{maxHeight:'100%',backgroundColor:'white'}} className="mr-5 h-100 p-0 my-auto">
+                  <Swiper slidesPerView={3} Products={Products} setProducrs={setProducrs}/>
+                </Col>
+              
               </div>
-
+{/* 
               <div className="kid ">
                 <Col xs={12} md={8} className="m-0 p-0 ">
                   <Swiper slidesPerView={3} Products={Products} setProducrs={setProducrs}/>
@@ -164,7 +184,7 @@ const Home_page = () => {
             <div className="customer_reviews">
             <span>نظرات کاربران</span>
             <Swiper slidesPerView={4} Products={Products} setProducrs={setProducrs}/> */}
-            </div>
+            </div> 
           </div>
         </Row>
       </Container> 

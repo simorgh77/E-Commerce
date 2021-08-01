@@ -7,9 +7,9 @@ const ProductsCart = ({item}:any) => {
   
     return (
         <div>
-           <Card style={{ width: '18rem',cursor:'pointer' }} 
+           <Card style={{ width: '20vw',height:"57vh",cursor:'pointer',backgroundColor:"transparent",border:'none'}} 
            onClick={()=>history.push(`/Product_Details${item.id}`)}>
-  <Card.Img variant="top" className="img-fluid" src={item.image} style={{width:'100%',height:'18rem'}}/>
+  <Card.Img variant="top" className="img-fluid" src={item.image} style={{width:'100vw',height:'35vh'}}/>
   <Card.Body>
     <Card.Title>{item.name}</Card.Title>
     <Card.Text>
