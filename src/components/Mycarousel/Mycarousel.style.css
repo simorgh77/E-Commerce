@@ -1,0 +1,58 @@
+
+ Carousel{
+  width: fit-content;
+ }
+  .btn-buy {
+    background-color: #fe696a;
+    border-color: #fe696a;
+    width: 15rem;
+    height: 3rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+  }
+  .carousel-control-next, .carousel-control-prev{
+    color: white !important;
+    left: 0 ;
+   background-color: white;
+    width: fit-content;
+  }
+  .carousel-indicators{
+ display: none;
+  }
+
+
+  @media  (min-width: 360px) and (max-width: 575.98px) {
+  
+    .second {
+   display: flex; 
+   flex-direction: row;
+    }
+    .carousel-control-next, .carousel-control-prev{
+      color: white !important;
+      left: 0 ;
+      right: 10px;
+     background-color: white;
+      width: fit-content;
+    }
+  }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    
+    
+  }
+  
+  
+  @media (min-width: 768px) and (max-width: 991.98px) { 
+    
+    .carousel{
+      width: 1005%;
+     background-color: yellow;
+    }
+    
+  
+   }
+  
+
+  @media (min-width: 992px) and (max-width: 1199.98px) {  }
+  
+  @media (min-width: 1200px) {  }
