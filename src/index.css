@@ -1,0 +1,28 @@
+*{
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: vazir;
+  src: url('./assest/font/Vazir-Regular.ttf');
+}
+:root{
+  --primaryColor:#6d28d9;
+  --secondaryColor:#ede9fe;
+  --bodyColor:#f6f6f6;
+}
+
+body,html{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bodyColor);
+}
+#root{
+  direction: rtl;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: vazir;
+}
