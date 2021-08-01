@@ -7,8 +7,12 @@ import Brands from "../../components/Brands/Brands";
 import Swiper from "../../components/Swiper/Swiper";
 import axios from "axios";
 import  for_man  from "../../assest/img/for_man.jpg"
+import  for_woman  from "../../assest/img/for_woman.jpg"
+import  for_kid2  from "../../assest/img/for_kid2.jpg"
+import  for_baby4  from "../../assest/img/for_baby4.jpg"
 
 import { BsChevronCompactLeft } from "react-icons/bs";
+import { BsChevronCompactRight } from "react-icons/bs";
 type IProducts={
   products:[
     id: string,
@@ -76,51 +80,65 @@ const Home_page = () => {
 
 
 
-              <div className="man flex-row-reverse flex-wrap ">
+              <div className="woman flex-row-reverse flex-wrap ">
                 <Col xs={12} md={3} className="my-auto"
                 onClick={()=>history.push('/Product_Categoriesمردانه')} >
                   <div className="man_pic text-center bg-dark " >
                     <div>
-                      <Button className='for_man_btn w-100 rounded-0' variant="outline-secondary">
-                        {'پوشاک مردانه'} <BsChevronCompactLeft /></Button>
+                      <Button className='for_woman_btn w-100 rounded-0' variant="outline-secondary">
+                         <BsChevronCompactRight />{'پوشاک زنانه'}</Button>
                         </div>
                         <div >
-                    <img src={for_man} alt="for_man" className='img-fluid'style={{width:'100%',maxHeight:'20rem'}}/>
+                    <img src={for_woman} alt="for_man" className='img-fluid'style={{width:'100%',maxHeight:'20rem'}}/>
                     </div>
                   </div>
                 </Col>
-                <Col xs={12} md={8} style={{maxHeight:'100%',backgroundColor:'white'}} className="mr-5 h-100 p-0 my-auto">
+                <Col xs={12} md={8} style={{maxHeight:'100%',backgroundColor:'white',width:'75%'}} className="mr-5 h-100 p-0 my-auto">
                   <Swiper slidesPerView={3} Products={Products} setProducrs={setProducrs}/>
                 </Col>
               
               </div>
-{/* 
-              <div className="kid ">
-                <Col xs={12} md={8} className="m-0 p-0 ">
+ 
+             <div className="kid  flex-wrap ">
+                <Col xs={12} md={3} className="my-auto"
+                onClick={()=>history.push('/Product_Categoriesمردانه')} >
+                  <div className="man_pic text-center bg-dark " >
+                    <div>
+                      <Button className='for_kid_btn w-100 rounded-0' variant="outline-dark">
+                      {'پوشاک بچگانه'} <BsChevronCompactLeft /></Button>
+                        </div>
+                        <div >
+                    <img src={for_kid2} alt="for_man" className='img-fluid'style={{width:'100%',height:'51vh'}}/>
+                    </div>
+                  </div>
+                </Col>
+                <Col xs={12} md={8} style={{maxHeight:'100%',backgroundColor:'white',width:'75%'}} className="mr-5 h-100 p-0 my-auto">
                   <Swiper slidesPerView={3} Products={Products} setProducrs={setProducrs}/>
                 </Col>
-
-                <Col xs={12} md={4} onClick={()=>history.push('/list_kid')} >
-                <div className="kid_pic text-center">
-                <span className='mx-auto'>بچگانه</span>
-                      </div>
-                </Col>
+              
               </div>
-
-              <div className="baby flex-row-reverse">
-                <Col xs={12} md={8} className="m-0 p-0 ">
+            
+              
+              <div className="baby flex-row-reverse flex-wrap ">
+                <Col xs={12} md={3} className="my-auto"
+                onClick={()=>history.push('/Product_Categoriesمردانه')} >
+                  <div className="man_pic text-center bg-dark " >
+                    <div>
+                      <Button className='for_baby_btn w-100 rounded-0' variant="outline-secondary">
+                         <BsChevronCompactRight />{'پوشاک نوزاد'}</Button>
+                        </div>
+                        <div >
+                    <img src={for_baby4} alt="for_baby2" className='img-fluid'style={{width:'100%',maxHeight:'20rem'}}/>
+                    </div>
+                  </div>
+                </Col>
+                <Col xs={12} md={8} style={{maxHeight:'100%',backgroundColor:'white',width:'75%'}} className="mr-5 h-100 p-0 my-auto">
                   <Swiper slidesPerView={3} Products={Products} setProducrs={setProducrs}/>
                 </Col>
-
-                <Col xs={12} md={4} onClick={()=>history.push('/list_baby')} >
-                <div className="baby_pic text-center">
-                <span className='mx-auto'>نوزاد</span>
-                      </div>      
-                </Col>
+              
               </div>
-             </div>
-
-
+ 
+  {/*
             <div className="best_brands mt-5">
 <div>
 <span>برند های ویژه</span>
