@@ -1,0 +1,10 @@
+.navItem{
+    color: gray;
+}
+.nav-link{
+    color: rgb(104, 103, 103);
+}
+.btn :hover{
+    border-bottom: 1px solid rgb(158, 158, 158);
+    color: rgb(0, 0, 0);
+}
