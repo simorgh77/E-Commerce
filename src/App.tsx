@@ -18,7 +18,7 @@ import Footer from './components/Footer/Footer';
 function App() {
 
   return (
-    <div className="App">
+    <div className="App w-100">
       <Router>
       <Header >
       <Mynavbar/>
@@ -32,7 +32,7 @@ function App() {
 </Switch>
 
 <div className="footer">
-<Footer/>
+{/* <Footer/> */}
 </div>
 </Router>
 
