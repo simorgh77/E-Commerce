@@ -1,6 +1,7 @@
 import React from 'react'
 import {Carousel, Container,Row,Col, Button} from 'react-bootstrap'
 import "./Mycarousel.style.css"
+import carousel from "../../assest/img/carousel.jpg"
 const Mycarousel= () => {
     return (
        <div className='carousel w-100 mx-auto'>
@@ -16,7 +17,7 @@ const Mycarousel= () => {
   />
     </Col>
 
-<Col xs={12} md={4}  style={{backgroundColor:'rgb(235,161,112'}}>
+<Col xs={12} md={4}  style={{backgroundColor:'rgb(235,161,112'}} className='d-flex justify-content-center'>
 
   <div className=' w-100 h-100 d-flex justify-content-center 
   align-items-center align-content-between flex-column text-white addcarousel p-sm-5'>

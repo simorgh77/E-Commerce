@@ -1,5 +1,19 @@
-.swiperslide{
-    border: none !important;
-    background-color: transparent !important;
-    max-width: 50vh !important;
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+pointer-events: none;
+top: 10px;
+}
+
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+
+    color: rgb(0, 0, 0);
+
+   
+
+}
+@media (max-width: 575.98px) {  
+    .swiperslide{
+    font-size:50% !important;
+    }
+
+   
 }

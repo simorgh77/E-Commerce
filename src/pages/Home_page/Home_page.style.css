@@ -1,6 +1,6 @@
-.homepage div{
+/* 
 
-}
+
 .carousel{
     width: 100%;
    min-height: 15rem;
@@ -57,10 +57,10 @@
     min-height: 20rem;
   
     margin-top: 1rem;
-}
+} 
 
 
-/* .man_pic{
+.man_pic{
     background-image:
      url("https://cartzilla.createx.studio/img/home/categories/cat-lg01.jpg");
      width: 100%;
@@ -98,7 +98,7 @@
     height: 100%;
     cursor:pointer;
     background-position: center;
-} */
+}
 
 .products .four{
     display: grid;
@@ -193,10 +193,10 @@
     border: none;
 }
 .for_kid_btn{
-    background-color: rgb(242,224,214) !important;
+    background-color: rgb(246,250,253) !important;
     border: none;
 }
 .for_baby_btn{
     background-color: rgb(164,153,163) !important;
     border: none;
-}
+}  */
