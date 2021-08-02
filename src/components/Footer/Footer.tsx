@@ -1,7 +1,9 @@
 import React from 'react'
 import {InputGroup,FormControl,Button} from "react-bootstrap"
 import { FaInstagram ,FaTwitter ,FaLinkedin} from "react-icons/fa";
-const Footer = () => {
+const 
+
+Footer = () => {
     return (
         <footer className='d-flex flex-column'  style={{backgroundColor:'#2b3445'}}>
         <div 

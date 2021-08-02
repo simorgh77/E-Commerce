@@ -1,5 +1,198 @@
+/* 
+
+
+.carousel{
+    width: 100%;
+   min-height: 15rem;
+
+}
+.gender_categories{
+    width: 100%;
+    min-height: 60rem;
+    display: flex;
+    flex-direction: column;
+}
+.gender_categories >div{
+    
+    min-height:30rem ;
+    display: flex;
+    margin-top: 2rem;
+}
+
+
+.best_brands{
+    width: 100%;
+    min-height: 10rem;
+    
+}
+.new_arrival{
+    width: 100%;
+    min-height: 20rem;
+   
+}
+.products{
+    width: 100%;
+    min-height: 20rem;
+    display: flex;
+    margin-top: 3rem;
+}
+.products img{
+  min-width: 82rem;
+    max-height: 20rem;
+}
+.Best_selllers{
+    width: 100%;
+    min-height: 20rem;
+    
+    margin-top: 1rem;
+}
+.offer_of_day{
+    width: 100%;
+    min-height: 20rem;
+    
+    margin-top: 3rem;
+}
+.customer_reviews{
+    width: 100%;
+    min-height: 20rem;
+  
+    margin-top: 1rem;
+} 
+
+
+.man_pic{
+    background-image:
+     url("https://cartzilla.createx.studio/img/home/categories/cat-lg01.jpg");
+     width: 100%;
+     background-size: 100% 80%;
+     background-repeat: no-repeat;
+     height: 100%;
+     cursor:pointer;
+     background-position: center;
+}
+.woman_pic{
+    background-image:
+     url("https://cartzilla.createx.studio/img/home/categories/cat-lg02.jpg");
+     width: 100%;
+     background-size: 100% 80%;
+     background-repeat: no-repeat;
+     height: 100%;
+     cursor:pointer;
+     background-position: center;
+}
+.kid_pic{
+    background-image:
+     url("https://cartzilla.createx.studio/img/home/categories/cat-lg03.jpg");
+     width: 100%;
+     background-size: 100% 80%;
+     background-repeat: no-repeat;
+     height: 100%;
+     cursor:pointer;
+     background-position: center;
+}
+.baby_pic{
+    background-image: 
+    url("https://image.freepik.com/free-photo/it-so-nice-looking-little-baby_329181-14604.jpg");
+    background-size: 100% 80%;
+    background-repeat: no-repeat;
+    height: 100%;
+    cursor:pointer;
+    background-position: center;
+}
+
+.products .four{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    row-gap: 10px;
+    column-gap: 10px;
+}
+.four >div {
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity 0.3s;
+    border-radius: 25px;
+    margin-right: 5px;
+   
+}
+.four  :hover{
+    opacity: 1;
+    transition: opacity 0.3s ;
+    transform: scale(110%);
+}
+
+.four .first{
+    height: 100%;
+    width: 100%;
+    background-image: url("https://www.lifeofpix.com/wp-content/uploads/2014/05/16-Life-of-Pix-free-stock-photo-shoe-sea-sand-Flarkmcjpg-1600x900.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 100% ;
+}
+.four .second{
+    height: 100%;
+    width: 100%;
+    background-image: url("https://i.pinimg.com/564x/d9/6b/93/d96b935bec463b79f063f413fdd3de23.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 100% ;
+    
+    
+}
+.four .third{
+    height: 100%;
+    width: 100%;
+    background-image: url("https://i.pinimg.com/564x/b8/ac/ad/b8acad8c6e5ae91905e8a7aea43a4e6f.jpg");
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    background-position: 80% ;
+}
+.four .fourth{
+    height: 100%;
+    width: 100%;
+    background-image: url("https://i.pinimg.com/564x/cf/27/27/cf272766f13fc2827541f94d3ac66622.jpg");
+    background-size: cover ;
+    background-repeat: no-repeat;
+    background-position: center ;
+}
+
+.one{  
+    height: 100%;
+    width: 100%;
+    background-image:
+    url("https://i.pinimg.com/564x/0b/df/b0/0bdfb0ac9ede76444c56cf543a321bbf.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 100% ;
+}
+
+*/
 
 
 .text_Brands{
     font-size: xx-large !important;
+}
+
+.homepage~ div{
+    margin-top: 10rem !important;
+}
+
+.products_galary {
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity 0.3s;
+    border-radius: 25px;
+    padding:0 10px;
+}
+
+.products_galary:hover{
+    opacity: 1;
+    transition: opacity 0.3s ;
+    transform: scale(110%);
+    z-index: 10;
 }

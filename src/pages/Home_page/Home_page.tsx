@@ -9,7 +9,12 @@ import for_man from "../../assest/img/for_man.jpg"
 import for_woman from "../../assest/img/for_woman.jpg"
 import for_kid2 from "../../assest/img/for_kid2.jpg"
 import for_baby4 from "../../assest/img/for_baby4.jpg"
+import pant from "../../assest/img/pant.jpg"
+import scarf from "../../assest/img/scarf.jpg"
 import brand from "../../assest/img/brand.jpg"
+import Tshirt from "../../assest/img/Tshirt.jpg"
+import shoe from "../../assest/img/shoe.jpg"
+import glass from "../../assest/img/glass.jpg"
 import CategoriesSwiper from "../../components/CategoriesSwiper/CategoriesSwiper";
 import categoriesSwiper from "../../components/CategoriesSwiper/CategoriesSwiper";
 import axios from "axios";
@@ -130,6 +135,42 @@ const Home_page = () => {
               </div>
 
 
+
+<div className='w-100   d-flex flex-wrap flex-column'>
+<div className=' bg-info  text-center '
+             style={{fontSize:'3rem'}}>{"گالری محصولات "} </div>
+             <div className='d-flex  flex-wrap'>
+    
+  <Col xs={12} md={4} className='products_galary'>
+<img src={pant} className='img-fluid w-100' alt="pant photo"
+ style={{height:'50vh'}} />
+  </Col>
+  <Col xs={12} md={8} className='d-flex'>
+  <div className='w-100 '>
+  <Col xs={3} md={2} className='w-100 products_galary'>
+  <img src={scarf} className='img-fluid w-100' alt="pant photo"
+ style={{height:'25vh'}} />
+  </Col>
+  <Col xs={3} md={2} className='w-100 products_galary'>
+  <img src={Tshirt} className='img-fluid w-100' alt="pant photo"
+ style={{height:'25vh'}} />
+  </Col>
+  </div>
+
+  <div className='w-100 '>
+  <Col xs={3} md={2} className='w-100 products_galary'>
+  <img src={shoe} className='img-fluid w-100' alt="pant photo"
+ style={{height:'25vh'}} />
+  </Col>
+  <Col xs={3} md={2} className='w-100 products_galary'>
+  <img src={glass} className='img-fluid w-100' alt="pant photo"
+ style={{height:'25vh'}} />
+  </Col>
+  </div>
+
+</Col>
+</div>
+</div>
 
             <div className="w-100 d-flex flex-column Best_selllers my-5">
             <span className='bg-info text-center ' style={{fontSize:'3rem'}}>{"شگفت انگیز"}</span>  
