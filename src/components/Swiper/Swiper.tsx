@@ -17,28 +17,29 @@ type IProducts={
   ]
 }
 type ISlide={
-    slidesPerView:number,
     Products:IProducts |undefined,
     setProducts:Function
 
 }
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
-export default ({slidesPerView,Products,setProducts}:ISlide) => {
+export default ({Products,setProducts}:ISlide) => {
 
   return (
     <Swiper
     spaceBetween={window.innerWidth < 500 ? 2: 50}
-    slidesPerView={window.innerWidth < 500 ? 3: 2.5}
+    slidesPerView={window.innerWidth < 500 ? 1: 2.5}
     navigation
     pagination={{ clickable: true }}
-      className="w-100 flex-wrap "
+      className="w-100 h-100 flex-wrap "
     >
       
-<div className=' w-100 d-flex flex-wrap ' >
+<div className=' w-100 h-100 d-flex flex-wrap' >
      {
       Products?.products.map((item,index)=>(
-       index<5 && <SwiperSlide  className='swiperslide ' key={index}><ProductsCart item={item}/></SwiperSlide>
+       index<5 && <SwiperSlide  className='swiperslide h-100 ' key={index}>
+         <ProductsCart item={item}/>
+         </SwiperSlide>
         ))
 }
        </div>

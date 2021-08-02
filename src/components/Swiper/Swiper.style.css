@@ -5,15 +5,7 @@ top: 10px;
 
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next{
 
-    color: rgb(0, 0, 0);
-
-   
+    color: rgb(0, 0, 0); 
 
 }
-@media (max-width: 575.98px) {  
-    .swiperslide{
-    font-size:50% !important;
-    }
 
-   
-}
