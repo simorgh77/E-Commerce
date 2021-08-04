@@ -31,7 +31,7 @@ export default ({Products,setProducts}:ISlide) => {
     slidesPerView={window.innerWidth < 500 ? 1: 2.5}
     navigation
     pagination={{ clickable: true }}
-      className="w-100 h-100 flex-wrap "
+      className="w-100 swiper h-100 flex-wrap "
     >
       
 <div className=' w-100 h-100 d-flex flex-wrap' >

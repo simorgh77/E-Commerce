@@ -18,6 +18,10 @@
  display: none;
   }
 
+  .carousel{
+z-index: 0;
+  }
+
 
  
  
