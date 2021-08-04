@@ -3,10 +3,18 @@ import {Nav,DropdownButton,Dropdown,NavDropdown} from 'react-bootstrap'
 import "./Mynavbar.style.css"
 const Mynavbar = () => {
     return (
+    //   <div className="dropdown">
+    //   <button className="">Dropdown</button>
+    //   <div className="dropdown-content">
+    //     <a href="#">Link 1</a>
+    //     <a href="#">Link 2</a>
+    //     <a href="#">Link 3</a>
+    //   </div>
+    // </div>
         <div>
             <Nav >
-  <Nav.Item>
-  <NavDropdown id="dropdown-button" title="جدید ترین ها" className="btn">
+  <Nav.Item className="dropdown">
+  <NavDropdown id="dropdown-button dropdown" title="جدید ترین ها" className="btn">
   <Dropdown.Item href="#/action-1">کیف</Dropdown.Item>
   <Dropdown.Item href="#/action-2">کفش</Dropdown.Item>
   <Dropdown.Item href="#/action-3">ساعت</Dropdown.Item>
