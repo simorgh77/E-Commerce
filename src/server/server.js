@@ -108,42 +108,42 @@ const brands=[
   {
     id:'awesdfa',
     image:"https://cartzilla.createx.studio/img/shop/brands/08.png",
-    name:'adidas',
+    name:'american eagle',
   },
   {
     id:'awesdfaadsf',
     image:"https://cartzilla.createx.studio/img/shop/brands/07.png",
-    name:'puma',
+    name:'brooks',
   },
   {
     id:'awesdfakjgh',
     image:"https://cartzilla.createx.studio/img/shop/brands/06.png",
-    name:'tommy',
+    name:'hermes',
   },
   {
     id:'awesdfaxcv',
     image:"https://cartzilla.createx.studio/img/shop/brands/05.png",
-    name:'columbia',
+    name:'nike',
   },
   {
     id:'awesdfaytu',
     image:"https://cartzilla.createx.studio/img/shop/brands/04.png",
-    name:'nike',
+    name:'clombia',
   },
   {
     id:'awesdfamb',
     image:"https://cartzilla.createx.studio/img/shop/brands/03.png",
-    name:'hemes',
+    name:'tommy',
   },
   {
     id:'mcvngdsaf',
     image:"https://cartzilla.createx.studio/img/shop/brands/02.png",
-    name:'brooks',
+    name:'puma',
   },
   {
     id:'awesdfartu',
     image:"https://cartzilla.createx.studio/img/shop/brands/01.png",
-    name:'american eagle',
+    name:'adidas',
   },
 ]
 

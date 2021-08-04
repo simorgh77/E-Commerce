@@ -61,10 +61,16 @@ type IProducts = {
     category: string,
   ]
 }
+type IBrands={
+  id:string
+  name:string
+  image:string
+}
 const Home_page = () => {
   
   const history = useHistory()
   const [Products, setProducts] = useState<IProducts>()
+  const [brands, setbrands] = useState<IBrands[]>()
   useEffect(() => {
     async function fetchproductsData() {
       await axios.get('api/products').then(res => {
@@ -76,8 +82,9 @@ const Home_page = () => {
     }
     async function fetchbrandsData() {
       await axios.get('api/brands').then(res => {
-  console.log([res]);
-  
+        setbrands(res.data.brands)
+        console.log([res.data]);
+        
       }).catch(err => {
         console.log(err);
       })
@@ -121,63 +128,21 @@ const Home_page = () => {
 
     <span className='bg-secondry  text-center bg-info' style={{fontSize:'3rem'}}>{"برند های ویژه"}  </span>
  <Col md={12} className='d-flex flex-wrap '>
-  <Col xs={3} md={3} className='d-flex   m-md-0 justify-content-around align-content-around flex-wrap'>
    
-    <Brands src={'https://cartzilla.createx.studio/img/shop/brands/01.png'}/>
 
+   { brands?.map((item:IBrands)=>(
+  <Col xs={3} md={3} className='d-flex  m-md-0 justify-content-around align-content-around flex-wrap'>
+    <div key={item.id} onClick={()=>history.push(`/Product_Categories${item.name}`)}>
+     <Brands src={item.image} />
+     </div>
     </Col>
+   ))
+}
 
 
-    <Col xs={3} md={3} className='d-flex  m-md-0 justify-content-around align-content-around flex-wrap'>
-   
-    
-    <Brands src={'https://cartzilla.createx.studio/img/shop/brands/04.png'}/>
-
-    </Col>
-
-    <Col xs={3} md={3} className='d-flex  m-md-0 justify-content-around align-content-around flex-wrap'>
-   
-    
-    <Brands src={'https://cartzilla.createx.studio/img/shop/brands/04.png'}/>
-
-    </Col>
-
-    <Col xs={3} md={3} className='d-flex  m-md-0 justify-content-around align-content-around flex-wrap'>
-    <Brands src={'https://cartzilla.createx.studio/img/shop/brands/04.png'}/>
-    </Col>
 </Col>
 
 
-    <Col md={12}  className='d-flex flex-wrap'>
-   
-
-
-    <Col xs={3} md={3} className='d-flex  m-md-0 justify-content-around align-content-around flex-wrap'>
-   
-    
-    <Brands src={'https://cartzilla.createx.studio/img/shop/brands/12.png'}/>
-
-    </Col>
-    <Col xs={3} md={3} className='d-flex  m-md-0 justify-content-around align-content-around flex-wrap'>
-   
-    
-    <Brands src={'https://cartzilla.createx.studio/img/shop/brands/05.png'}/>
-
-    </Col>
-    <Col xs={3} md={3} className='d-flex  m-md-0 justify-content-around align-content-around flex-wrap'>
-   
-    
-
-    <Brands src={'https://cartzilla.createx.studio/img/shop/brands/09.png'}/>
-    </Col>
-    <Col xs={3} md={3} className='d-flex  m-md-0 justify-content-around align-content-around flex-wrap'>
-   
-    
-    <Brands src={'https://cartzilla.createx.studio/img/shop/brands/09.png'}/>
-
-    </Col>
-    
-    </Col>
             </div>
 
             <div className="new_arrival d-flex flex-column mt-5 w-100  my-5">
