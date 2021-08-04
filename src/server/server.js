@@ -1,48 +1,105 @@
 
 import { createServer ,Model} from "miragejs"
 
-
-
 const products=[
   {
   "id": "abcdefghi",
-  "name": "تیشرت مردانه مدل روز",
+  "name": "تیشرت مردانه مدل زمستانی",
   "price": '25,999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-  "company": "Nike",
-  "description": "موجود",
+  "company": "adidas",
+  "isexist": "موجود",
+  "gender":"man",
   "category": "shirt",
   "rate":5
   },
   {
   "id": "sdafsadga",
-  "name": " عینک مردانه مدل روز",
+  "name": " عینک مردانه آفتابی مدل 123",
   "price": '500,000',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/05.jpg",
   "company": "Rainbow",
-  "description": "ناموجود",
+  "isexist": "ناموجود",
+  "gender":"man",
   "category": "glass",
   "rate":3.5
   },
   {
   "id": "dsfhdsh",
-  "name": "کیف مردانه مدل روز",
+  "name": "کیف مردانه مدل مدریه",
   "price": '300,000',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/06.jpg",
-  "company": "Nike",
-  "description": "موجود",
+  "company": "casio",
+  "gender":"man",
+  "isexist": "موجود",
   "category": "bag",
   "rate":4
   },
   {
   "id": "safdgsdfhgdsf",
-  "name": "کفش مردانه  مدل روز",
-  "price": '25,999',
+  "name": "کفش مردانه  مدل رسمی",
+  "price": '250,999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/01.jpg",
   "company": "Nike",
-  "description": "موجود",
+  "isexist": "موجود",
   "category": "shoes",
-  "rate":4.5
+  "rate":4.5,
+  "gender":"man",
+  },
+  {
+  "id": "arqwefxzcvxvb",
+  "name": "شلوارک لی مدل 123",
+  "price": '85,999',
+  "image": "https://cartzilla.createx.studio/img/shop/catalog/03.jpg",
+  "company": "koton",
+  "isexist": "موجود",
+  "category": "breeks",
+  "rate":3.5,
+  "gender":"woman",
+  },
+  {
+  "id": "arqwefxzcdsfvxvb",
+  "name": "لباس راحتی مدل دخترونه",
+  "price": '125,999',
+  "image": "https://cartzilla.createx.studio/img/shop/catalog/04.jpg",
+  "company": "koton",
+  "isexist": "موجود",
+  "category": "shirt",
+  "rate":4,
+  "gender":"woman",
+  },
+  {
+  "id": "arqwefsadxzcdsfvxvb",
+  "name": "کفش اسپورت مدل رنگین کمان",
+  "price": '175,999',
+  "image": "https://cartzilla.createx.studio/img/shop/catalog/25.jpg",
+  "company": "puma",
+  "isexist": "ناموجود",
+  "category": "shoes",
+  "rate":3,
+  "gender":"woman",
+  },
+  {
+  "id": "arqwefsdsfadxzcdsfvxvb",
+  "name": "هودی اسپورت مدل خوب",
+  "price": '95,999',
+  "image": "https://cartzilla.createx.studio/img/shop/catalog/20.jpg",
+  "company": "puma",
+  "isexist": "ناموجود",
+  "category": "shirt",
+  "rate":3.5,
+  "gender":"man",
+  },
+  {
+  "id": "arqwefsdsfasdfdxzcdsfvxvb",
+  "name": "هودی اسپورت مدل قرمز",
+  "price": '110,999',
+  "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
+  "company": "puma",
+  "isexist": "موجود",
+  "category": "shirt",
+  "rate":5,
+  "gender":"man",
   },
   
   ]
@@ -59,7 +116,7 @@ export function makeServer({environment="test"}={}){
 
       products.map(item=>{
         server.create("product", {id:item.id, name: item.name, price: item.price,category:item.category,
-          description:item.description, image:item.image,company:item.company,rate:item.rate})
+          isexist:item.isexist, image:item.image,company:item.company,gender:item.gender,rate:item.rate})
           
         })
         
@@ -70,7 +127,6 @@ export function makeServer({environment="test"}={}){
         
         this.get("/products", (schema, request) => {
           return schema.products.all()
-          
       })
       this.get("/products/:category", (schema, request) => {
         let category=request.params.category
