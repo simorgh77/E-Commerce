@@ -1,0 +1,22 @@
+.header{
+    background-color:rgb(55,63,80) ;
+    min-height: 20vh;
+    font-size: x-large;
+    
+}
+.first-col{
+    margin-top: -3rem !important;
+    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.41);
+    border-radius: 10px;
+}
+.buy_card >div{
+border-bottom: 1px solid #cecece;
+padding: 5px;
+font-size: large;
+}
+.buy_card{
+    background-color: #f5f5f5;
+}
+ 
+
+
