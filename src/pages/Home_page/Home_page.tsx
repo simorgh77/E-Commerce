@@ -66,7 +66,7 @@ const Home_page = () => {
   const history = useHistory()
   const [Products, setProducts] = useState<IProducts>()
   useEffect(() => {
-    async function fetchData() {
+    async function fetchproductsData() {
       await axios.get('api/products').then(res => {
         setProducts(res.data)
       }).catch(err => {
@@ -74,7 +74,20 @@ const Home_page = () => {
       })
 
     }
-    fetchData()
+    async function fetchbrandsData() {
+      await axios.get('api/brands').then(res => {
+  console.log([res]);
+  
+      }).catch(err => {
+        console.log(err);
+      })
+
+    }
+
+
+
+    fetchproductsData()
+    fetchbrandsData()
   }, [])
 
 

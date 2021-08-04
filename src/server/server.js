@@ -18,7 +18,7 @@ const products=[
   "name": " عینک مردانه آفتابی مدل 123",
   "price": '500,000',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/05.jpg",
-  "company": "Rainbow",
+  "company": "adidas",
   "isexist": "ناموجود",
   "gender":"man",
   "category": "glass",
@@ -29,7 +29,7 @@ const products=[
   "name": "کیف مردانه مدل مدریه",
   "price": '300,000',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/06.jpg",
-  "company": "casio",
+  "company": "adidas",
   "gender":"man",
   "isexist": "موجود",
   "category": "bag",
@@ -40,7 +40,7 @@ const products=[
   "name": "کفش مردانه  مدل رسمی",
   "price": '250,999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/01.jpg",
-  "company": "Nike",
+  "company": "puma",
   "isexist": "موجود",
   "category": "shoes",
   "rate":4.5,
@@ -51,7 +51,7 @@ const products=[
   "name": "شلوارک لی مدل 123",
   "price": '85,999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/03.jpg",
-  "company": "koton",
+  "company": "puma",
   "isexist": "موجود",
   "category": "breeks",
   "rate":3.5,
@@ -62,7 +62,7 @@ const products=[
   "name": "لباس راحتی مدل دخترونه",
   "price": '125,999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/04.jpg",
-  "company": "koton",
+  "company": "tommy",
   "isexist": "موجود",
   "category": "shirt",
   "rate":4,
@@ -73,7 +73,7 @@ const products=[
   "name": "کفش اسپورت مدل رنگین کمان",
   "price": '175,999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/25.jpg",
-  "company": "puma",
+  "company": "tommy",
   "isexist": "ناموجود",
   "category": "shoes",
   "rate":3,
@@ -84,7 +84,7 @@ const products=[
   "name": "هودی اسپورت مدل خوب",
   "price": '95,999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/20.jpg",
-  "company": "puma",
+  "company": "columbia",
   "isexist": "ناموجود",
   "category": "shirt",
   "rate":3.5,
@@ -95,7 +95,7 @@ const products=[
   "name": "هودی اسپورت مدل قرمز",
   "price": '110,999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
-  "company": "puma",
+  "company": "columbia",
   "isexist": "موجود",
   "category": "shirt",
   "rate":5,
@@ -103,7 +103,49 @@ const products=[
   },
   
   ]
+const brands=[
 
+  {
+    id:'awesdfa',
+    image:"https://cartzilla.createx.studio/img/shop/brands/08.png",
+    name:'adidas',
+  },
+  {
+    id:'awesdfaadsf',
+    image:"https://cartzilla.createx.studio/img/shop/brands/07.png",
+    name:'puma',
+  },
+  {
+    id:'awesdfakjgh',
+    image:"https://cartzilla.createx.studio/img/shop/brands/06.png",
+    name:'tommy',
+  },
+  {
+    id:'awesdfaxcv',
+    image:"https://cartzilla.createx.studio/img/shop/brands/05.png",
+    name:'columbia',
+  },
+  {
+    id:'awesdfaytu',
+    image:"https://cartzilla.createx.studio/img/shop/brands/04.png",
+    name:'nike',
+  },
+  {
+    id:'awesdfamb',
+    image:"https://cartzilla.createx.studio/img/shop/brands/03.png",
+    name:'hemes',
+  },
+  {
+    id:'mcvngdsaf',
+    image:"https://cartzilla.createx.studio/img/shop/brands/02.png",
+    name:'brooks',
+  },
+  {
+    id:'awesdfartu',
+    image:"https://cartzilla.createx.studio/img/shop/brands/01.png",
+    name:'american eagle',
+  },
+]
 
 
 export function makeServer({environment="test"}={}){
@@ -111,6 +153,7 @@ export function makeServer({environment="test"}={}){
     environment,
     models:{
       product:Model,
+      brand:Model,
     },
     seeds(server) {
 
@@ -118,6 +161,9 @@ export function makeServer({environment="test"}={}){
         server.create("product", {id:item.id, name: item.name, price: item.price,category:item.category,
           isexist:item.isexist, image:item.image,company:item.company,gender:item.gender,rate:item.rate})
           
+        })
+      brands.map(item=>{
+        server.create("brand", {id:item.id, name: item.name, image:item.image})
         })
         
         
@@ -128,6 +174,9 @@ export function makeServer({environment="test"}={}){
         this.get("/products", (schema, request) => {
           return schema.products.all()
       })
+      this.get("/brands", (schema, request) => {
+        return schema.brands.all()
+    })
       this.get("/products/:category", (schema, request) => {
         let category=request.params.category
          return  schema.products.find(category)
