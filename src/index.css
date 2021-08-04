@@ -8,7 +8,7 @@
 :root{
   --primaryColor:#6d28d9;
   --secondaryColor:#ede9fe;
-  --bodyColor:#ebe8e8;
+  --bodyColor:#f8f8f8;
 }
 
 body,html{
@@ -17,6 +17,7 @@ body,html{
   width: 100%;
   height: 100%;
   background-color: var(--bodyColor);
+  line-height: 1.4;
 }
 #root{
   direction: rtl;
