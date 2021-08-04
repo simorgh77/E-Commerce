@@ -8,13 +8,12 @@
     cursor: pointer;
     opacity: .8;
     transition: opacity 0.3s;
-    border-radius: 25px;
     padding:0 10px;
 }
 
 .products_galary:hover{
     opacity: 1;
-    transition: opacity 0.3s ;
     transform: scale(110%);
+    transition: all .5s ;
     z-index: 10;
 }
