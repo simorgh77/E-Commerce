@@ -48,8 +48,7 @@ const categories=[
       rtl:false
   }
 ]
-type IProducts = {
-  products: [
+interface IProducts {
     id: string,
     name: string,
     price: number,
@@ -59,61 +58,46 @@ type IProducts = {
     company: string,
     description: string,
     category: string,
-  ]
+    gendre:string
+
 }
-type IBrands={
+interface IBrands{
   id:string
   name:string
   image:string
 }
 const Home_page = () => {
-  
   const history = useHistory()
-  const [Products, setProducts] = useState<IProducts>()
+  const [Products, setProducts] = useState<IProducts[]>()
   const [brands, setbrands] = useState<IBrands[]>()
   useEffect(() => {
-    async function fetchproductsData() {
-      await axios.get('api/products').then(res => {
-        setProducts(res.data)
-      }).catch(err => {
-        console.log(err);
-      })
 
-    }
     async function fetchbrandsData() {
       await axios.get('api/brands').then(res => {
-        setbrands(res.data.brands)
-        console.log([res.data]);
-        
+        setbrands(res.data.brands)   
       }).catch(err => {
         console.log(err);
-      })
-
+     })
     }
-
-
-
-    fetchproductsData()
     fetchbrandsData()
   }, [])
-
-
-
   return (
     <>
       <div className="carousel mt-5 text-center">
         <Mycarousel />
       </div>
 
-        <Container className='w-100 container-fluid '>
-          <Row className='w-100 m-0   '>
+        <Container className='w-100 '>
+          <Row className='w-100 m-0  '>
             <div className="homepage w-100  p-0 m-0">
-              <div className="gender_categories  mt-5 w-100 ">
+              <div className="gender_categories
+                mt-5 w-100">
 
                 {categories.map((item,index)=>(
 
-                  <CategoriesSwiper  key={index} item={item}/>
-
+                  <CategoriesSwiper 
+                   item={item} key={index}/>
+                  
                 ))}
                   
               </div>
@@ -126,16 +110,17 @@ const Home_page = () => {
             <div className="best_brands mt-5 w-100 d-flex flex-wrap flex-column">
 
 
-    <span className='bg-secondry  text-center bg-info' style={{fontSize:'3rem'}}>{"برند های ویژه"}  </span>
+    <span className='bg-secondry w-100 text-center bg-info' style={{fontSize:'3rem'}}>{"برند های ویژه"}  </span>
  <Col md={12} className='d-flex flex-wrap '>
    
 
    { brands?.map((item:IBrands)=>(
-  <Col xs={3} md={3} className='d-flex  m-md-0 justify-content-around align-content-around flex-wrap'>
-    <div key={item.id} onClick={()=>history.push(`/Product_Categories${item.name}`)}>
+   <Col xs={6} md={3} className='d-flex m-md-0 justify-content-around 
+   align-content-around flex-wrap' onClick={()=>history.push(`/Product_Categories${item.name}`)}>
+   
      <Brands src={item.image} />
-     </div>
-    </Col>
+     
+   </Col>
    ))
 }
 
@@ -149,7 +134,7 @@ const Home_page = () => {
             <span className=' bg-info text-center '
              style={{fontSize:'3rem'}}>{"جدیدترین ها "} </span>
               <Col xs={12} className='bg-white 'style={{height:'55vh'}} >    
-    <CategoriesSwiper  varient={true}/>
+    <CategoriesSwiper   varient={true}/>
               </Col>
               </div>
 
@@ -194,7 +179,7 @@ const Home_page = () => {
             <div className="w-100 d-flex flex-column Best_selllers my-5">
             <span className='bg-info text-center ' style={{fontSize:'3rem'}}>{"شگفت انگیز"}</span>  
               <Col xs={12} className='bg-white 'style={{height:'55vh'}} >    
-    <CategoriesSwiper  varient={true}/>
+    <CategoriesSwiper   varient={true}/>
               </Col>
             </div>
 
@@ -205,7 +190,7 @@ const Home_page = () => {
              <div className="offer_of_day d-flex flex-column">
              <span className='bg-info text-center ' style={{fontSize:'3rem'}}>{"حراج روز"}</span>  
               <Col xs={12} className='bg-white 'style={{height:'55vh'}} >    
-    <CategoriesSwiper  varient={true}/>
+    <CategoriesSwiper   varient={true}/>
               </Col>
              </div>
 

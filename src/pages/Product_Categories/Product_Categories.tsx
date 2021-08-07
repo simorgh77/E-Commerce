@@ -148,7 +148,7 @@ const {caregories} =useParams<{caregories:string}>()
     <Row className='mt-5 w-100 m-0 ' >
  <div className='bg-info text-white text-center w-100'>{caregories}</div>
 
- <Col  md={2} className='d-none d-lg-flex flex-column mt-3 '>
+ <Col  md={2} className='d-none d-lg-flex flex-column mt-3 bg-white'>
 <Col md={12} className=''>
 <span>{"جستجو در نتایج:"}</span>
 <Form>

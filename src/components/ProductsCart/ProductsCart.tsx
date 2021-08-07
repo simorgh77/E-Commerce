@@ -7,19 +7,17 @@ import { BsStarHalf } from "react-icons/bs";
 import "./ProductsCart.style.css"
 const ProductsCart = ({item}:any) => {
   const history=useHistory()
-  {
-  console.log(item)
-   }
-
+ 
   
     return (
-        <div className='w-100 h-100 product_cart'>
-           <Card className='product_cart_main w-100 h-75'  style={{
-           cursor:'pointer',backgroundColor:"transparent",border:'none'}} 
+        <div className='w-100 h-100  d-flex product_cart'>
+           <Card className='product_cart_main '  style={{
+           cursor:'pointer',minHeight:'18rem',backgroundColor:"transparent",border:'none'}} 
            onClick={()=>history.push(`/Product_Details${item.id}`)}>
 
-             <div className='w-100 h-75'>
-  <Card.Img variant="top" className="img-fluid w-100 h-100" src={item.image}
+             <div className='card-image'>
+  <Card.Img variant="top" className="img-fluid product-img  h-100" src={item.image}
+  style={{maxWidth:'80%'}}
   />
   </div>
   <Card.Body className='d-flex w-100 h-50 flex-column justify-content-between '>
