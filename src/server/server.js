@@ -190,11 +190,17 @@ export function makeServer({environment="test"}={}){
     models:{
       product:Model,
       brand:Model,
+      singleproduct:Model
     },
     seeds(server) {
 
       products.map(item=>{
         server.create("product", {id:item.id, name: item.name, price: item.price,category:item.category,
+          isexist:item.isexist,tag:item.tag, image:item.image,company:item.company,gender:item.gender,rate:item.rate})
+          
+        })
+      products.map(item=>{
+        server.create("singleproduct", {id:item.id, name: item.name, price: item.price,category:item.category,
           isexist:item.isexist,tag:item.tag, image:item.image,company:item.company,gender:item.gender,rate:item.rate})
           
         })
@@ -217,6 +223,11 @@ export function makeServer({environment="test"}={}){
         let category=request.params.category
         let data=products.filter(item=>item.gender==category)
          return  data
+      })
+      this.get("/singleproduct/:id", (schema, request) => {
+        let id=request.params.id
+        console.log(id);
+         return  schema.products.find(id)
       })
 
 
