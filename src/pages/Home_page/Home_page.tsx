@@ -133,8 +133,8 @@ const Home_page = () => {
             <div className="new_arrival d-flex flex-column mt-5 w-100  my-5">
             <span className=' bg-info text-center '
              style={{fontSize:'3rem'}}>{"جدیدترین ها "} </span>
-              <Col xs={12} className='bg-white 'style={{height:'55vh'}} >    
-    <CategoriesSwiper   varient={true}/>
+              <Col xs={12} className='bg-white 'style={{height:'80%'}} >    
+    <CategoriesSwiper filter={"newest"}  varient={true}/>
               </Col>
               </div>
 
@@ -178,8 +178,8 @@ const Home_page = () => {
 
             <div className="w-100 d-flex flex-column Best_selllers my-5">
             <span className='bg-info text-center ' style={{fontSize:'3rem'}}>{"شگفت انگیز"}</span>  
-              <Col xs={12} className='bg-white 'style={{height:'55vh'}} >    
-    <CategoriesSwiper   varient={true}/>
+              <Col xs={12} className='bg-white 'style={{height:'80%'}} >    
+    <CategoriesSwiper  filter={"amazing"}  varient={true}/>
               </Col>
             </div>
 
@@ -189,8 +189,8 @@ const Home_page = () => {
 
              <div className="offer_of_day d-flex flex-column">
              <span className='bg-info text-center ' style={{fontSize:'3rem'}}>{"حراج روز"}</span>  
-              <Col xs={12} className='bg-white 'style={{height:'55vh'}} >    
-    <CategoriesSwiper   varient={true}/>
+              <Col xs={12} className='bg-white 'style={{height:'80%'}} >    
+    <CategoriesSwiper  filter={"auction"} varient={true}/>
               </Col>
              </div>
 

@@ -26,6 +26,7 @@ interface Icategory{
     rtl:boolean
 },
 varient?:boolean
+filter?:string
 }
 const CategoriesSwiper:React.FC<Icategory|undefined> = (props) => {
 
@@ -55,7 +56,7 @@ if(!props.varient){   return (
                   </Col>
  
                   <Col  xs={12} md={9}  className='swiper d-flex align-items-end justify-content-center '>
-    <MySwiper filter={props.item?.category}/>     
+    <MySwiper varient={props.varient} filter={props.item?.category}/>     
                   </Col>  
 
             </>
@@ -67,20 +68,13 @@ if(!props.varient){   return (
  else{
    
    return(
-<>
-</>
-  //   <Col  xs={12} className='swiper mb-5 h-100' >
-  //    {/* {Products?.filter(item=>(
-  //         item.gender=== props.item!.category &&
-  //         <Col  xs={12} md={9} key={item.id} className='swiper p-0 m-0'>
-  //                 <MySwiper  Products={item}/>
-  //                 </Col>
 
-  //               ))
-  //                 } */}
-                  
+  <Col  xs={12} className='swiper mb-5 h-100' >
 
-  // </Col>
+        <Col  md={12}  className='swiper p-0 m-0'>
+                <MySwiper varient={props.varient} filter={props.filter} />
+                </Col>
+  </Col>
    )
  }
  }

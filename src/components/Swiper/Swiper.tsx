@@ -14,14 +14,16 @@ interface IProducts{
     company: string,
     description:string ,
     category:string,
-    gender:string
+    gender:string,
+    tag:string
 }
 type ISlide={
 filter:string|undefined
+varient:boolean|undefined
 }
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
-const MySwiper:React.FC<ISlide> =({filter}) => {
+const MySwiper:React.FC<ISlide> =({filter,varient}) => {
 
   const [Products, setProducts] = useState<IProducts[]>()
   useEffect(() => {
@@ -50,9 +52,13 @@ const MySwiper:React.FC<ISlide> =({filter}) => {
 
        {
          Products?.map((item,index)=>(
-          item.gender===filter&& 
+        !varient? item.gender===filter&& 
           
            <SwiperSlide  className='swiperslide  d-flex h-100 ' >
+   <ProductsCart key={index} item={item}/>
+         </SwiperSlide>
+         :
+         item.tag===filter&&<SwiperSlide  className='swiperslide  d-flex h-100 ' >
    <ProductsCart key={index} item={item}/>
          </SwiperSlide>
          ))
