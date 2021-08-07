@@ -215,7 +215,8 @@ export function makeServer({environment="test"}={}){
     })
       this.get("/products/:category", (schema, request) => {
         let category=request.params.category
-         return  schema.products.find(category)
+        let data=products.filter(item=>item.gender==category)
+         return  data
       })
 
 
