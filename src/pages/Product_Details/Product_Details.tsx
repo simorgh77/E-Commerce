@@ -1,91 +1,76 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { useParams } from 'react-router'
 import "./Product_Details.style.css"
 import { Container,Row,Col,Carousel,Button,Form,Image} from 'react-bootstrap'
 import shoe from '../../assest/img/shoe.jpg'
 import { BsStarFill } from "react-icons/bs";
 import CategoriesSwiper from '../../components/CategoriesSwiper/CategoriesSwiper'
+import axios from 'axios'
+interface IProducts{
+    id: string,
+    name: string,
+    price: number,
+    image: string,
+    featured: boolean,
+    colors: [],
+    company: string,
+    description:string ,
+    category:string,
+    gender:string,
+    tag:string
+}
+
 const Product_Details = () => {
-    const[product,setproduct]=useState([
-            {
-            "id": "abcdefghi",
-            "name": "تیشرت مردانه مدل روز",
-            "price": '25,999',
-            "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-            "company": "Nike",
-            "description": "موجود",
-            "category": "shirt",
-            "rate":5
-            },
-            {
-            "id": "abcdefghi",
-            "name": "تیشرت مردانه مدل روز",
-            "price": '25,999',
-            "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-            "company": "Nike",
-            "description": "موجود",
-            "category": "shirt",
-            "rate":5
-            },
-            {
-            "id": "abcdefghi",
-            "name": "تیشرت مردانه مدل روز",
-            "price": '25,999',
-            "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-            "company": "Nike",
-            "description": "موجود",
-            "category": "shirt",
-            "rate":5
-            },
-            {
-            "id": "abcdefghi",
-            "name": "تیشرت مردانه مدل روز",
-            "price": '25,999',
-            "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-            "company": "Nike",
-            "description": "موجود",
-            "category": "shirt",
-            "rate":5
-            },
-            {
-            "id": "abcdefghi",
-            "name": "تیشرت مردانه مدل روز",
-            "price": '25,999',
-            "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-            "company": "Nike",
-            "description": "موجود",
-            "category": "shirt",
-            "rate":5
-            }, 
-            ])
+    const[Singleproduct,setSingleproduct]=useState<IProducts>()
+const {id}= useParams <{id:string}>()
+
+useEffect(() => {
+  async function fetchCategoriesData() {
+    await axios.get(`api/singleproduct/${id}`).then(res => {
+      setSingleproduct(res.data.product)
+      console.log(res.data);
+      
+    }).catch(err => {
+      console.log(err);
+    })
+    
+  }
+  fetchCategoriesData()
+}, [id])
+
+
+
+
+ 
     return (
         <div className='mt-5'>
              <div className='header text-center text-white '>
-                <p>{"کفش مردانه مدل چمن"}</p>
+                <p>{Singleproduct?.name}</p>
              </div>
          <Container  className=''>
              <Row className=' '>
-            <Col md={12} className='bg-white d-flex flex-wrap justify-content-between first-col'>
+            <Col md={12} className='bg-white d-flex 
+            flex-wrap justify-content-between first-col'>
               <Col xs={12} md={4}>
               <Carousel variant='dark'>
   <Carousel.Item >
     <img
       className="d-block w-100"
-      src={shoe}
+      src={Singleproduct?.image}
       alt="First slide"
     />
   </Carousel.Item>
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={shoe}
+      src={Singleproduct?.image}
       alt="Second slide"
     />
   </Carousel.Item>
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={shoe}
+      src={Singleproduct?.image}
       alt="Third slide"
     />
   </Carousel.Item>
