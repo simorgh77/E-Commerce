@@ -5,144 +5,41 @@ import {useParams,Link} from "react-router-dom"
 import axios from "axios"
 import { BsFilterRight } from "react-icons/bs";
 import "./Product_categories.style.css"
-
-
-let items:any = [];
-for (let number = 1; number <= 5; number++) {
-  items.push(
-    <Pagination.Item key={number} >
-      {number}
-    </Pagination.Item>,
-  );
+interface IProducts{
+  id: string,
+  name: string,
+  price: number,
+  image: string,
+  featured: boolean,
+  colors: [],
+  company: string,
+  description:string ,
+  category:string,
+  gender:string,
+  tag:string
 }
 
 
-const products=[
-        {
-        "id": "abcdefghi",
-        "name": "تیشرت مردانه مدل روز",
-        "price": '25,999',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-        "company": "Nike",
-        "description": "موجود",
-        "category": "shirt",
-        "rate":5
-        },
-        {
-        "id": "abcdefghi",
-        "name": "تیشرت مردانه مدل روز",
-        "price": '25,999',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-        "company": "Nike",
-        "description": "موجود",
-        "category": "shirt",
-        "rate":5
-        },
-        {
-        "id": "abcdefghi",
-        "name": "تیشرت مردانه مدل روز",
-        "price": '25,999',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-        "company": "Nike",
-        "description": "موجود",
-        "category": "shirt",
-        "rate":5
-        },
-        {
-        "id": "abcdefghi",
-        "name": "تیشرت مردانه مدل روز",
-        "price": '25,999',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-        "company": "Nike",
-        "description": "موجود",
-        "category": "shirt",
-        "rate":5
-        },
-        {
-        "id": "abcdefghi",
-        "name": "تیشرت مردانه مدل روز",
-        "price": '25,999',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-        "company": "Nike",
-        "description": "موجود",
-        "category": "shirt",
-        "rate":5
-        },
-        {
-        "id": "abcdefghi",
-        "name": "تیشرت مردانه مدل روز",
-        "price": '25,999',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-        "company": "Nike",
-        "description": "موجود",
-        "category": "shirt",
-        "rate":5
-        },
-        {
-        "id": "abcdefghi",
-        "name": "تیشرت مردانه مدل روز",
-        "price": '25,999',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-        "company": "Nike",
-        "description": "موجود",
-        "category": "shirt",
-        "rate":5
-        },
-        {
-        "id": "abcdefghi",
-        "name": "تیشرت مردانه مدل روز",
-        "price": '25,999',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-        "company": "Nike",
-        "description": "موجود",
-        "category": "shirt",
-        "rate":5
-        },
-        {
-        "id": "abcdefghi",
-        "name": "تیشرت مردانه مدل روز",
-        "price": '25,999',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-        "company": "Nike",
-        "description": "موجود",
-        "category": "shirt",
-        "rate":5
-        },
-        {
-        "id": "sdafsadga",
-        "name": " عینک مردانه مدل روز",
-        "price": '500,000',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/05.jpg",
-        "company": "Rainbow",
-        "description": "ناموجود",
-        "category": "glass",
-        "rate":3.5
-        },
-        {
-        "id": "dsfhdsh",
-        "name": "کیف مردانه مدل روز",
-        "price": '300,000',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/06.jpg",
-        "company": "Nike",
-        "description": "موجود",
-        "category": "bag",
-        "rate":4
-        },
-        {
-        "id": "safdgsdfhgdsf",
-        "name": "کفش مردانه  مدل روز",
-        "price": '25,999',
-        "image": "https://cartzilla.createx.studio/img/shop/catalog/01.jpg",
-        "company": "Nike",
-        "description": "موجود",
-        "category": "shoes",
-        "rate":4.5
-        },
-        
-        ]
-
 const Product_Categories = () => {
 const {caregories} =useParams<{caregories:string}>()
+
+const [Categoriesproducts, setCategoriesproducts]=useState<IProducts[]>()
+
+useEffect(() => {
+  async function fetchCategoriesData() {
+    await axios.get(`api/products/${caregories}`).then(res => {
+      setCategoriesproducts(res.data)
+    }).catch(err => {
+      console.log(err);
+    })
+    
+  }
+  fetchCategoriesData()
+}, [Categoriesproducts])
+
+
+{console.log([Categoriesproducts]);
+ }
     return (
 <Container className=' ' fluid>
     <Row className='mt-5 w-100 m-0 ' >
@@ -200,15 +97,13 @@ const {caregories} =useParams<{caregories:string}>()
 </Navbar>
  </Col >
  <Col md={10} className='d-flex flex-wrap bg-white w-100'>
- {products.map((item,index)=>(
+ {Categoriesproducts?.map((item,index)=>(
 <Col xs={12} md={3} className='d-flex p-3'>
    <ProductCart item={item}/>
    </Col>
  ))}
  
- <div className='mx-auto'>
-    <Pagination>{items}</Pagination>
-  </div>
+
  </Col>
  </Col>
 

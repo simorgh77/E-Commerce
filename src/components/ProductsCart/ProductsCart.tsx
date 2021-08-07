@@ -10,7 +10,7 @@ const ProductsCart = ({item}:any) => {
  
   
     return (
-        <div className='w-100 h-100  d-flex product_cart' style={{zIndex:-1}}>
+        <div className='w-100 h-100  d-flex product_cart' >
            <Card className='product_cart_main '  style={{
            cursor:'pointer',minHeight:'18rem',backgroundColor:"transparent",border:'none'}} 
            onClick={()=>history.push(`/Product_Details${item.id}`)}>
