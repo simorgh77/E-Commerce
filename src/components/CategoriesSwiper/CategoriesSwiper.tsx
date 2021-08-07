@@ -3,6 +3,7 @@ import {Col,Button} from "react-bootstrap"
 import axios from "axios";
 import { BsChevronCompactLeft } from "react-icons/bs";
 import { BsChevronCompactRight } from "react-icons/bs";
+import { useHistory } from 'react-router';
 import MySwiper from "../../components/Swiper/Swiper"
 import "./CategoriesSwiper.style.css"
 interface IProducts {
@@ -30,7 +31,7 @@ filter?:string
 }
 const CategoriesSwiper:React.FC<Icategory|undefined> = (props) => {
 
-
+const history=useHistory();
 
 if(!props.varient){   return (
   
@@ -44,7 +45,7 @@ if(!props.varient){   return (
                       <div className='gendere_btn'>
                         <Button className={`for${props.item?.category}_btn w-100 rounded-0`} 
                         style={{backgroundColor:props.item?.btn_color,border:'none'}}
-                        variant="outline-secondary">
+                        variant="outline-secondary" onClick={()=>history.push(`Product_Categories${props.item?.category}`)}>
                           {props.item?.description} <BsChevronCompactLeft />
                           </Button>
                       </div>
