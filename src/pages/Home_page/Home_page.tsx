@@ -87,7 +87,7 @@ const Home_page = () => {
         <Mycarousel />
       </div>
 
-        <Container className='w-100 '>
+        <Container fluid className='w-100 '>
           <Row className='w-100 m-0  '>
             <div className="homepage w-100  p-0 m-0">
               <div className="gender_categories

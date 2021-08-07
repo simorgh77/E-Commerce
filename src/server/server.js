@@ -9,6 +9,7 @@ const products=[
   "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
   "company": "adidas",
   "isexist": "موجود",
+  'tag':'auction',
   "gender":"man",
   "category": "shirt",
   "rate":5
@@ -21,6 +22,7 @@ const products=[
   "company": "adidas",
   "isexist": "ناموجود",
   "gender":"woman",
+  'tag':'auction',
   "category": "glass",
   "rate":3.5
   },
@@ -32,6 +34,7 @@ const products=[
   "company": "adidas",
   "gender":"man",
   "isexist": "موجود",
+  'tag':'auction',
   "category": "bag",
   "rate":4
   },
@@ -43,6 +46,7 @@ const products=[
   "company": "puma",
   "isexist": "موجود",
   "category": "shoes",
+  "tag":'amazing',
   "rate":4.5,
   "gender":"man",
   },
@@ -54,6 +58,7 @@ const products=[
   "company": "puma",
   "isexist": "موجود",
   "category": "breeks",
+  "tag":'amazing',
   "rate":3.5,
   "gender":"woman",
   },
@@ -65,6 +70,7 @@ const products=[
   "company": "tommy",
   "isexist": "موجود",
   "category": "shirt",
+  "tag":'amazing',
   "rate":4,
   "gender":"woman",
   },
@@ -76,6 +82,7 @@ const products=[
   "company": "tommy",
   "isexist": "ناموجود",
   "category": "shoes",
+  "tag":'newest',
   "rate":3,
   "gender":"woman",
   },
@@ -88,6 +95,7 @@ const products=[
   "isexist": "ناموجود",
   "category": "shirt",
   "rate":3.5,
+  "tag":'newest',
   "gender":"man",
   },
   {
@@ -99,6 +107,7 @@ const products=[
   "isexist": "موجود",
   "category": "shirt",
   "rate":5,
+  "tag":'newest',
   "gender":"man",
   },
 
@@ -113,7 +122,20 @@ const products=[
   "isexist": "موجود",
   "category": "shirt",
   "rate":5,
+  "tag":'newest',
   "gender":"kid",
+  },
+  {
+  "id": "fdsajkasdf",
+  "name": "هودی اسپورت مدل قرمز",
+  "price": '110,999',
+  "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
+  "company": "columbia",
+  "isexist": "موجود",
+  "category": "shirt",
+  "rate":5,
+  "tag":'newest',
+  "gender":"baby",
   },
   
   ]
@@ -173,7 +195,7 @@ export function makeServer({environment="test"}={}){
 
       products.map(item=>{
         server.create("product", {id:item.id, name: item.name, price: item.price,category:item.category,
-          isexist:item.isexist, image:item.image,company:item.company,gender:item.gender,rate:item.rate})
+          isexist:item.isexist,tag:item.tag, image:item.image,company:item.company,gender:item.gender,rate:item.rate})
           
         })
       brands.map(item=>{

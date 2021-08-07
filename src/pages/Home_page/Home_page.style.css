@@ -13,5 +13,4 @@
     opacity: 1;
     transform: scale(110%);
     transition: all .5s ;
-    z-index: 10;
 }

@@ -1,6 +1,5 @@
 .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
-pointer-events: none;
-top: 10px;
+display: none;
 }
 
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next{
@@ -10,4 +9,8 @@ top: 10px;
 }
 .swiper-wrapper{
     align-items: flex-end;
+}
+
+.swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after{
+
 }

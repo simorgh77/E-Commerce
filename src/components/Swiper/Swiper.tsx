@@ -39,20 +39,20 @@ const MySwiper:React.FC<ISlide> =({filter}) => {
 
   return (
     <Swiper
-    spaceBetween={window.innerWidth < 500 ? 2: 50}
+    spaceBetween={window.innerWidth < 500 ? 2: 2}
     slidesPerView={window.innerWidth < 500 ? 1: 2.5}
     navigation
     pagination={{ clickable: true }}
       className="w-100  h-100  flex-wrap "
     >
       
-<div className='h-100 w-100 flex-wrap' >
+<div className='h-100 w-100  flex-wrap' >
 
        {
          Products?.map((item,index)=>(
           item.gender===filter&& 
           
-           <SwiperSlide  className='swiperslide d-flex h-100 ' >
+           <SwiperSlide  className='swiperslide  d-flex h-100 ' >
    <ProductsCart key={index} item={item}/>
          </SwiperSlide>
          ))
