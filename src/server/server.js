@@ -15,12 +15,12 @@ const products=[
   },
   {
   "id": "sdafsadga",
-  "name": " عینک مردانه آفتابی مدل 123",
+  "name": " عینک زنانه آفتابی مدل 123",
   "price": '500,000',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/05.jpg",
   "company": "adidas",
   "isexist": "ناموجود",
-  "gender":"man",
+  "gender":"woman",
   "category": "glass",
   "rate":3.5
   },
@@ -100,6 +100,20 @@ const products=[
   "category": "shirt",
   "rate":5,
   "gender":"man",
+  },
+
+
+ 
+  {
+  "id": "arqsdwsadfefsdsfadsfsdfdxzcdsfvxvb",
+  "name": "هودی اسپورت مدل قرمز",
+  "price": '110,999',
+  "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
+  "company": "columbia",
+  "isexist": "موجود",
+  "category": "shirt",
+  "rate":5,
+  "gender":"kid",
   },
   
   ]
