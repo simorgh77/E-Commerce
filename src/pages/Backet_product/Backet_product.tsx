@@ -8,7 +8,7 @@ import "./Basket_product.style.css"
 import {Button} from "react-bootstrap"
 import { BsTrash } from "react-icons/bs";
 import {useDispatch} from "react-redux"
-import {Deletefrombasket} from "../../store/reducers/basket.reducer/basket.reducer"
+import {Deletefrombasket,AddTobasket} from "../../store/reducers/basket.reducer/basket.reducer"
 interface IProducts{
     id: string,
     name: string,
@@ -60,7 +60,7 @@ const Backet_product = () => {
 <div className='text-center w-100 mt-2 '>
 <FiMinusSquare/>
 {item.number}
-<FiPlusSquare />
+<FiPlusSquare onClick={()=>dispatch(AddTobasket(item))} style={{cursor:'pointer'}} />
 </div>
 <div className='d-flex mx-auto mt-2' 
 onClick={()=>dispatch(Deletefrombasket(item.id))} 
@@ -78,7 +78,7 @@ style={{cursor:'pointer'}}>
                   </Col>
 
                   <Col xs={12} md={2} className='bg-white mt-3 flex-column
-                   sticky-top finish_action rounded m-0 p-0  mx-1'
+                   sticky-top finish_action rounded m-0 p-0  mx-1 '
                     style={{ maxHeight:'14rem',minWidth:'18rem',backgroundColor:'rgb(215, 224, 224)'}}>
                       
                       <div className='d-flex justify-content-around mt-3'>
@@ -95,8 +95,11 @@ style={{cursor:'pointer'}}>
                           <p>{"175000"}</p>
                       </div>
 
-                      <Button className='w-100 px-3' style={{backgroundColor:'#EF394E',border:'none'}}>{"اتمام خرید"}</Button>
-                      
+<div>
+                      <Button className='w-100 px-3'
+                       style={{backgroundColor:'#EF394E',border:'none'}}>
+                           {"اتمام خرید"}</Button>
+                           </div> 
                   </Col>
              
             </Col>
