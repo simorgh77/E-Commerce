@@ -21,11 +21,12 @@ interface IProducts{
 }
 
 const Product_Details = () => {
-    const[Singleproduct,setSingleproduct]=useState<IProducts>()
-const {id}= useParams <{id:string}>()
-
+  const[Singleproduct,setSingleproduct]=useState<IProducts>()
+  const {id}= useParams <{id:string}>()
+  const [Categoriesproducts, setCategoriesproducts]=useState<IProducts[]>()
+  
 useEffect(() => {
-  async function fetchCategoriesData() {
+  async function fetchsingleData() {
     await axios.get(`api/singleproduct/${id}`).then(res => {
       setSingleproduct(res.data.product)
       console.log(res.data);
@@ -35,12 +36,24 @@ useEffect(() => {
     })
     
   }
+  async function fetchCategoriesData() {
+    await axios.get(`api/products`).then(res => {
+      setCategoriesproducts(res.data)
+      console.log(res.data);
+      
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+    fetchsingleData()
   fetchCategoriesData()
+
 }, [id])
 
 
 
 
+ 
  
     return (
         <div className='mt-5'>
@@ -126,7 +139,12 @@ useEffect(() => {
              <div className='bg-info text-center p-3'>
                  {'محصولات مرتبط'}
              </div>
-            <CategoriesSwiper varient={true}/>
+             
+              
+                <CategoriesSwiper varient={true} filter={Singleproduct?.category}/>
+
+              
+             
              </Col>
 
 

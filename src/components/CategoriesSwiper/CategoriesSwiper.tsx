@@ -30,6 +30,7 @@ varient?:boolean
 filter?:string
 }
 const CategoriesSwiper:React.FC<Icategory|undefined> = (props) => {
+console.log(props.filter);
 
 const history=useHistory();
 

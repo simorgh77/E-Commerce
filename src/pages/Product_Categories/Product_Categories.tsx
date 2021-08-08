@@ -35,11 +35,8 @@ useEffect(() => {
     
   }
   fetchCategoriesData()
-}, [Categoriesproducts])
+}, [caregories])
 
-
-{console.log([Categoriesproducts]);
- }
     return (
 <Container className=' ' fluid>
     <Row className='mt-5 w-100 m-0 ' >
