@@ -137,6 +137,18 @@ const products=[
   "tag":'newest',
   "gender":"baby",
   },
+  {
+  "id": "fdsajsdfasdfkasdf",
+  "name": "هودی اسپورت مدل قرمز",
+  "price": '180,999',
+  "image": "https://images.unsplash.com/photo-1621951753015-740c699ab970?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHRzaGlydHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+  "company": "columbia",
+  "isexist": "موجود",
+  "category": "shirt",
+  "rate":5,
+  "tag":'newest',
+  "gender":"man",
+  },
   
   ]
 const brands=[
