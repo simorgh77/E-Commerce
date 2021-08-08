@@ -12,7 +12,8 @@ const products=[
   'tag':'auction',
   "gender":"man",
   "category": "shirt",
-  "rate":5
+  "rate":5,
+  "number":1
   },
   {
   "id": "sdafsadga",
@@ -24,7 +25,8 @@ const products=[
   "gender":"woman",
   'tag':'auction',
   "category": "glass",
-  "rate":3.5
+  "rate":3.5,
+  "number":1
   },
   {
   "id": "dsfhdsh",
@@ -36,7 +38,8 @@ const products=[
   "isexist": "موجود",
   'tag':'auction',
   "category": "bag",
-  "rate":4
+  "rate":4,
+  "number":1
   },
   {
   "id": "safdgsdfhgdsf",
@@ -49,6 +52,7 @@ const products=[
   "tag":'amazing',
   "rate":4.5,
   "gender":"man",
+  "number":1
   },
   {
   "id": "arqwefxzcvxvb",
@@ -61,6 +65,7 @@ const products=[
   "tag":'amazing',
   "rate":3.5,
   "gender":"woman",
+  "number":1
   },
   {
   "id": "arqwefxzcdsfvxvb",
@@ -73,6 +78,7 @@ const products=[
   "tag":'amazing',
   "rate":4,
   "gender":"woman",
+  "number":1
   },
   {
   "id": "arqwefsadxzcdsfvxvb",
@@ -85,6 +91,7 @@ const products=[
   "tag":'newest',
   "rate":3,
   "gender":"woman",
+  "number":1
   },
   {
   "id": "arqwefsdsfadxzcdsfvxvb",
@@ -97,6 +104,7 @@ const products=[
   "rate":3.5,
   "tag":'newest',
   "gender":"man",
+  "number":1
   },
   {
   "id": "arqwefsdsfasdfdxzcdsfvxvb",
@@ -109,6 +117,7 @@ const products=[
   "rate":5,
   "tag":'newest',
   "gender":"man",
+  "number":1
   },
 
 
@@ -124,6 +133,7 @@ const products=[
   "rate":5,
   "tag":'newest',
   "gender":"kid",
+  "number":1
   },
   {
   "id": "fdsajkasdf",
@@ -136,6 +146,7 @@ const products=[
   "rate":5,
   "tag":'newest',
   "gender":"baby",
+  "number":1
   },
   {
   "id": "fdsajsdfasdfkasdf",
@@ -148,6 +159,7 @@ const products=[
   "rate":5,
   "tag":'newest',
   "gender":"man",
+  "number":1
   },
   
   ]
@@ -207,12 +219,12 @@ export function makeServer({environment="test"}={}){
     seeds(server) {
 
       products.map(item=>{
-        server.create("product", {id:item.id, name: item.name, price: item.price,category:item.category,
+        server.create("product", {id:item.id, number:item.number, name: item.name, price: item.price,category:item.category,
           isexist:item.isexist,tag:item.tag, image:item.image,company:item.company,gender:item.gender,rate:item.rate})
           
         })
       products.map(item=>{
-        server.create("singleproduct", {id:item.id, name: item.name, price: item.price,category:item.category,
+        server.create("singleproduct", {id:item.id, number:item.number, name: item.name, price: item.price,category:item.category,
           isexist:item.isexist,tag:item.tag, image:item.image,company:item.company,gender:item.gender,rate:item.rate})
           
         })
