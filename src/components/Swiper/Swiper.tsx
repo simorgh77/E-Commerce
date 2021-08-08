@@ -21,10 +21,14 @@ type ISlide={
 filter:string|undefined
 varient:boolean|undefined
 }
+interface AgeMap {
+    [name: string]: number
+}
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 const MySwiper:React.FC<ISlide> =({filter,varient}) => {
 
+ 
   const [Products, setProducts] = useState<IProducts[]>()
   useEffect(() => {
   async function fetchData() {
@@ -52,13 +56,15 @@ const MySwiper:React.FC<ISlide> =({filter,varient}) => {
 
        {
          Products?.map((item,index)=>(
-        !varient? item.gender===filter&& 
-          
+           !varient? item.gender===filter&& 
+           
            <SwiperSlide  className='swiperslide  d-flex h-100 ' >
+            
    <ProductsCart key={index} item={item}/>
          </SwiperSlide>
          :
-         item.tag===filter&&<SwiperSlide  className='swiperslide  d-flex h-100 ' >
+   item.tag ===filter&&
+         <SwiperSlide  className='swiperslide  d-flex h-100 ' >
    <ProductsCart key={index} item={item}/>
          </SwiperSlide>
          ))
