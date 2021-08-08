@@ -8,7 +8,7 @@ import "./Basket_product.style.css"
 import {Button} from "react-bootstrap"
 import { BsTrash } from "react-icons/bs";
 import {useDispatch} from "react-redux"
-import {Deletefrombasket,AddTobasket} from "../../store/reducers/basket.reducer/basket.reducer"
+import {Deletefrombasket,AddTobasket,Decreasebasket} from "../../store/reducers/basket.reducer/basket.reducer"
 interface IProducts{
     id: string,
     name: string,
@@ -58,9 +58,11 @@ const Backet_product = () => {
                         <Col xs={12} md={3}>
 <h3 className='d-flex flex-column h-100 justify-content-around text-center'>{item.price}{"تومان"}
 <div className='text-center w-100 mt-2 '>
-<FiMinusSquare/>
+<FiMinusSquare onClick={()=>dispatch(Decreasebasket(item.id))}
+style={{cursor:'pointer'}}/>
 {item.number}
-<FiPlusSquare onClick={()=>dispatch(AddTobasket(item))} style={{cursor:'pointer'}} />
+<FiPlusSquare onClick={()=>dispatch(AddTobasket(item))} 
+style={{cursor:'pointer'}} />
 </div>
 <div className='d-flex mx-auto mt-2' 
 onClick={()=>dispatch(Deletefrombasket(item.id))} 

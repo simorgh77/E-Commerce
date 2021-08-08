@@ -34,9 +34,19 @@ const BasketReducer= createSlice({
         },
         Deletefrombasket:(state,action:PayloadAction<string>)=>{
         state.products=state.products.filter(item=>item.id !== action.payload)
-        }    
+        } ,
+        Decreasebasket:(state,action:PayloadAction<string>)=>{
+            const product=state.products.find(item=>item.id
+                ===action.payload)
+
+                product&& product.number--
+
+                if(product?.number===0){
+                state.products=state.products.filter(item=>item.id !== action.payload)
+                }
+        }
     }
 })
 
-export const {AddTobasket,Deletefrombasket} = BasketReducer.actions
+export const {AddTobasket,Deletefrombasket,Decreasebasket} = BasketReducer.actions
 export default BasketReducer.reducer
