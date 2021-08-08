@@ -10,7 +10,8 @@ interface Iproduct{
         category: string,
         rate:number,
         tag:string,
-        gender:string
+        gender:string,
+        number:number
 }
 interface IBascket{
     products:Iproduct[]
@@ -26,7 +27,10 @@ const BasketReducer= createSlice({
     initialState,
     reducers:{
         AddTobasket:(state,action:PayloadAction<Iproduct>)=>{
-                state.products.push(action.payload)
+          const product=state.products.find(item=>item.id
+            ===action.payload.id)
+
+              product? product.number++:state.products.push(action.payload)
         },
         Deletefrombasket:(state,action:PayloadAction<string>)=>{
         state.products=state.products.filter(item=>item.id !== action.payload)
