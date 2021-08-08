@@ -7,16 +7,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {makeServer} from './server/server'
-// import { Provider } from 'react-redux';
-// import store from './store/store';
+import { Provider } from 'react-redux';
+import store from './store/store';
 if(process.env.NODE_ENV==="development"){
   makeServer({environment:'development'})
 }
 ReactDOM.render(
   <React.StrictMode>
-   
+   <Provider store={store}>
     <App />
-   
+   </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
