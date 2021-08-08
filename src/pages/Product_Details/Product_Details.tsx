@@ -23,6 +23,7 @@ interface IProducts{
     category:string,
     gender:string,
     tag:string
+    number:number
 }
 
 const Product_Details = () => {
