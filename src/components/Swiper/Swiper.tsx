@@ -28,7 +28,6 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 const MySwiper:React.FC<ISlide> =({filter,varient}) => {
 
- 
   const [Products, setProducts] = useState<IProducts[]>()
   useEffect(() => {
   async function fetchData() {
@@ -45,8 +44,8 @@ const MySwiper:React.FC<ISlide> =({filter,varient}) => {
 
   return (
     <Swiper
-    spaceBetween={window.innerWidth < 500 ? 2: 2}
-    slidesPerView={window.innerWidth < 500 ? 1: 2.5}
+    spaceBetween={window.innerWidth < 500 ? 2: 0}
+    slidesPerView={window.innerWidth < 500 ? 1: 3.5}
     navigation
     pagination={{ clickable: true }}
       className="w-100  h-100  flex-wrap "

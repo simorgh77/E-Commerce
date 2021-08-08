@@ -1,11 +1,14 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import {RootState} from '../../store/store'
+import {RootState,AppDispatch} from '../../store/store'
 import {Col,Container,Row,Image} from 'react-bootstrap'
 import { BsStarFill } from "react-icons/bs";
 import { FiMinusSquare ,FiPlusSquare} from "react-icons/fi";
 import "./Basket_product.style.css"
 import {Button} from "react-bootstrap"
+import { BsTrash } from "react-icons/bs";
+import {useDispatch} from "react-redux"
+import {Deletefrombasket} from "../../store/reducers/basket.reducer/basket.reducer"
 interface IProducts{
     id: string,
     name: string,
@@ -18,11 +21,12 @@ interface IProducts{
     description:string ,
     category:string,
     gender:string,
-    tag:string
+    tag:string,
+    number:number
 }
 const Backet_product = () => {
     const Basket = useSelector<RootState>(state => state.BasketReducer.products)
-
+    const dispatch = useDispatch<AppDispatch>()
    console.log(Basket);
    
     
@@ -52,11 +56,18 @@ const Backet_product = () => {
                             <p> {item.isexist} {"در انبار"}</p>
                         </Col>
                         <Col xs={12} md={3}>
-<h3 className='d-flex flex-column h-100 justify-content-center text-center'>{item.price}{"تومان"}
+<h3 className='d-flex flex-column h-100 justify-content-around text-center'>{item.price}{"تومان"}
 <div className='text-center w-100 mt-2 '>
 <FiMinusSquare/>
-{1}
+{item.number}
 <FiPlusSquare />
+</div>
+<div className='d-flex mx-auto mt-2' 
+onClick={()=>dispatch(Deletefrombasket(item.id))} 
+style={{cursor:'pointer'}}>
+
+<BsTrash/>
+    <p  style={{fontSize:'20px'}}>{" حذف کالا "}</p>
 </div>
 </h3>
 
@@ -73,7 +84,7 @@ const Backet_product = () => {
                       <div className='d-flex justify-content-around mt-3'>
                           <p>{"قیمت کالاها:"}</p>
                           <p>{"175000"}</p>
-                          
+
                       </div>
                       <div className='d-flex justify-content-around mt-3'>
                           <p>{"تخفیف کالاها:"}</p>

@@ -102,13 +102,7 @@ const Home_page = () => {
                   
               </div>
             </div>
-
-
-
-
-
             <div className="best_brands mt-5 w-100 d-flex flex-wrap flex-column">
-
 
     <span className='bg-secondry w-100 text-center bg-info' style={{fontSize:'3rem'}}>{"برند های ویژه"}  </span>
  <Col md={12} className='d-flex flex-wrap '>
@@ -127,7 +121,6 @@ const Home_page = () => {
 
 </Col>
 
-
             </div>
 
             <div className="new_arrival d-flex flex-column mt-5 w-100  my-5">
@@ -137,7 +130,6 @@ const Home_page = () => {
     <CategoriesSwiper filter={"newest"}  varient={true}/>
               </Col>
               </div>
-
 
 
 <div className='w-100   d-flex flex-wrap flex-column'>
