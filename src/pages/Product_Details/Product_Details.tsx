@@ -6,12 +6,17 @@ import shoe from '../../assest/img/shoe.jpg'
 import { BsStarFill } from "react-icons/bs";
 import CategoriesSwiper from '../../components/CategoriesSwiper/CategoriesSwiper'
 import axios from 'axios'
+import { AddTobasket } from '../../store/reducers/basket.reducer/basket.reducer'
+import {useSelector,useDispatch} from 'react-redux'
+import { TypedUseSelectorHook} from 'react-redux'
+import {RootState,AppDispatch} from '../../store/store'
 interface IProducts{
     id: string,
     name: string,
-    price: number,
+    price: string,
     image: string,
-    featured: boolean,
+    isexist: string,
+    rate:number,
     colors: [],
     company: string,
     description:string ,
@@ -21,6 +26,9 @@ interface IProducts{
 }
 
 const Product_Details = () => {
+  const dispatch = useDispatch<AppDispatch>()
+const BasketReducer = useSelector<RootState>(state => state.BasketReducer.products)
+
   const[Singleproduct,setSingleproduct]=useState<IProducts>()
   const {id}= useParams <{id:string}>()
   const [Categoriesproducts, setCategoriesproducts]=useState<IProducts[]>()
@@ -52,8 +60,11 @@ useEffect(() => {
 
 
 
+const handle_add_to_bascket=()=>{
+  
+Singleproduct &&dispatch(AddTobasket(Singleproduct))
 
- 
+}
  
     return (
         <div className='mt-5'>
@@ -130,7 +141,8 @@ useEffect(() => {
                  <div>{" 40 درصد رضایت خریداران"}</div>
                  <div>{"موجود در انبار"}</div>
                  <div>{"32,000  هزارتومان"}</div>
-                 <div><Button className='w-100'style={{backgroundColor:"rgb(239,57,78)",border:'none'}}>
+                 <div><Button  onClick={handle_add_to_bascket}
+                 className='w-100'style={{backgroundColor:"rgb(239,57,78)",border:'none'}}>
                      {"افزودن به سبد خرید"}</Button></div>
               </Col>
                 </Col>
