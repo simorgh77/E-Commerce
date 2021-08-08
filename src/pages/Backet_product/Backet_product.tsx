@@ -1,9 +1,96 @@
 import React from 'react'
-
+import {useSelector} from 'react-redux'
+import {RootState} from '../../store/store'
+import {Col,Container,Row,Image} from 'react-bootstrap'
+import { BsStarFill } from "react-icons/bs";
+import { FiMinusSquare ,FiPlusSquare} from "react-icons/fi";
+import "./Basket_product.style.css"
+import {Button} from "react-bootstrap"
+interface IProducts{
+    id: string,
+    name: string,
+    price: string,
+    image: string,
+    isexist: string,
+    rate:number,
+    colors: [],
+    company: string,
+    description:string ,
+    category:string,
+    gender:string,
+    tag:string
+}
 const Backet_product = () => {
+    const Basket = useSelector<RootState>(state => state.BasketReducer.products)
+
+   console.log(Basket);
+   
+    
     return (
-        <div>
-            this is bascket page
+        <div className='w-100  mt-5'>
+<Container className='w-100  mt-5'>
+
+    <Row className='w-100 m-0  mt-5'>
+    <Col md={12} className=' my-2 d-flex flex-wrap justify-content-between'>
+                      
+                  <Col xs={12} md={9} className='d-flex flex-column 
+                  rounded '>
+{             
+                  (Basket as IProducts[]).map((item,index)=>( 
+
+                    <Col md={12} className='bg-white d-flex flex-wrap my-3 align-content-between '>
+                        <Col xs={12} md={3}>
+                          <img src={item.image} style={{border:'none'}}
+                           className='avatar avatar-128 img-circle img-thumbnail' alt="image" />
+                        </Col>
+                        <Col xs={12} md={6} className='d-flex flex-column text-center justify-content-center'>
+                            <p>{item.name}</p>
+                            <p>{'شرکت:'} {item.company}</p>
+                            <p className='d-flex mx-auto aign-items-center'>{'امتیاز:'} 
+                            <BsStarFill fill='rgb(254,165,105)'/> {item.rate}</p>
+
+                            <p> {item.isexist} {"در انبار"}</p>
+                        </Col>
+                        <Col xs={12} md={3}>
+<h3 className='d-flex flex-column h-100 justify-content-center text-center'>{item.price}{"تومان"}
+<div className='text-center w-100 mt-2 '>
+<FiMinusSquare/>
+{1}
+<FiPlusSquare />
+</div>
+</h3>
+
+                        </Col>
+                    </Col>
+                  ))}
+
+                  </Col>
+
+                  <Col xs={12} md={2} className='bg-white mt-3 flex-column
+                   sticky-top finish_action rounded m-0 p-0  mx-1'
+                    style={{ maxHeight:'14rem',minWidth:'18rem',backgroundColor:'rgb(215, 224, 224)'}}>
+                      
+                      <div className='d-flex justify-content-around mt-3'>
+                          <p>{"قیمت کالاها:"}</p>
+                          <p>{"175000"}</p>
+                          
+                      </div>
+                      <div className='d-flex justify-content-around mt-3'>
+                          <p>{"تخفیف کالاها:"}</p>
+                          <p>{"175000"}</p>
+                      </div>
+                      <div className='d-flex justify-content-around mt-3'>
+                          <p>{"قیمت کل:"}</p>
+                          <p>{"175000"}</p>
+                      </div>
+
+                      <Button className='w-100 px-3' style={{backgroundColor:'#EF394E',border:'none'}}>{"اتمام خرید"}</Button>
+                      
+                  </Col>
+             
+            </Col>
+                    </Row>
+                </Container>
         </div>
     )
 }

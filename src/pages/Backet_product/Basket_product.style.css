@@ -1,0 +1,12 @@
+
+
+
+@media  (max-width: 767.98px) {
+
+    .finish_action{
+        position: sticky;
+        bottom: 0;
+        background-color: rgb(215, 224, 224);
+    }
+  }
+
