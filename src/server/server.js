@@ -5,7 +5,7 @@ const products=[
   {
   "id": "abcdefghi",
   "name": "تیشرت مردانه مدل زمستانی",
-  "price": '25,999',
+  "price": '25999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
   "company": "adidas",
   "isexist": "موجود",
@@ -18,7 +18,7 @@ const products=[
   {
   "id": "sdafsadga",
   "name": " عینک زنانه آفتابی مدل 123",
-  "price": '500,000',
+  "price": '500000',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/05.jpg",
   "company": "adidas",
   "isexist": "ناموجود",
@@ -31,7 +31,7 @@ const products=[
   {
   "id": "dsfhdsh",
   "name": "کیف مردانه مدل مدریه",
-  "price": '300,000',
+  "price": '300000',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/06.jpg",
   "company": "adidas",
   "gender":"man",
@@ -44,7 +44,7 @@ const products=[
   {
   "id": "safdgsdfhgdsf",
   "name": "کفش مردانه  مدل رسمی",
-  "price": '250,999',
+  "price": '250999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/01.jpg",
   "company": "puma",
   "isexist": "موجود",
@@ -57,7 +57,7 @@ const products=[
   {
   "id": "arqwefxzcvxvb",
   "name": "شلوارک لی مدل 123",
-  "price": '85,999',
+  "price": '85999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/03.jpg",
   "company": "puma",
   "isexist": "موجود",
@@ -70,7 +70,7 @@ const products=[
   {
   "id": "arqwefxzcdsfvxvb",
   "name": "لباس راحتی مدل دخترونه",
-  "price": '125,999',
+  "price": '125999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/04.jpg",
   "company": "tommy",
   "isexist": "موجود",
@@ -83,7 +83,7 @@ const products=[
   {
   "id": "arqwefsadxzcdsfvxvb",
   "name": "کفش اسپورت مدل رنگین کمان",
-  "price": '175,999',
+  "price": '175999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/25.jpg",
   "company": "tommy",
   "isexist": "ناموجود",
@@ -96,7 +96,7 @@ const products=[
   {
   "id": "arqwefsdsfadxzcdsfvxvb",
   "name": "هودی اسپورت مدل خوب",
-  "price": '95,999',
+  "price": '95999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/20.jpg",
   "company": "columbia",
   "isexist": "ناموجود",
@@ -125,7 +125,7 @@ const products=[
   {
   "id": "arqsdwsadfefsdsfadsfsdfdxzcdsfvxvb",
   "name": "هودی اسپورت مدل قرمز",
-  "price": '110,999',
+  "price": '110999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
   "company": "columbia",
   "isexist": "موجود",
@@ -138,7 +138,7 @@ const products=[
   {
   "id": "fdsajkasdf",
   "name": "هودی اسپورت مدل قرمز",
-  "price": '110,999',
+  "price": '110999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
   "company": "columbia",
   "isexist": "موجود",
@@ -151,7 +151,7 @@ const products=[
   {
   "id": "fdsajsdfasdfkasdf",
   "name": "هودی اسپورت مدل قرمز",
-  "price": '180,999',
+  "price": '180999',
   "image": "https://images.unsplash.com/photo-1621951753015-740c699ab970?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHRzaGlydHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
   "company": "columbia",
   "isexist": "موجود",
