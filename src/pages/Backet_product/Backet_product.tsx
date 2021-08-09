@@ -28,8 +28,7 @@ const Backet_product = () => {
     const Basket = useSelector<RootState>(state => state.BasketReducer.products)
     const dispatch = useDispatch<AppDispatch>()
    console.log(Basket);
-   
-
+    let total_price:number=0
     return (
         <div className='w-100  mt-5'>
 <Container className='w-100  mt-5'>
@@ -41,11 +40,12 @@ const Backet_product = () => {
                   rounded '>
 {             
                   (Basket as IProducts[]).map((item,index)=>( 
-
-                    <Col md={12} className='bg-white d-flex flex-wrap my-3 align-content-between '>
+ 
+                    <Col md={12} key={item.id} className='bg-white d-flex flex-wrap my-3 align-content-between '>
                         <Col xs={12} md={3}>
                           <img src={item.image} style={{border:'none'}}
-                           className='avatar avatar-128 img-circle img-thumbnail' alt="image" />
+                           className='avatar avatar-128 img-circle img-thumbnail' 
+                           alt="image" />
                         </Col>
                         <Col xs={12} md={6} className='d-flex flex-column text-center justify-content-center'>
                             <p>{item.name}</p>
@@ -77,24 +77,35 @@ style={{cursor:'pointer'}}>
                     </Col>
                   ))}
 
+
+
                   </Col>
 
+                 { (Basket as IProducts[]).map((item,index)=>
+                {
+                   total_price+=parseInt(item.price)*item.number
+                } 
+                 )}
+              
+                  
+
+                  
                   <Col xs={12} md={2} className='bg-white mt-3 flex-column
                    sticky-top finish_action rounded m-0 p-0  mx-1 '
                     style={{ maxHeight:'14rem',minWidth:'18rem',backgroundColor:'rgb(215, 224, 224)'}}>
                       
                       <div className='d-flex justify-content-around mt-3'>
                           <p>{"قیمت کالاها:"}</p>
-                          <p>{"175000"}</p>
+                          <p>{total_price}</p>
 
                       </div>
                       <div className='d-flex justify-content-around mt-3'>
                           <p>{"تخفیف کالاها:"}</p>
-                          <p>{"175000"}</p>
+                          <p>{"10%"}</p>
                       </div>
                       <div className='d-flex justify-content-around mt-3'>
                           <p>{"قیمت کل:"}</p>
-                          <p>{"175000"}</p>
+                          <p>{total_price*0.1}</p>
                       </div>
 
 <div>
