@@ -17,7 +17,7 @@ const routes=[
     page:Login_page
 },
 {
-    path:'/bascket',
+    path:'/basket',
     exact:true,
     page:Backet_product
 },
