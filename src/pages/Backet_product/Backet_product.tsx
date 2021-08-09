@@ -7,6 +7,7 @@ import { FiMinusSquare ,FiPlusSquare} from "react-icons/fi";
 import "./Basket_product.style.css"
 import {Button} from "react-bootstrap"
 import { BsTrash } from "react-icons/bs";
+import Humanize from "humanize-plus"
 import {Deletefrombasket,AddTobasket,Decreasebasket} from "../../store/reducers/basket.reducer/basket.reducer"
 interface IProducts{
     id: string,
@@ -56,7 +57,9 @@ const Backet_product = () => {
                             <p> {item.isexist} {"در انبار"}</p>
                         </Col>
                         <Col xs={12} md={3}>
-<h3 className='d-flex flex-column h-100 justify-content-around text-center'>{item.price}{"تومان"}
+<h3 className='d-flex flex-column h-100 justify-content-around text-center'>
+    
+{Humanize.intComma(parseInt(item?.price as string))}{"تومان"}
 <div className='text-center w-100 mt-2 '>
 <FiMinusSquare onClick={()=>dispatch(Decreasebasket(item.id))}
 style={{cursor:'pointer'}}/>
@@ -96,7 +99,7 @@ style={{cursor:'pointer'}}>
                       
                       <div className='d-flex justify-content-around mt-3'>
                           <p>{"قیمت کالاها:"}</p>
-                          <p>{total_price}</p>
+                          <p>{Humanize.intComma(total_price)}</p>
 
                       </div>
                       <div className='d-flex justify-content-around mt-3'>
@@ -105,7 +108,7 @@ style={{cursor:'pointer'}}>
                       </div>
                       <div className='d-flex justify-content-around mt-3'>
                           <p>{"قیمت کل:"}</p>
-                          <p>{total_price*0.1}</p>
+                          <p>{Humanize.intComma( total_price*0.9)}</p>
                       </div>
 
 <div>
