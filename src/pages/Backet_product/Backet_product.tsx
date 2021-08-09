@@ -24,11 +24,12 @@ interface IProducts{
     number:number
 }
 const Backet_product = () => {
+  
     const Basket = useSelector<RootState>(state => state.BasketReducer.products)
     const dispatch = useDispatch<AppDispatch>()
    console.log(Basket);
    
-    
+
     return (
         <div className='w-100  mt-5'>
 <Container className='w-100  mt-5'>

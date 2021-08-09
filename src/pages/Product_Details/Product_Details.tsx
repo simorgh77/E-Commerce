@@ -10,6 +10,7 @@ import { AddTobasket } from '../../store/reducers/basket.reducer/basket.reducer'
 import {useSelector,useDispatch} from 'react-redux'
 import { TypedUseSelectorHook} from 'react-redux'
 import {RootState,AppDispatch} from '../../store/store'
+import { AiOutlineCheck } from "react-icons/ai";
 interface IProducts{
     id: string,
     name: string,
@@ -29,7 +30,7 @@ interface IProducts{
 const Product_Details = () => {
   const dispatch = useDispatch<AppDispatch>()
 const BasketReducer = useSelector<RootState>(state => state.BasketReducer.products)
-
+const [Buybutton, setBuybutton] = useState<boolean>(false)
   const[Singleproduct,setSingleproduct]=useState<IProducts>()
   const {id}= useParams <{id:string}>()
   const [Categoriesproducts, setCategoriesproducts]=useState<IProducts[]>()
@@ -62,7 +63,7 @@ useEffect(() => {
 
 
 const handle_add_to_bascket=()=>{
-  
+  setBuybutton(true)
 Singleproduct &&dispatch(AddTobasket(Singleproduct))
 
 }
@@ -142,9 +143,16 @@ Singleproduct &&dispatch(AddTobasket(Singleproduct))
                  <div>{" 40 درصد رضایت خریداران"}</div>
                  <div>{"موجود در انبار"}</div>
                  <div>{"32,000  هزارتومان"}</div>
-                 <div><Button  onClick={handle_add_to_bascket}
+
+
+               { !Buybutton?<div><Button  onClick={handle_add_to_bascket}
                  className='w-100'style={{backgroundColor:"rgb(239,57,78)",border:'none'}}>
-                     {"افزودن به سبد خرید"}</Button></div>
+                     {"افزودن به سبد خرید"}</Button></div>: 
+                     <p className='text-center' style={{color:'green'}  }>
+                       {"به سبد خرید اضافه شد"}<AiOutlineCheck/>
+                     </p> 
+                    
+                     }
               </Col>
                 </Col>
              
