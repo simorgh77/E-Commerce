@@ -1,12 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit"
 import basketReducer from "./reducers/basket.reducer/basket.reducer"
-const store=configureStore ({
+import  {persistedReducer} from './reducers'
+import { persistStore } from 'redux-persist'
+ const store=configureStore ({
 
 reducer:{
-    BasketReducer:basketReducer,
+      persistedReducer,
 }
 })
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+
 export default store
+  export const persistor = persistStore(store)
+ 
+ 
