@@ -95,7 +95,7 @@ style={{cursor:'pointer'}}>
                   
                   <Col xs={12} md={2} className='bg-white mt-3 flex-column
                    sticky-top finish_action rounded m-0 p-0  mx-1 '
-                    style={{ maxHeight:'14rem',minWidth:'18rem',backgroundColor:'rgb(215, 224, 224)'}}>
+                    style={{ maxHeight:'14rem',minWidth:'18rem',zIndex:0,backgroundColor:'rgb(215, 224, 224)'}}>
                       
                       <div className='d-flex justify-content-around mt-3'>
                           <p>{"قیمت کالاها:"}</p>

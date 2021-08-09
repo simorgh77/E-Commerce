@@ -24,3 +24,6 @@
 .basket-singel-product{
     border-bottom: 1px solid lightgray;
 }
+a{
+    text-decoration: none;
+}
