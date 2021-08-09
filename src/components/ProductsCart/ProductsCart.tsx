@@ -5,6 +5,7 @@ import { BsStarFill } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
 import "./ProductsCart.style.css"
+import Humanize from "humanize-plus"
 const ProductsCart = ({item}:any) => {
   const history=useHistory()
  
@@ -34,7 +35,7 @@ const ProductsCart = ({item}:any) => {
 
 
     <div className='d-flex justify-content-between mt-3 w-100'>
-      <div className='w-100'>{item.price+"تومن"}</div>
+      <div className='w-100'>{Humanize.intComma(parseInt(item?.price as string))}{"تومان"}</div>
       <div className='w-100 d-flex justify-content-center'>
  
  {item.rate}
