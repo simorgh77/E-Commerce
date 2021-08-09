@@ -7,6 +7,7 @@ import {FaShoppingCart,FaUserPlus} from 'react-icons/fa'
 import { transform } from '@babel/core';
 import { right } from '@popperjs/core';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import axios from 'axios';
 import {useSelector} from 'react-redux'
 import {RootState} from '../../store/store'
@@ -30,6 +31,8 @@ interface IProducts{
   number:number
 }
 export const Header:React.FC<Ichild> = ({children}) => {
+  const history=useHistory()
+
   const [hover_basket,sethover_basket]=useState<boolean>(false)
   const Basket = useSelector<RootState>(state => state.persistedReducer.BasketReducer.products)
     return (
@@ -63,8 +66,8 @@ export const Header:React.FC<Ichild> = ({children}) => {
     </Form>
     <div className='d-flex '>
       <Nav.Item className='d-flex flex-column' >
-        <Link to='/bascket'>
-          <div className='shopping_parent btn'  onMouseEnter={() => sethover_basket(true)}
+       
+          <div className='shopping_parent btn' onClick={()=>history.push('/basket')}  onMouseEnter={() => sethover_basket(true)}
    onMouseLeave={()=>sethover_basket(false)} >
      {
 hover_basket&& (Basket as IProducts[]).length>0&&<Minimize_basket sethover_basket={sethover_basket}/>}
@@ -73,7 +76,7 @@ hover_basket&& (Basket as IProducts[]).length>0&&<Minimize_basket sethover_baske
         <span className=' shopping_cart_number'>{(Basket as IProducts[]).length}
         </span>
         </div>
-      </Link>
+      
       </Nav.Item>
       <Nav.Item className='d-flex flex-column'>
         <Link to='/login'> 
