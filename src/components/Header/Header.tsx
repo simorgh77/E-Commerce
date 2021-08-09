@@ -8,13 +8,29 @@ import { transform } from '@babel/core';
 import { right } from '@popperjs/core';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { async } from 'q';
+import {useSelector} from 'react-redux'
+import {RootState} from '../../store/store'
 interface Ichild{
   children: React.ReactNode
 }
+interface IProducts{
+  id: string,
+  name: string,
+  price: string,
+  image: string,
+  isexist: string,
+  rate:number,
+  colors: [],
+  company: string,
+  description:string ,
+  category:string,
+  gender:string,
+  tag:string,
+  number:number
+}
 export const Header:React.FC<Ichild> = ({children}) => {
   
-
+  const Basket = useSelector<RootState>(state => state.BasketReducer.products)
     return (
       <div className='mynav mt-3'>
         <Navbar className='myNavbar' expand="lg" >
@@ -50,7 +66,8 @@ export const Header:React.FC<Ichild> = ({children}) => {
           <div className='shopping_parent'>
         <span className='btn'>سبد خرید</span> 
         <FaShoppingCart style={{fill:'gray',fontSize:'2rem'}} className='icons mx-2'/>
-        <span className=' shopping_cart_number'>0</span>
+        <span className=' shopping_cart_number'>{(Basket as IProducts[]).length}
+        </span>
         </div>
       </Link>
       </Nav.Item>
