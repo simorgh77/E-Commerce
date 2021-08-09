@@ -31,7 +31,7 @@ interface IProducts{
 }
 export const Header:React.FC<Ichild> = ({children}) => {
   const [hover_basket,sethover_basket]=useState<boolean>(false)
-  const Basket = useSelector<RootState>(state => state.BasketReducer.products)
+  const Basket = useSelector<RootState>(state => state.persistedReducer.BasketReducer.products)
     return (
       <div className='mynav mt-3'>
         <Navbar className='myNavbar' expand="lg" >

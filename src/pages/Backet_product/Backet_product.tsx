@@ -26,7 +26,7 @@ interface IProducts{
 }
 const Backet_product = () => {
   
-    const Basket = useSelector<RootState>(state => state.BasketReducer.products)
+    const Basket = useSelector<RootState>(state => state.persistedReducer.BasketReducer.products)
     const dispatch = useDispatch<AppDispatch>()
    console.log(Basket);
     let total_price:number=0

@@ -30,7 +30,7 @@ interface IProducts{
 
 const Product_Details = () => {
   const dispatch = useDispatch<AppDispatch>()
-const BasketReducer = useSelector<RootState>(state => state.BasketReducer.products)
+const BasketReducer = useSelector<RootState>(state =>state.persistedReducer.BasketReducer.products)
 const [Buybutton, setBuybutton] = useState<boolean>(false)
   const[Singleproduct,setSingleproduct]=useState<IProducts>()
   const {id}= useParams <{id:string}>()

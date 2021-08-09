@@ -27,7 +27,7 @@ interface IBasket{
 
 const Minimize_product_basket:React.FC<IBasket> = (props) => {
     const dispatch = useDispatch<AppDispatch>()
-    const Basket = useSelector<RootState>(state => state.BasketReducer.products)
+    const Basket = useSelector<RootState>(state => state.persistedReducer.BasketReducer.products)
    
     const handleDelete=(e:React.MouseEvent<SVGElement, MouseEvent> ,id:string)=>{
         e.stopPropagation();
