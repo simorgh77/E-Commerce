@@ -1,4 +1,4 @@
-import React ,{useEffect}from 'react'
+import React ,{useEffect,useState}from 'react'
 import {Navbar,Nav,NavDropdown,
 Form,FormControl,Button} from 'react-bootstrap'
 import './Header.style.css'
@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {useSelector} from 'react-redux'
 import {RootState} from '../../store/store'
-interface Ichild{
+import Minimize_basket from "../Minimize_product_basket/Minimize_product_basket"
+interface  Ichild{
   children: React.ReactNode
 }
 interface IProducts{
@@ -29,7 +30,7 @@ interface IProducts{
   number:number
 }
 export const Header:React.FC<Ichild> = ({children}) => {
-  
+  const [hover_basket,sethover_basket]=useState<boolean>(false)
   const Basket = useSelector<RootState>(state => state.BasketReducer.products)
     return (
       <div className='mynav mt-3'>
@@ -63,9 +64,12 @@ export const Header:React.FC<Ichild> = ({children}) => {
     <div className='d-flex '>
       <Nav.Item className='d-flex flex-column' >
         <Link to='/bascket'>
-          <div className='shopping_parent'>
-        <span className='btn'>سبد خرید</span> 
-        <FaShoppingCart style={{fill:'gray',fontSize:'2rem'}} className='icons mx-2'/>
+          <div className='shopping_parent btn'  onMouseEnter={() => sethover_basket(true)}
+   onMouseLeave={()=>sethover_basket(false)} >
+     {
+hover_basket&& (Basket as IProducts[]).length>0&&<Minimize_basket sethover_basket={sethover_basket}/>}
+        <span className='btn' >سبد خرید</span> 
+        <FaShoppingCart  style={{fill:'gray',fontSize:'2rem'}} className='icons mx-2'/>
         <span className=' shopping_cart_number'>{(Basket as IProducts[]).length}
         </span>
         </div>
@@ -93,6 +97,7 @@ export const Header:React.FC<Ichild> = ({children}) => {
   </Navbar.Collapse>
         </div>
 </Navbar>
+
 </div>
     )
 }

@@ -1,0 +1,26 @@
+.basket-mini{
+    background-color: white;
+    position: absolute;
+    top:100%;
+    left:-10rem;
+    min-width: 16rem;
+    border-radius: 5px;
+    min-height: 10rem;
+    z-index: 10;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.59);
+    border-bottom: 1px solid rgb(46, 64, 82);
+    padding: 1rem;
+    
+}
+
+.basket-mini img{
+    width: 50%;
+    border: none;
+}
+.basket-mini p{
+    font-size: 13px;
+}
+
+.basket-singel-product{
+    border-bottom: 1px solid lightgray;
+}
