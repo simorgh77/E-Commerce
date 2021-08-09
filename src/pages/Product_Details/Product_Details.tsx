@@ -11,6 +11,7 @@ import {useSelector,useDispatch} from 'react-redux'
 import { TypedUseSelectorHook} from 'react-redux'
 import {RootState,AppDispatch} from '../../store/store'
 import { AiOutlineCheck } from "react-icons/ai";
+import Humanize from "humanize-plus"
 interface IProducts{
     id: string,
     name: string,
@@ -137,12 +138,12 @@ Singleproduct &&dispatch(AddTobasket(Singleproduct))
 
               <Col xs={12} md={4} className='buy_card rounded mt-2  m-0 d-flex flex-column justify-content-around'>
                  <div className='d-flex justify-content-between'>{"فروشنده"} 
-                 <div> {'4'} <BsStarFill fill='rgb(254,165,105)'/></div></div>
+                 <div> {Singleproduct?.rate} <BsStarFill fill='rgb(254,165,105)'/></div></div>
                  <div>{"قنبری و دوستان"}</div>
                  <div>{"گارانتی اصالت و سلامت فیزیکی کالا"}</div>
                  <div>{" 40 درصد رضایت خریداران"}</div>
-                 <div>{"موجود در انبار"}</div>
-                 <div>{"32,000  هزارتومان"}</div>
+                 <div>{"وضعیت انبار :"}{Singleproduct?.isexist}</div>
+                 <div>{Humanize.intComma(parseInt(Singleproduct?.price as string))} {'تومان'}</div>
 
 
                { !Buybutton?<div><Button  onClick={handle_add_to_bascket}
