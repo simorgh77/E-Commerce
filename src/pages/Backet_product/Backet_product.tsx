@@ -1,5 +1,5 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import {RootState,AppDispatch} from '../../store/store'
 import {Col,Container,Row,Image} from 'react-bootstrap'
 import { BsStarFill } from "react-icons/bs";
@@ -7,7 +7,6 @@ import { FiMinusSquare ,FiPlusSquare} from "react-icons/fi";
 import "./Basket_product.style.css"
 import {Button} from "react-bootstrap"
 import { BsTrash } from "react-icons/bs";
-import {useDispatch} from "react-redux"
 import {Deletefrombasket,AddTobasket,Decreasebasket} from "../../store/reducers/basket.reducer/basket.reducer"
 interface IProducts{
     id: string,
