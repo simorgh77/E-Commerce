@@ -21,11 +21,19 @@ const authReducer= createSlice({
 
         Login_user:(state,action:PayloadAction<Iuser>)=>{
 
-            state=action.payload
+            state.Is_login=true
+            state.Password=action.payload.Password
+            state.UserName=action.payload.UserName
+            state.Token=action.payload.Token
+            state.RefreshToken=action.payload.RefreshToken
          
         },
         Logout_user:(state,action)=>{
-            state=initialState
+            state.Is_login=false
+            state.Password=''
+            state.UserName=''
+            state.Token=''
+            state.RefreshToken=''
         },
     }
 })
