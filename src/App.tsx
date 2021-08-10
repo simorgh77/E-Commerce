@@ -6,6 +6,7 @@ import 'swiper/swiper-bundle.css';
 import './App.css';
 import routes from './routes/main.routes';
 import { RouteComponentProps } from "react-router";
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import axios from 'axios';
 import {
   BrowserRouter as Router,
@@ -26,7 +27,8 @@ function App() {
 <Switch>
       {routes.map(item=>(
 
-<Route  path={item.path} exact={item.exact}  render={props=><item.page {...props}/>}                   />
+<PrivateRoute  path={item.path} exact={item.exact} 
+isRequired={item.isRequired} Page={item.page} />
 
       ))}
 </Switch>

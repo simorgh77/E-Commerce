@@ -37,7 +37,7 @@ import { Col,Container,Row,Form,Button } from 'react-bootstrap';
     </Form.Text>
 </Form>
             </div>
-            
+             
         </Col>
 
         </Row>
