@@ -2,9 +2,9 @@ import React ,{ReactNode ,FC, FunctionComponent} from 'react'
 import { Redirect, Route } from 'react-router'
 import {useSelector} from "react-redux"
 import {RootState,AppDispatch} from '../../store/store'
-import { TypedUseSelectorHook} from 'react-redux'
+
 import { RouteComponentProps } from "react-router";
-import { render } from '@testing-library/react'
+
 
 interface IPrivatet{
     isRequired:boolean |undefined
@@ -13,7 +13,7 @@ interface IPrivatet{
     Page:any
 }
 const PrivateRoute:React.FC<IPrivatet> = ({isRequired,path,exact,Page}) => {
-debugger
+
     const isLogin = useSelector<RootState>(state =>
          state.persistedReducer.authReducer.Is_login)
  
@@ -23,8 +23,8 @@ debugger
        ( (!isRequired) || (   isRequired&& isLogin))? 
         <Page/>
                   : 
-                (<Redirect to={{pathname:'/login',
-                state:{from :location}}}/>)}/>         
+                <Redirect to='/login'
+           />}/>         
         
     )
 

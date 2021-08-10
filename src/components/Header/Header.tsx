@@ -1,6 +1,6 @@
 import React ,{useEffect,useState}from 'react'
 import {Navbar,Nav,NavDropdown,
-Form,FormControl,Button} from 'react-bootstrap'
+Form,FormControl,Button,Dropdown,Image} from 'react-bootstrap'
 import './Header.style.css'
 import { BsSearch } from "react-icons/bs";
 import {FaShoppingCart,FaUserPlus} from 'react-icons/fa'
@@ -9,9 +9,14 @@ import { right } from '@popperjs/core';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import axios from 'axios';
-import {useSelector} from 'react-redux'
-import {RootState} from '../../store/store'
+import {useSelector, useDispatch} from 'react-redux'
+import {RootState,AppDispatch} from '../../store/store'
 import Minimize_basket from "../Minimize_product_basket/Minimize_product_basket"
+import { BsPersonFill } from "react-icons/bs";
+import { BsChevronDown } from "react-icons/bs";
+import { BiLogOut } from "react-icons/bi";
+import { AiOutlineShop } from "react-icons/ai";
+import {Logout_user} from "../../store/reducers/auth.reducer/auth.reducer"
 interface  Ichild{
   children: React.ReactNode
 }
@@ -32,9 +37,11 @@ interface IProducts{
 }
 export const Header:React.FC<Ichild> = ({children}) => {
   const history=useHistory()
-
+  const dispatch = useDispatch<AppDispatch>()
   const [hover_basket,sethover_basket]=useState<boolean>(false)
   const Basket = useSelector<RootState>(state => state.persistedReducer.BasketReducer.products)
+  const Is_login = useSelector<RootState>(state => state.persistedReducer.authReducer.Is_login)
+  const userName = useSelector<RootState>(state => state.persistedReducer.authReducer.UserName)
     return (
       <div className='mynav mt-3'>
         <Navbar className='myNavbar' expand="lg" >
@@ -79,12 +86,37 @@ hover_basket&& (Basket as IProducts[]).length>0&&<Minimize_basket sethover_baske
       
       </Nav.Item>
       <Nav.Item className='d-flex flex-column'>
-        <Link to='/login'> 
+        {!Is_login ? <Link to='/login'> 
         <div>
-      <span className='btn'>ورود به حساب کاربری</span>
+      <span className='btn mt-2'>ورود به حساب کاربری</span>
        <FaUserPlus style={{fill:'gray',fontSize:'2rem'}}  className='icons'/>  </div>
-       </Link>
-     
+       </Link> :    <div className=''>
+   
+       
+       <Dropdown className=' px-4'>
+  <Dropdown.Toggle variant="" id="dropdown-basic" >
+       <BsPersonFill style={{fill:'gray',color:"gray",fontSize:'2.3rem' ,cursor:'pointer'}}  
+       className='icons'/> 
+  
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu className=''>
+  <Dropdown.ItemText >
+<p className='text-end py-1' style={{borderBottom:'1px solid lightgray'}}>
+  <img className="avatar avatar-16 mx-2  rounded-pill" style={{width:'30px'}}
+   src="https://lh3.googleusercontent.com/-JM2xsdjz2Bw/AAAAAAAAAAI/AAAAAAAAAAA/DVECr-jVlk4/photo.jpg"/>
+  {userName}
+  </p>
+  </Dropdown.ItemText>
+            <Dropdown.Item className='text-end  '  onClick={(e)=>history.push('/basket')}><AiOutlineShop/> {" سفارش های من"}</Dropdown.Item>
+    <Dropdown.Item className='text-center  my-2'  onClick={()=>dispatch(Logout_user(''))}><BiLogOut/>  {"خروج از حساب کاربری"}</Dropdown.Item>
+    
+  </Dropdown.Menu>
+</Dropdown>
+       
+        </div>
+       
+     }
        </Nav.Item>
     </div>
     
