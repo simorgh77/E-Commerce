@@ -7,7 +7,7 @@ import {Container ,Row,Button} from 'react-bootstrap'
 import {Deletefrombasket} from "../../store/reducers/basket.reducer/basket.reducer"
 import { ReactElement } from 'react';
 import {Link} from "react-router-dom"
-
+import { useHistory } from 'react-router';
 interface IProducts{
     id: string,
     name: string,
@@ -28,9 +28,15 @@ interface IBasket{
 }
 
 const Minimize_product_basket:React.FC<IBasket> = (props) => {
+    const history=useHistory()
     const dispatch = useDispatch<AppDispatch>()
     const Basket = useSelector<RootState>(state => state.persistedReducer.BasketReducer.products)
    
+    const handleclick=(e:any)=>{
+        e.stopPropagation();
+history.push('/shopping_page')
+    }
+
     const handleDelete=(e:React.MouseEvent<SVGElement, MouseEvent> ,id:string)=>{
         e.stopPropagation();
         dispatch(Deletefrombasket(id))
@@ -57,7 +63,7 @@ const Minimize_product_basket:React.FC<IBasket> = (props) => {
                </div>
                </div>
            ))}
-           <Button style={{backgroundColor:'#FE696A',border:'none'}}>{"ثبت و ادامه خرید"}</Button>
+           <Button onClick={handleclick} style={{backgroundColor:'#FE696A',border:'none'}}>{"ثبت و ادامه خرید"}</Button>
            </Row>
            </Container>
         </div>
