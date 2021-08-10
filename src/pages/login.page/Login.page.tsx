@@ -1,41 +1,47 @@
 import React from 'react'
 import { RouteComponentProps } from "react-router";
 import "./Login.page.style.css"
-import loginpic from "../../assest/img/loginpic.png"
+import { Col,Container,Row,Form,Button } from 'react-bootstrap';
+
  const Login_page:React.FC<RouteComponentProps> = () => {
     return (
-    
-<>
-        <div className="main"></div>
+    <Container className='mt-5'>
 
-        <div className="base">
-   <div className="left">
-       <div className="pic">
-           <img src={loginpic} alt="login icon"/>
-       </div>
-   </div>
-   <div className="right">
-       <div className="content">
-           <div className="header">
-               <div className="left_hedear bold">سیمرغ شاپ</div>
-           </div>
-           <div className="main_div">
-               <div></div>
-               <input type="text"  className='text-center' placeholder="نام کاربری را وارد نمایید"/>
-               <input type="password" className='text-center'  placeholder="رمز عبور را وارد نمایید"/>
-           </div>
-           <div className="button">
-               <input type="button" value="وارد شو"/>
-           </div>       
-       </div> 
-       <div className="text">
-       <div className='text-center bold '>{"ساخت حساب کاربری"}</div>
-   </div>
-   </div>
-   
-        </div>
-   
-        </>
+        <Row className='d-flex justify-content-center'>
+        
+        <Col md={4} className='bg-white rounded d-flex p-4 flex-column '>
+            <div className="image text-center w-100">
+                <img className='img-fluid w-25 text-center' src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Taha.svg" alt="brand" />
+            </div>
+            <div className="enter_register mt-4">
+                {'ورود/ ثبت نام'}
+            </div>
+            <div className="information_form mt-4">
+            <Form>
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>{"نام کاربری خود را وارد نمایید"}</Form.Label>
+    <Form.Control type="email" />
+    
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Label>{"رمز عبور خود را وارد نمایید"}</Form.Label>
+    <Form.Control type="password"/>
+  </Form.Group>
+
+  <Button variant="primary" type="submit" className='w-100 mb-3' style={{backgroundColor:'#EF394E',border:'none'}}>
+    {"ورود به سایت"}
+  </Button>
+  <Form.Text className="text-muted pt-3">
+      {'با ورود و یا ثبت نام در طه شاپ شما شرایط و قوانین استفاده از سرویس های سایت  و قوانین حریم خصوصی آن را می‌پذیرید.'}
+    </Form.Text>
+</Form>
+            </div>
+            
+        </Col>
+
+        </Row>
+    </Container>
     )
 }
 export default Login_page
