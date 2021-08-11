@@ -1,0 +1,17 @@
+.RFS-Connector-d7{
+    top: calc((2em - 30px) / 2);
+    left: calc((-40% + 2em) - 8px);
+    right: calc((-44.5vw + 2em) - 8px);
+    position: absolute;
+    width: 100%;
+}
+.RFS-Connector-d2{
+  display: none !important;
+}
+
+.RFS-ConnectorContainer-d10{
+    top: calc((2em - 1px) / 2);
+    left: calc((50% + 2em) - 8px) !important;
+    right: calc((-49% + 2em) - 8px) !important;
+    position: absolute;
+}
