@@ -13,7 +13,7 @@ const Footer = () => {
         <Row className='w-100 mx-auto d-flex text-white'>
         <Col xs={12} md={12} style={{fontSize:'110%'}} 
         className='  text-center w-100 d-flex flex-column justify-content-between '>
-          <Col xs={9} md={12} className=' mb-3 mx-auto'>{"مارا در شبکه های اجتماعی دنبال کنید"}</Col>
+          <Col xs={9} md={12} className=' mb-3 mt-4 mx-auto'>{"مارا در شبکه های اجتماعی دنبال کنید"}</Col>
           <Col xs={3} md={12} className='w-100 d-flex my-auto mx-auto justify-content-around' 
           style={{fontSize:'2rem'}} ><FaInstagram/> <FaTwitter/> <FaLinkedin/> </Col>
         </Col>
