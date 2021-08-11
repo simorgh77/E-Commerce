@@ -1,6 +1,8 @@
 import React from 'react'
-
-const Payment_gate = () => {
+interface Ipayment{
+    setstepperActive:Function
+  }
+const Payment_gate:React.FC<Ipayment> = ({setstepperActive}) => {
     return (
         <div>
             this is payment_gate

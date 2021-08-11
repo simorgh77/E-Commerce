@@ -1,6 +1,8 @@
 import React from 'react'
-
-const Accept_info = () => {
+interface Iaccept{
+    setstepperActive:Function
+  }
+const Accept_info:React.FC<Iaccept> = ({setstepperActive}) => {
     return (
         <div>
             this is Accept_info

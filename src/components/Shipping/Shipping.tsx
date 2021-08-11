@@ -1,8 +1,13 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import { Col,Form ,Button} from 'react-bootstrap'
 import { Link} from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
-const Shipping = () => {
+import { useHistory } from 'react-router';
+interface Ishipping{
+  setstepperActive:Function
+}
+const Shipping :React.FC<Ishipping>= ({setstepperActive}) => {
+  const history= useHistory() 
     return (
         <div>
           <h2 className='text-black mt-4'>{"افزودن آدرس جدید"}</h2>
@@ -89,12 +94,14 @@ const Shipping = () => {
 
 </Form.Group>    
                 </Col>
-                <Button style={{backgroundColor:'#56B68B',border:'none'}} variant="primary" className='my-4' size="lg">
+                <Button style={{backgroundColor:'#56B68B',border:'none'}} 
+                 onClick={()=>{history.push('/shopping_page/accept_info') ; setstepperActive(2)}} variant="primary" className='my-4 w-100' size="lg">
     {"ادامه خرید"}
   </Button>
-
-  <Link className='mb-4' to='/basket' > <BsArrowRight style={{fontSize:'2rem'}}/> {"بازگشت به سبد خرید"} </Link>
-
+<div className='mb-4'>
+                <Link className='mb-5' to='/basket' > <BsArrowRight style={{fontSize:'2rem'}}/> {"بازگشت به سبد خرید"} </Link>
+                </div>
+  
         </div>
     )
 }
