@@ -21,7 +21,7 @@ const PrivateRoute:React.FC<IPrivatet> = ({isRequired,path,exact,Page}) => {
         
             <Route  path={path} exact={exact} render={(location)=>
        ( (!isRequired) || (   isRequired&& isLogin))? 
-        <Page/>
+        <Page {...location}/>
                   : 
                 <Redirect to='/login'
            />}/>         
