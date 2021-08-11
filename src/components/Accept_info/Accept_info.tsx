@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState, AppDispatch } from '../../store/store'
 import {Col,Button,InputGroup,FormControl} from 'react-bootstrap'
@@ -32,6 +32,10 @@ const Accept_info:React.FC<Iaccept> = ({setstepperActive}) => {
     const Basket = useSelector<RootState>(state => state.persistedReducer.BasketReducer.products)
     const username = useSelector<RootState>(state => state.persistedReducer.authReducer.UserName)
     const dispatch = useDispatch<AppDispatch>()
+    useEffect(() => {
+        setstepperActive(2)
+       }, [])
+       
     return (
         <div style={{color:'#616161'}}>
             <Col md={12} className=' my-2 d-flex flex-wrap justify-content-between'>
@@ -132,12 +136,12 @@ const Accept_info:React.FC<Iaccept> = ({setstepperActive}) => {
 
                                 <InputGroup className="mb-3 px-4">
     <FormControl
-      placeholder="اگر کد تخفیف دارید وارد کنید"
+      placeholder=" کد تخفیف  "
       aria-describedby="basic-addon2"
    
     />
     <Button variant="outline-success"  id="button-addon2" >
-      Button
+      {"اعمال کد"}
     </Button>
   </InputGroup>
 

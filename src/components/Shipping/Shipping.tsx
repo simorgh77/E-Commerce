@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React ,{useState,useEffect} from 'react'
 import { Col,Form ,Button} from 'react-bootstrap'
 import { Link} from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
@@ -8,6 +8,11 @@ interface Ishipping{
 }
 const Shipping :React.FC<Ishipping>= ({setstepperActive}) => {
   const history= useHistory() 
+
+useEffect(() => {
+ setstepperActive(1)
+}, [])
+
     return (
         <div>
           <h2 className='text-black mt-4'>{"افزودن آدرس جدید"}</h2>
@@ -95,7 +100,7 @@ const Shipping :React.FC<Ishipping>= ({setstepperActive}) => {
 </Form.Group>    
                 </Col>
                 <Button style={{backgroundColor:'#56B68B',border:'none'}} 
-                 onClick={()=>{history.push('/shopping_page/accept_info') ; setstepperActive(2)}} variant="primary" className='my-4 w-100' size="lg">
+                 onClick={()=>{history.push('/shopping_page/accept_info')}} variant="primary" className='my-4 w-100' size="lg">
     {"ادامه خرید"}
   </Button>
 <div className='mb-4'>
