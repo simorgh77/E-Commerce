@@ -11,7 +11,7 @@ const ProductsCart = ({item}:any) => {
  
   
     return (
-        <div className='w-100 h-100  d-flex product_cart' >
+        <div className='w-100 h-100  d-flex text-center product_cart' >
            <Card className='product_cart_main '  style={{
            cursor:'pointer',minHeight:'18rem',backgroundColor:"transparent",border:'none'}} 
            onClick={()=>history.push(`/Product_Details${item.id}`)}>
@@ -34,7 +34,7 @@ const ProductsCart = ({item}:any) => {
     </Card.Text>
 
 
-    <div className='d-flex justify-content-between mt-3 w-100'>
+    <div className='d-flex  mt-3  w-100'>
       <div className='w-100'>{Humanize.intComma(parseInt(item?.price as string))}{"تومان"}</div>
       <div className='w-100 d-flex justify-content-center'>
  
