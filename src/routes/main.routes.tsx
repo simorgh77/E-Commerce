@@ -6,6 +6,7 @@ import  Product_Details  from "../pages/Product_Details/Product_Details"
 import  Product_Categories  from "../pages/Product_Categories/Product_Categories"
 import  Error  from "../pages/Error/Error"
 import Shopping_page from "../pages/Shopping_page/Shopping_page"
+import RegisterPage from "../pages/RegisterPage/RegisterPage"
 const routes=[
 {
     path:'/',
@@ -42,6 +43,11 @@ const routes=[
     exact:false,
     isRequired:true,
     page:Shopping_page
+},
+{
+    path:'/register',
+    exact:false,
+    page:RegisterPage
 },
 {
     path:'*',
