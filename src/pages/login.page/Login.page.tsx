@@ -5,6 +5,7 @@ import { Col,Container,Row,Form,Button } from 'react-bootstrap';
 import {RootState,AppDispatch} from '../../store/store'
 import { Login_user } from '../../store/reducers/auth.reducer/auth.reducer';
 import {useSelector,useDispatch} from 'react-redux'
+import { Link } from 'react-router-dom';
  const Login_page:React.FC<RouteComponentProps> = () => {
    const [username,setusername]=useState<string>('')
    const [password,setpassword]=useState<string>('')
@@ -55,6 +56,9 @@ import {useSelector,useDispatch} from 'react-redux'
       {'با ورود و یا ثبت نام در طه شاپ شما شرایط و قوانین استفاده از سرویس های سایت  و قوانین حریم خصوصی آن را می‌پذیرید.'}
     </Form.Text>
 </Form>
+<div className='pt-4'>
+<Link className='pt-4' to='/register'>{'ثبت نام به عنوان کاربر جدید '}</Link>
+</div>
             </div>
              
         </Col>
