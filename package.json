@@ -15,6 +15,7 @@
     "bootstrap": "5.0.2",
     "bs-stepper": "^1.7.0",
     "humanize-plus": "^1.8.2",
+    "jalali-react-datepicker": "^1.2.1",
     "jquery": "^3.6.0",
     "mdb-ui-kit": "^3.9.0",
     "node-sass": "^4.14.1",
