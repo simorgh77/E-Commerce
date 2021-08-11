@@ -34,7 +34,7 @@ const Minimize_product_basket:React.FC<IBasket> = (props) => {
    
     const handleclick=(e:any)=>{
         e.stopPropagation();
-history.push('/shopping_page')
+history.push('/shopping_page/shipping')
     }
 
     const handleDelete=(e:React.MouseEvent<SVGElement, MouseEvent> ,id:string)=>{

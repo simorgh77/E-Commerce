@@ -112,7 +112,7 @@ const Backet_product = () => {
                             </div>
 
                             <div>
-                                <Button onClick={()=>history.push('/shopping_page')} className='w-100 px-3'
+                                <Button onClick={()=>history.push('/shopping_page/shipping')} className='w-100 px-3'
                                     style={{ backgroundColor: '#EF394E', border: 'none' }}>
                                     {"اتمام خرید"}</Button>
                             </div>
