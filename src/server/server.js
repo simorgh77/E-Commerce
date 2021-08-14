@@ -7,7 +7,7 @@ const products=[
   "name": "تیشرت مردانه مدل زمستانی",
   "price": '25999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
-  "company": "adidas",
+  "brand": "adidas",
   "isexist": "موجود",
   'tag':'auction',
   "gender":"man",
@@ -20,7 +20,7 @@ const products=[
   "name": " عینک زنانه آفتابی مدل 123",
   "price": '500000',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/05.jpg",
-  "company": "adidas",
+  "brand": "adidas",
   "isexist": "ناموجود",
   "gender":"woman",
   'tag':'auction',
@@ -33,7 +33,7 @@ const products=[
   "name": "کیف مردانه مدل مدریه",
   "price": '300000',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/06.jpg",
-  "company": "adidas",
+  "brand": "adidas",
   "gender":"man",
   "isexist": "موجود",
   'tag':'auction',
@@ -46,7 +46,7 @@ const products=[
   "name": "کفش مردانه  مدل رسمی",
   "price": '250999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/01.jpg",
-  "company": "puma",
+  "brand": "puma",
   "isexist": "موجود",
   "category": "shoes",
   "tag":'amazing',
@@ -59,7 +59,7 @@ const products=[
   "name": "شلوارک لی مدل 123",
   "price": '85999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/03.jpg",
-  "company": "puma",
+  "brand": "puma",
   "isexist": "موجود",
   "category": "breeks",
   "tag":'amazing',
@@ -72,7 +72,7 @@ const products=[
   "name": "لباس راحتی مدل دخترونه",
   "price": '125999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/04.jpg",
-  "company": "tommy",
+  "brand": "tommy",
   "isexist": "موجود",
   "category": "shirt",
   "tag":'amazing',
@@ -85,7 +85,7 @@ const products=[
   "name": "کفش اسپورت مدل رنگین کمان",
   "price": '175999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/25.jpg",
-  "company": "tommy",
+  "brand": "tommy",
   "isexist": "ناموجود",
   "category": "shoes",
   "tag":'newest',
@@ -98,7 +98,7 @@ const products=[
   "name": "هودی اسپورت مدل خوب",
   "price": '95999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/20.jpg",
-  "company": "columbia",
+  "brand": "columbia",
   "isexist": "ناموجود",
   "category": "shirt",
   "rate":3.5,
@@ -111,7 +111,7 @@ const products=[
   "name": "هودی اسپورت مدل قرمز",
   "price": '110,999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
-  "company": "columbia",
+  "brand": "columbia",
   "isexist": "موجود",
   "category": "shirt",
   "rate":5,
@@ -127,7 +127,7 @@ const products=[
   "name": "هودی اسپورت مدل قرمز",
   "price": '110999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
-  "company": "columbia",
+  "brand": "nike",
   "isexist": "موجود",
   "category": "shirt",
   "rate":5,
@@ -140,7 +140,7 @@ const products=[
   "name": "هودی اسپورت مدل قرمز",
   "price": '110999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
-  "company": "columbia",
+  "brand": "columbia",
   "isexist": "موجود",
   "category": "shirt",
   "rate":5,
@@ -153,7 +153,7 @@ const products=[
   "name": "هودی اسپورت مدل قرمز",
   "price": '180999',
   "image": "https://images.unsplash.com/photo-1621951753015-740c699ab970?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHRzaGlydHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-  "company": "columbia",
+  "brand": "columbia",
   "isexist": "موجود",
   "category": "shirt",
   "rate":5,
@@ -188,7 +188,7 @@ const brands=[
   {
     id:'awesdfaytu',
     image:"https://cartzilla.createx.studio/img/shop/brands/04.png",
-    name:'clombia',
+    name:'columbia',
   },
   {
     id:'awesdfamb',
@@ -220,12 +220,12 @@ export function makeServer({environment="test"}={}){
 
       products.map(item=>{
         server.create("product", {id:item.id, number:item.number, name: item.name, price: item.price,category:item.category,
-          isexist:item.isexist,tag:item.tag, image:item.image,company:item.company,gender:item.gender,rate:item.rate})
+          isexist:item.isexist,tag:item.tag, image:item.image,brand:item.brand,gender:item.gender,rate:item.rate})
           
         })
       products.map(item=>{
         server.create("singleproduct", {id:item.id, number:item.number, name: item.name, price: item.price,category:item.category,
-          isexist:item.isexist,tag:item.tag, image:item.image,company:item.company,gender:item.gender,rate:item.rate})
+          isexist:item.isexist,tag:item.tag, image:item.image,brand:item.brand,gender:item.gender,rate:item.rate})
           
         })
       brands.map(item=>{
@@ -244,9 +244,11 @@ export function makeServer({environment="test"}={}){
         return schema.brands.all()
     })
       this.get("/products/:category", (schema, request) => {
-        let category=request.params.category
-        let data=products.filter(item=>item.gender==category)
-         return  data
+        const {category,varient}=request.queryParams;
+ 
+        console.log(varient)
+        let data=products.filter(item=>item[category]===varient)
+         return data
       })
       this.get("/singleproduct/:id", (schema, request) => {
         let id=request.params.id
