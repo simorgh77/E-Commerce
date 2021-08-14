@@ -50,6 +50,11 @@ const categories=[
   }
 ]
 
+const galary_of_product=[
+  {
+
+  }
+]
 interface IFilter{
   category:string,
   varient:string
@@ -134,7 +139,7 @@ const Home_page = () => {
             <div className="new_arrival d-flex flex-column mt-5 w-100  my-5">
             <span className=' bg-info text-center '
              style={{fontSize:'3rem'}}>{"جدیدترین ها "} </span>
-              <Col xs={12} className='bg-white 'style={{height:'80%'}} >    
+              <Col xs={12} className='bg-white'style={{height:'80%'}} >    
     <CategoriesSwiper filter={{category:'tag',kind:'newest'}}  varient={true}/>
               </Col>
               </div>
@@ -147,28 +152,28 @@ const Home_page = () => {
     
   <Col xs={12} md={4} className='products_galary'>
 <img src={pant} className='img-fluid w-100' alt="pant photo"
- style={{height:'50vh'}} />
+ style={{height:'50vh'}}  onClick={()=>{history.push(`/Product_Categoriespant?category=category&varient=pant`)}}/>
   </Col>
   <Col xs={12} md={8} className='d-flex'>
   <div className='w-100 '>
   <Col xs={3} md={2} className='w-100 products_galary'>
   <img src={scarf} className='img-fluid w-100' alt="pant photo"
- style={{height:'25vh'}} />
+ style={{height:'25vh'}}  onClick={()=>{history.push(`/Product_Categoriescap?category=category&varient=cap`)}}/>
   </Col>
   <Col xs={3} md={2} className='w-100 products_galary'>
   <img src={Tshirt} className='img-fluid w-100' alt="pant photo"
- style={{height:'25vh'}} />
+ style={{height:'25vh'}}  onClick={()=>{history.push(`/Product_Categoriesshirt?category=category&varient=shirt`)}}/>
   </Col>
   </div>
 
   <div className='w-100 '>
   <Col xs={3} md={2} className='w-100 products_galary'>
   <img src={shoe} className='img-fluid w-100' alt="pant photo"
- style={{height:'25vh'}} />
+ style={{height:'25vh'}}  onClick={()=>{history.push(`/Product_Categoriesshoes?category=category&varient=shoes`)}}/>
   </Col>
   <Col xs={3} md={2} className='w-100 products_galary'>
   <img src={glass} className='img-fluid w-100' alt="pant photo"
- style={{height:'25vh'}} />
+ style={{height:'25vh'}}  onClick={()=>{history.push(`/Product_Categoriesglass?category=category&varient=glass`)}}/>
   </Col>
   </div>
 
