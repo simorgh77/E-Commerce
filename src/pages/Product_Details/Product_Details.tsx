@@ -35,11 +35,16 @@ const [Buybutton, setBuybutton] = useState<boolean>(false)
   const[Singleproduct,setSingleproduct]=useState<IProducts>()
   const {id}= useParams <{id:string}>()
   const [Categoriesproducts, setCategoriesproducts]=useState<IProducts[]>()
+  const [filter,setfilter]=useState({
+    category:'',
+    varient:''
+  }) 
   
 useEffect(() => {
   async function fetchsingleData() {
     await axios.get(`api/singleproduct/${id}`).then(res => {
       setSingleproduct(res.data.product)
+      setfilter({category:'category',varient:`${Singleproduct?.category}`})
       console.log(res.data);
       
     }).catch(err => {
@@ -162,9 +167,9 @@ Singleproduct &&dispatch(AddTobasket(Singleproduct))
                  {'محصولات مرتبط'}
              </div>
              
-              
-                <CategoriesSwiper varient={true} filter={Singleproduct?.category}/>
-
+              <div className='bg-white'>
+                <CategoriesSwiper varient={true} filter={{category:'category',kind:`${Singleproduct?.category}`}}/>
+                </div>
               
              
              </Col>

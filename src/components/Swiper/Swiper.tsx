@@ -17,12 +17,16 @@ interface IProducts{
     gender:string,
     tag:string
 }
+interface IFilter{
+  category:string
+  kind:string
+}
 type ISlide={
-filter:string|undefined
+  filter:IFilter|undefined
 varient:boolean|undefined
 }
-interface AgeMap {
-    [name: string]: number
+interface IObjectKeys {
+  [key: string]: IProducts[];
 }
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -42,6 +46,8 @@ const MySwiper:React.FC<ISlide> =({filter,varient}) => {
   fetchData()
 }, [])
 
+console.log(filter);
+
   return (
     <Swiper
     spaceBetween={window.innerWidth < 500 ? 2: 0}
@@ -55,17 +61,14 @@ const MySwiper:React.FC<ISlide> =({filter,varient}) => {
 
        {
          Products?.map((item,index)=>(
-           !varient? item.gender===filter&& 
-           
+           item[filter?.category as keyof IProducts]===filter?.kind as string&& 
+             
+        //  item[filter?.category as keyof IProducts] ===filter&&
            <SwiperSlide  className='swiperslide  d-flex h-100 ' >
             
    <ProductsCart key={index} item={item}/>
          </SwiperSlide>
-         :
-   item.tag ===filter&&
-         <SwiperSlide  className='swiperslide  d-flex h-100 ' >
-   <ProductsCart key={index} item={item}/>
-         </SwiperSlide>
+   
          ))
         }
       

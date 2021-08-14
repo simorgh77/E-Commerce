@@ -18,6 +18,10 @@ interface IProducts {
   category: string,
   gender:string
 }
+interface IFilter{
+  category:string
+  kind:string
+}
 interface Icategory{
     item?:{    
     category:string
@@ -27,7 +31,7 @@ interface Icategory{
     rtl:boolean
 },
 varient?:boolean
-filter?:string
+filter?:IFilter
 }
 const CategoriesSwiper:React.FC<Icategory|undefined> = (props) => {
 const history=useHistory();
@@ -57,7 +61,7 @@ if(!props.varient){   return (
                   </Col>
  
                   <Col  xs={12} md={9}  className='swiper d-flex align-items-end justify-content-center '>
-    <MySwiper varient={props.varient} filter={props.item?.category}/>     
+    <MySwiper varient={props.varient} filter={props.filter}/>     
                   </Col>  
 
             </>

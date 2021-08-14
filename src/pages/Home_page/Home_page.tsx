@@ -103,7 +103,7 @@ const Home_page = () => {
                 {categories.map((item,index)=>(
 
                   <CategoriesSwiper 
-                   item={item} key={index}/>
+                   item={item} key={index} filter={{category:'gender',kind:`${item.category}`}}/>
                   
                 ))}
                   
@@ -117,7 +117,8 @@ const Home_page = () => {
 
    { brands?.map((item:IBrands)=>(
    <Col xs={6} md={3} className='d-flex m-md-0 justify-content-around 
-   align-content-around flex-wrap' onClick={()=>{history.push(`/Product_Categories${item.name}?category=brand&varient=${item.name}`)}}>
+   align-content-around flex-wrap' onClick={()=>{history.push(`/Product_Categories${item.name}
+   ?category=brand&varient=${item.name}`)}}>
    
      <Brands src={item.image} />
      
@@ -134,7 +135,7 @@ const Home_page = () => {
             <span className=' bg-info text-center '
              style={{fontSize:'3rem'}}>{"جدیدترین ها "} </span>
               <Col xs={12} className='bg-white 'style={{height:'80%'}} >    
-    <CategoriesSwiper filter={"newest"}  varient={true}/>
+    <CategoriesSwiper filter={{category:'tag',kind:'newest'}}  varient={true}/>
               </Col>
               </div>
 
@@ -178,7 +179,7 @@ const Home_page = () => {
             <div className="w-100 d-flex flex-column Best_selllers my-5">
             <span className='bg-info text-center ' style={{fontSize:'3rem'}}>{"شگفت انگیز"}</span>  
               <Col xs={12} className='bg-white 'style={{height:'80%'}} >    
-    <CategoriesSwiper  filter={"amazing"}  varient={true}/>
+    <CategoriesSwiper  filter={{category:'tag',kind:'amazing'}}  varient={true}/>
               </Col>
             </div>
 
@@ -189,10 +190,10 @@ const Home_page = () => {
              <div className="offer_of_day d-flex flex-column">
              <span className='bg-info text-center ' style={{fontSize:'3rem'}}>{"حراج روز"}</span>  
               <Col xs={12} className='bg-white 'style={{height:'80%'}} >    
-    <CategoriesSwiper  filter={"auction"} varient={true}/>
+    <CategoriesSwiper  filter={{category:'tag',kind:'auction'}
+} varient={true}/>
               </Col>
              </div>
-
 
 </Row>
 </Container>
