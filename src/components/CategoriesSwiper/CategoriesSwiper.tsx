@@ -30,8 +30,6 @@ varient?:boolean
 filter?:string
 }
 const CategoriesSwiper:React.FC<Icategory|undefined> = (props) => {
-console.log(props.filter);
-
 const history=useHistory();
 
 if(!props.varient){   return (
@@ -46,7 +44,8 @@ if(!props.varient){   return (
                       <div className='gendere_btn'>
                         <Button className={`for${props.item?.category}_btn w-100 rounded-0`} 
                         style={{backgroundColor:props.item?.btn_color,border:'none'}}
-                        variant="outline-secondary" onClick={()=>history.push(`Product_Categories${props.item?.category}`)}>
+                        variant="outline-secondary"
+                         onClick={()=>history.push(`Product_Categories${props.item?.category}?category=gender&varient=${props.item?.category}`)}>
                           {props.item?.description} <BsChevronCompactLeft />
                           </Button>
                       </div>
