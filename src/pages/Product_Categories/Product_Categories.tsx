@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import { Pagination ,Col,Container,Row,Navbar,Nav,NavDropdown,Form} from 'react-bootstrap'
 import ProductCart from "../../components/ProductsCart/ProductsCart"
-import {useParams,Link} from "react-router-dom"
+import {useParams,Link, useLocation} from "react-router-dom"
 import axios from "axios"
 import { BsFilterRight } from "react-icons/bs";
 import "./Product_categories.style.css"
+import CategoryHook from '../../components/customHooks/CategorieHook'
 interface IProducts{
   id: string,
   name: string,
@@ -22,20 +23,11 @@ interface IProducts{
 
 const Product_Categories = () => {
 const {caregories} =useParams<{caregories:string}>()
+const query=useLocation().search
 
+const [Products,setProducts]= CategoryHook('api/products',caregories,query)
 const [Categoriesproducts, setCategoriesproducts]=useState<IProducts[]>()
-
-useEffect(() => {
-  async function fetchCategoriesData() {
-    await axios.get(`api/products/${caregories}`).then(res => {
-      setCategoriesproducts(res.data)
-    }).catch(err => {
-      console.log(err);
-    })
-    
-  }
-  fetchCategoriesData()
-}, [caregories])
+console.log(Products)
 
     return (
 <Container className=' ' fluid>
@@ -94,11 +86,14 @@ useEffect(() => {
 </Navbar>
  </Col >
  <Col md={10} className='d-flex flex-wrap bg-white w-100'>
- {Categoriesproducts?.map((item,index)=>(
-<Col xs={12} md={3} className='d-flex p-3'>
-   <ProductCart item={item}/>
-   </Col>
- ))}
+ {
+ Products&& (Products as unknown as IProducts[]).map((item,index)=>(
+ <Col xs={12} md={3} className='d-flex p-3'>
+    <ProductCart item={item}/>
+    </Col>
+  ))
+
+}
  
 
  </Col>
@@ -133,6 +128,10 @@ export default Product_Categories
 
 
 
+
+function useQuery(): any {
+  throw new Error('Function not implemented.')
+}
 // const style={
 //     width:"20vw",
 //     height:"60%",

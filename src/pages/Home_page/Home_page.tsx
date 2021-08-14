@@ -17,6 +17,7 @@ import shoe from "../../assest/img/shoe.jpg"
 import glass from "../../assest/img/glass.jpg"
 import CategoriesSwiper from "../../components/CategoriesSwiper/CategoriesSwiper";
 import categoriesSwiper from "../../components/CategoriesSwiper/CategoriesSwiper";
+import CategorieHook from "../../components/customHooks/CategorieHook";
 import axios from "axios";
 const categories=[
     {
@@ -48,6 +49,11 @@ const categories=[
       rtl:false
   }
 ]
+
+interface IFilter{
+  category:string,
+  varient:string
+}
 interface IProducts {
     id: string,
     name: string,
@@ -69,6 +75,7 @@ interface IBrands{
 const Home_page = () => {
   const history = useHistory()
   const [Products, setProducts] = useState<IProducts[]>()
+  const [Productfilter,setProductfilter]=useState<IFilter>()
   const [brands, setbrands] = useState<IBrands[]>()
   useEffect(() => {
 
@@ -110,7 +117,7 @@ const Home_page = () => {
 
    { brands?.map((item:IBrands)=>(
    <Col xs={6} md={3} className='d-flex m-md-0 justify-content-around 
-   align-content-around flex-wrap' onClick={()=>history.push(`/Product_Categories${item.name}`)}>
+   align-content-around flex-wrap' onClick={()=>{history.push(`/Product_Categories${item.name}?category=brand&varient=${item.name}`)}}>
    
      <Brands src={item.image} />
      
