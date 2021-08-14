@@ -3,11 +3,16 @@ import { Col,Form ,Button} from 'react-bootstrap'
 import { Link} from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import { useHistory } from 'react-router';
+import { Options } from 'react-redux';
+const { shahr, ostan } = require('iran-cities-json');
 interface Ishipping{
   setstepperActive:Function
 }
 const Shipping :React.FC<Ishipping>= ({setstepperActive}) => {
   const history= useHistory() 
+
+const [city,setcity]=useState()
+console.log(city);
 
 useEffect(() => {
  setstepperActive(1)
@@ -22,11 +27,15 @@ useEffect(() => {
 
                 <Col xs={12} md={6} className='px-4'>
 
-  <Form.Select className="mt-5 "  aria-label="Default select example">
+  <Form.Select className="mt-5 "  aria-label="Default select example"
+   onChange={(e:any)=>setcity((e.target).value)}>
   <option>{'استان را مشخص کنید'}</option>
-  <option value="1">{"کرمان"}</option>
-  <option value="2">{"تهران"}</option>
-  <option value="3">{"مشهد"}</option>
+
+{
+  ostan.map((item:any,index:number)=>(
+    <option value={item.id}>{item.name}</option>
+  ))
+      }
   </Form.Select>
  
 
@@ -37,9 +46,11 @@ useEffect(() => {
                 <Form.Select className="mt-5  "  aria-label="Default select example">
                   
   <option>{'شهر را مشخص کنید'}</option>
-  <option value="1">{"رفسنحان"}</option>
-  <option value="2">{"سیرجان"}</option>
-  <option value="3">{"بم"}</option>
+  {shahr.map((item:any,index:number)=>(
+
+ item.ostan==city&& <option value={item.id}>{item.name}</option>
+  ))}
+ 
   </Form.Select>
  
 
