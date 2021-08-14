@@ -63,7 +63,6 @@ console.log(filter);
          Products?.map((item,index)=>(
            item[filter?.category as keyof IProducts]===filter?.kind as string&& 
              
-        //  item[filter?.category as keyof IProducts] ===filter&&
            <SwiperSlide  className='swiperslide  d-flex h-100 ' >
             
    <ProductsCart key={index} item={item}/>

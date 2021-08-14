@@ -76,7 +76,7 @@ Singleproduct &&dispatch(AddTobasket(Singleproduct))
  
     return (
         <div className='mt-5'>
-             <div className='header text-center text-white '>
+             <div className='header text-center pt-4 text-white '>
                 <p>{Singleproduct?.name}</p>
              </div>
          <Container  className=''>
@@ -84,29 +84,18 @@ Singleproduct &&dispatch(AddTobasket(Singleproduct))
             <Col md={12} className='bg-white d-flex 
             flex-wrap justify-content-between first-col'>
               <Col xs={12} md={4}>
-              <Carousel variant='dark'>
-  <Carousel.Item >
+             
+
     <img
       className="d-block w-100"
       src={Singleproduct?.image}
       alt="First slide"
     />
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={Singleproduct?.image}
-      alt="Second slide"
-    />
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={Singleproduct?.image}
-      alt="Third slide"
-    />
-  </Carousel.Item>
-</Carousel>
+    <div className='d-flex'>
+<div className='shadowpic'> <img className='img-fluid' src={Singleproduct?.image} alt="" /> </div>
+<div className='shadowpic'> <img className='img-fluid' src={Singleproduct?.image} alt="" /></div>
+<div className='shadowpic'><img className='img-fluid' src={Singleproduct?.image} alt="" /> </div>
+</div>
               </Col>
 
 
