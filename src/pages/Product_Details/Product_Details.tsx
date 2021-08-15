@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, ChangeEvent} from 'react'
 import { useParams } from 'react-router'
 import "./Product_Details.style.css"
 import { Container,Row,Col,Carousel,Button,Form,Image} from 'react-bootstrap'
@@ -12,6 +12,7 @@ import { TypedUseSelectorHook} from 'react-redux'
 import {RootState,AppDispatch} from '../../store/store'
 import { AiOutlineCheck } from "react-icons/ai";
 import Humanize from "humanize-plus"
+
 interface IProducts{
     id: string,
     name: string,
@@ -26,6 +27,7 @@ interface IProducts{
     gender:string,
     tag:string
     number:number
+    offpercent:number
 }
 
 const Product_Details = () => {
@@ -67,13 +69,12 @@ useEffect(() => {
 }, [id])
 
 
-
 const handle_add_to_bascket=()=>{
   setBuybutton(true)
 Singleproduct &&dispatch(AddTobasket(Singleproduct))
 
 }
- 
+
     return (
         <div className='mt-5'>
              <div className='header text-center pt-4 text-white '>
@@ -84,16 +85,21 @@ Singleproduct &&dispatch(AddTobasket(Singleproduct))
             <Col md={12} className='bg-white d-flex 
             flex-wrap justify-content-between first-col'>
               <Col xs={12} md={4}>
-             
 
+   
     <img
       className="d-block w-100"
       src={Singleproduct?.image}
       alt="First slide"
-    />
+    
+    /> 
+      
+
+
     <div className='d-flex'>
 <div className='shadowpic'> <img className='img-fluid' src={Singleproduct?.image} alt="" /> </div>
 <div className='shadowpic'> <img className='img-fluid' src={Singleproduct?.image} alt="" /></div>
+<div className='shadowpic'><img className='img-fluid' src={Singleproduct?.image} alt="" /> </div>
 <div className='shadowpic'><img className='img-fluid' src={Singleproduct?.image} alt="" /> </div>
 </div>
               </Col>
@@ -137,7 +143,7 @@ Singleproduct &&dispatch(AddTobasket(Singleproduct))
                  <div>{"گارانتی اصالت و سلامت فیزیکی کالا"}</div>
                  <div>{" 40 درصد رضایت خریداران"}</div>
                  <div>{"وضعیت انبار :"}{Singleproduct?.isexist}</div>
-                 <div>{Humanize.intComma(parseInt(Singleproduct?.price as string))} {'تومان'}</div>
+                 <div style={{color:'red',textDecoration:'line-through',fontSize:'15px'}}>{Humanize.intComma(parseInt(Singleproduct?.price as string))} {'تومان'}</div>
 
 
                { !Buybutton?<div><Button  onClick={handle_add_to_bascket}

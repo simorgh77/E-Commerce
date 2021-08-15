@@ -15,7 +15,8 @@ interface IProducts{
     description:string ,
     category:string,
     gender:string,
-    tag:string
+    tag:string,
+    offpercent:number
 }
 interface IFilter{
   category:string

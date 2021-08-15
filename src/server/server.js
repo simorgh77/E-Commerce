@@ -13,7 +13,8 @@ const products=[
   "gender":"man",
   "category": "shirt",
   "rate":5,
-  "number":1
+  "number":1,
+  'offpercent':25
   },
   {
   "id": "sdafsadga",
@@ -26,7 +27,8 @@ const products=[
   'tag':'auction',
   "category": "glass",
   "rate":3.5,
-  "number":1
+  "number":1,
+  'offpercent':10
   },
   {
   "id": "dsfhdsh",
@@ -39,7 +41,8 @@ const products=[
   'tag':'auction',
   "category": "bag",
   "rate":4,
-  "number":1
+  "number":1,
+  'offpercent':5
   },
   {
   "id": "safdgsdfhgdsf",
@@ -52,7 +55,8 @@ const products=[
   "tag":'amazing',
   "rate":4.5,
   "gender":"man",
-  "number":1
+  "number":1,
+  'offpercent':55
   },
   {
   "id": "arqwefxzcvxvb",
@@ -65,7 +69,8 @@ const products=[
   "tag":'amazing',
   "rate":3.5,
   "gender":"woman",
-  "number":1
+  "number":1,
+  'offpercent':65
   },
   {
   "id": "arqwefxzcdsfvxvb",
@@ -78,7 +83,8 @@ const products=[
   "tag":'amazing',
   "rate":4,
   "gender":"woman",
-  "number":1
+  "number":1,
+  'offpercent':2
   },
   {
   "id": "arqwefsadxzcdsfvxvb",
@@ -91,7 +97,8 @@ const products=[
   "tag":'newest',
   "rate":3,
   "gender":"woman",
-  "number":1
+  "number":1,
+  'offpercent':12
   },
   {
   "id": "arqwefsdsfadxzcdsfvxvb",
@@ -104,7 +111,8 @@ const products=[
   "rate":3.5,
   "tag":'newest',
   "gender":"man",
-  "number":1
+  "number":1,
+  'offpercent':18
   },
   {
   "id": "arqwefsdsfasdfdxzcdsfvxvb",
@@ -117,7 +125,8 @@ const products=[
   "rate":5,
   "tag":'newest',
   "gender":"man",
-  "number":1
+  "number":1,
+  'offpercent':69
   },
 
 
@@ -133,7 +142,8 @@ const products=[
   "rate":5,
   "tag":'newest',
   "gender":"kid",
-  "number":1
+  "number":1,
+  'offpercent':25
   },
   {
   "id": "fdsajkasdf",
@@ -146,7 +156,8 @@ const products=[
   "rate":5,
   "tag":'newest',
   "gender":"baby",
-  "number":1
+  "number":1,
+  'offpercent':35
   },
   {
   "id": "fdsajsdfasdfkasdf",
@@ -159,7 +170,8 @@ const products=[
   "rate":5,
   "tag":'newest',
   "gender":"man",
-  "number":1
+  "number":1,
+  'offpercent':45
   },
   
   ]
@@ -220,12 +232,12 @@ export function makeServer({environment="test"}={}){
 
       products.map(item=>{
         server.create("product", {id:item.id, number:item.number, name: item.name, price: item.price,category:item.category,
-          isexist:item.isexist,tag:item.tag, image:item.image,brand:item.brand,gender:item.gender,rate:item.rate})
+          isexist:item.isexist,tag:item.tag,offpercent:item.offpercent, image:item.image,brand:item.brand,gender:item.gender,rate:item.rate})
           
         })
       products.map(item=>{
         server.create("singleproduct", {id:item.id, number:item.number, name: item.name, price: item.price,category:item.category,
-          isexist:item.isexist,tag:item.tag, image:item.image,brand:item.brand,gender:item.gender,rate:item.rate})
+          isexist:item.isexist,offpercent:item.offpercent,tag:item.tag, image:item.image,brand:item.brand,gender:item.gender,rate:item.rate})
           
         })
       brands.map(item=>{

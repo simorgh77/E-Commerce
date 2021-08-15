@@ -24,19 +24,26 @@ const ProductsCart = ({item}:any) => {
   <Card.Body className='d-flex w-100 h-50 flex-column justify-content-between '>
     <Card.Title >{item.name}</Card.Title>
   
-    <Card.Text className=' w-100  d-flex justify-content-between'>
-      <div className='w-100'>
+    <Card.Text className=' w-100  d-flex flex-column justify-content-around'>
+      <div className='w-100 mb-2'>
      {item.isexist}
      </div>
-     
+     <div className='p-2 mx-auto' style={{backgroundColor:'red',color:'white',fontSize:'14px' ,width:'42px',borderRadius:'100%'}}>
+       {'%'+item.offpercent}
+     </div>
+       <div className=' mt-2 ' style={{color:'gray',textDecoration:'line-through red'}}>{Humanize.intComma(parseInt(item?.price as string))}{"تومان"}</div>
   
 
     </Card.Text>
 
 
     <div className='d-flex  mt-3  w-100'>
-      <div className='w-100'>{Humanize.intComma(parseInt(item?.price as string))}{"تومان"}</div>
-      <div className='w-100 d-flex justify-content-center'>
+      <div className='price w-100'>
+    
+      <div className='w-100'>{Humanize.intComma(parseInt(item?.price as string)-(parseInt(item?.price as string)*parseInt(item.offpercent)/100))}{"تومان"}</div>
+
+      </div>
+      <div className='w-100 d-flex justify-content-center align-items-end'>
  
  {item.rate}
   <BsStarFill style={{fill:'#FEA569'}  } /> 
