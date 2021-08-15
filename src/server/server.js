@@ -4,7 +4,7 @@ import { createServer ,Model} from "miragejs"
 const products=[
   {
   "id": "abcdefghi",
-  "name": "تیشرت مردانه مدل زمستانی",
+  "name": "هودی مردانه مدل زمستانی",
   "price": '25999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/02.jpg",
   "brand": "adidas",
@@ -14,7 +14,8 @@ const products=[
   "category": "shirt",
   "rate":5,
   "number":1,
-  'offpercent':25
+  'offpercent':25,
+  'description':" هودی ارزان مردانه مناسب زمستان ومجالس"
   },
   {
   "id": "sdafsadga",
@@ -28,11 +29,12 @@ const products=[
   "category": "glass",
   "rate":3.5,
   "number":1,
-  'offpercent':10
+  'offpercent':10,
+  'description':"عینک آفتابی مناسب کلاس گذاشتن"
   },
   {
   "id": "dsfhdsh",
-  "name": "کیف مردانه مدل مدریه",
+  "name": "کیف مردانه مدل مدرسه",
   "price": '300000',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/06.jpg",
   "brand": "adidas",
@@ -42,8 +44,9 @@ const products=[
   "category": "bag",
   "rate":4,
   "number":1,
-  'offpercent':5
-  },
+  'offpercent':5,
+
+'description':"کیف مناسب مدرسه و دانشگاه"},
   {
   "id": "safdgsdfhgdsf",
   "name": "کفش مردانه  مدل رسمی",
@@ -56,7 +59,8 @@ const products=[
   "rate":4.5,
   "gender":"man",
   "number":1,
-  'offpercent':55
+  'offpercent':55,
+  'description':"کفش مردانه بسیار زیبا مناسب پیاده روی",
   },
   {
   "id": "arqwefxzcvxvb",
@@ -70,11 +74,12 @@ const products=[
   "rate":3.5,
   "gender":"woman",
   "number":1,
-  'offpercent':65
+  'offpercent':65,
+  'description':"شلوارک زنانه تحریک آمیز مناسب دلبری",
   },
   {
   "id": "arqwefxzcdsfvxvb",
-  "name": "لباس راحتی مدل دخترونه",
+  "name": "لباس  مدل دخترونه",
   "price": '125999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/04.jpg",
   "brand": "tommy",
@@ -84,8 +89,9 @@ const products=[
   "rate":4,
   "gender":"woman",
   "number":1,
-  'offpercent':2
-  },
+  'offpercent':2,
+'description':"لباس دخترانه زیبا مناسب قر دادن"
+},
   {
   "id": "arqwefsadxzcdsfvxvb",
   "name": "کفش اسپورت مدل رنگین کمان",
@@ -98,7 +104,8 @@ const products=[
   "rate":3,
   "gender":"woman",
   "number":1,
-  'offpercent':12
+  'offpercent':12,
+  'description':"کفش رنگین کمانی مناسب مجالس لهو و لعب"
   },
   {
   "id": "arqwefsdsfadxzcdsfvxvb",
@@ -112,12 +119,13 @@ const products=[
   "tag":'newest',
   "gender":"man",
   "number":1,
-  'offpercent':18
+  'offpercent':18,
+  'description':"هودی اسپورت مناسب مخ زنی"
   },
   {
   "id": "arqwefsdsfasdfdxzcdsfvxvb",
   "name": "هودی اسپورت مدل قرمز",
-  "price": '110,999',
+  "price": '110999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
   "brand": "columbia",
   "isexist": "موجود",
@@ -126,7 +134,8 @@ const products=[
   "tag":'newest',
   "gender":"man",
   "number":1,
-  'offpercent':69
+  'offpercent':24,
+  'description':"هودی جذاب برای آقایان با سلیقه"
   },
 
 
@@ -143,7 +152,8 @@ const products=[
   "tag":'newest',
   "gender":"kid",
   "number":1,
-  'offpercent':25
+  'offpercent':25,
+  'description':"هودی جذاب برای آقایان با سلیقه"
   },
   {
   "id": "fdsajkasdf",
@@ -157,7 +167,8 @@ const products=[
   "tag":'newest',
   "gender":"baby",
   "number":1,
-  'offpercent':35
+  'offpercent':35,
+  'description':"هودی جذاب برای آقایان با سلیقه"
   },
   {
   "id": "fdsajsdfasdfkasdf",
@@ -171,7 +182,8 @@ const products=[
   "tag":'newest',
   "gender":"man",
   "number":1,
-  'offpercent':45
+  'offpercent':45,
+  'description':"هودی جذاب برای آقایان با سلیقه"
   },
   
   ]
@@ -232,12 +244,12 @@ export function makeServer({environment="test"}={}){
 
       products.map(item=>{
         server.create("product", {id:item.id, number:item.number, name: item.name, price: item.price,category:item.category,
-          isexist:item.isexist,tag:item.tag,offpercent:item.offpercent, image:item.image,brand:item.brand,gender:item.gender,rate:item.rate})
+          isexist:item.isexist,description:item.description,tag:item.tag,offpercent:item.offpercent, image:item.image,brand:item.brand,gender:item.gender,rate:item.rate})
           
         })
       products.map(item=>{
         server.create("singleproduct", {id:item.id, number:item.number, name: item.name, price: item.price,category:item.category,
-          isexist:item.isexist,offpercent:item.offpercent,tag:item.tag, image:item.image,brand:item.brand,gender:item.gender,rate:item.rate})
+          isexist:item.isexist,description:item.description,offpercent:item.offpercent,tag:item.tag, image:item.image,brand:item.brand,gender:item.gender,rate:item.rate})
           
         })
       brands.map(item=>{
