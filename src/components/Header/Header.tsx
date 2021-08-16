@@ -16,6 +16,7 @@ import { BsPersonFill } from "react-icons/bs";
 import { BsChevronDown } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { AiOutlineShop } from "react-icons/ai";
+import taha from '../../assest/img/brand.png'
 import {Logout_user} from "../../store/reducers/auth.reducer/auth.reducer"
 interface  Ichild{
   children: React.ReactNode
@@ -47,8 +48,8 @@ export const Header:React.FC<Ichild> = ({children}) => {
         <Navbar className='myNavbar' expand="lg" >
       <div className='container-fluid align-items-center '>
       <Navbar.Brand href="#" >
-     <img style={{width:'5rem',marginTop:'-25px'}} 
-     src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Taha.svg" alt="" />
+     <img style={{width:'10rem',marginTop:'-25px'}} 
+     src={taha} alt="" />
       </Navbar.Brand>
   <Navbar.Toggle aria-controls="navbarScroll" />
   <Navbar.Collapse id="navbarScroll" className='justify-content-end'>

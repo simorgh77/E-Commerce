@@ -24,7 +24,7 @@ const Mycarousel= () => {
 <h3>
   {"عجله کن ! وقت تمام شد"}
 </h3>
-<h2>
+<h2 className='text-white'>
 {"لباس های زنانه حراج شد"}
 </h2>
     <span>
@@ -58,7 +58,7 @@ const Mycarousel= () => {
 <h3>
   {"عجله کن ! وقت تمام شد"}
 </h3>
-<h2>
+<h2 className='text-white'>
 {"لباس های زنانه حراج شد"}
 </h2>
 <input type="button" value="خرید لباس" className='btn-buy'/>
@@ -83,7 +83,7 @@ const Mycarousel= () => {
 <h3>
   {"عجله کن ! وقت تمام شد"}
 </h3>
-<h2>
+<h2 className='text-white'>
 {"لباس های زنانه حراج شد"}
 </h2>
 <input type="button" value="خرید لباس" className='btn-buy'/>

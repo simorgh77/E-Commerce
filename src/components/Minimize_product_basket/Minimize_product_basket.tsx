@@ -23,7 +23,7 @@ interface IProducts{
     tag:string,
     number:number
 }
-interface IBasket{
+interface IBasket{ 
     sethover_basket:Function
 }
 
@@ -49,7 +49,7 @@ history.push('/shopping_page/shipping')
                 <Row onMouseEnter={() => props.sethover_basket(true)}
                 
     onMouseLeave={() => props.sethover_basket(false)}>
-        <Link to='/basket'>{"مشاهده سبد خرید"}</Link>
+        <Link to='/basket' style={{color:'blue'}}>{"مشاهده سبد خرید"}</Link>
            {(Basket as IProducts[]).map(item=>(
 <div className='d-flex align-items-center basket-singel-product'>
                <img src={item.image} className='avatar avatar-12 img-circle img-thumbnail' 

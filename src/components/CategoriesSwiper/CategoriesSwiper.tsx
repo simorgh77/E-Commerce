@@ -55,7 +55,7 @@ if(!props.varient){   return (
                       </div>
                       <div className='w-100 ' >
                         <img src={props.item?.image} alt={`for${props.item?.category}`}
-                        className='w-100 img-fluid'style={{height:'43.5vh'}} /> 
+                        className='w-100 img-fluid'style={{height:'54.5vh'}} /> 
                       </div>
                     </div>
                   </Col>
