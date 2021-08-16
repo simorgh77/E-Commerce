@@ -16,9 +16,9 @@ const history=useHistory()
 
         <div>
             <Nav >
-  <Nav.Item className="dropdown">
+  <Nav.Item className="dropdown ">
   <NavDropdown id="dropdown-button dropdown"
-   title="جدید ترین ها" className="btn hover" show={newestShow}
+   title="جدید ترین ها" className="btn hover text-end" show={newestShow}
    onMouseEnter={()=>setnewestShow(true)}
    onMouseLeave={()=>setnewestShow(false)} >
   <Dropdown.Item onClick={()=>history.push

@@ -2,7 +2,7 @@
     background-color: white;
     position: absolute;
     top:100%;
-    left:-10rem;
+    left:0vw;
     min-width: 16rem;
     border-radius: 5px;
     min-height: 10rem;
@@ -14,7 +14,7 @@
 }
 
 .basket-mini img{
-    width: 50%;
+    width: 60%;
     border: none;
 }
 .basket-mini p{
