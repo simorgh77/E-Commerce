@@ -1,5 +1,7 @@
 
+import { request } from "http"
 import { createServer ,Model} from "miragejs"
+import { useParams } from "react-router"
 
 const products=[
   {
@@ -230,7 +232,15 @@ const brands=[
     name:'adidas',
   },
 ]
-
+const auth=[
+  {
+    username:'taha',
+    password:'1234',
+    role:'admin',
+    toke:'1234',
+    refreshtoken:'1234'
+  }
+]
 
 export function makeServer({environment="test"}={}){
   let server=createServer({
@@ -238,10 +248,14 @@ export function makeServer({environment="test"}={}){
     models:{
       product:Model,
       brand:Model,
-      singleproduct:Model
+      singleproduct:Model,
+      auth:Model
     },
     seeds(server) {
-
+auth.map(item=>{
+  server.create('auth',{username:item.username,password:item.password,role:item.role
+    ,toke:item.toke,refreshtoken:item.refreshtoken})
+})
       products.map(item=>{
         server.create("product", {id:item.id, number:item.number, name: item.name, price: item.price,category:item.category,
           isexist:item.isexist,description:item.description,tag:item.tag,offpercent:item.offpercent, image:item.image,brand:item.brand,gender:item.gender,rate:item.rate})
@@ -261,6 +275,19 @@ export function makeServer({environment="test"}={}){
       routes() {
         this.namespace = "api"
         
+        this.post('/account/login',(schema,request)=>{
+
+          const {username,password}=JSON.parse(request.requestBody)
+
+          const data=auth.filter(item=>{
+            if(item.username===username&&item.password===password){
+              return item
+            }
+          })
+
+          return data
+        })
+
         this.get("/products", (schema, request) => {
           return schema.products.all()
       })
@@ -269,9 +296,29 @@ export function makeServer({environment="test"}={}){
     })
       this.get("/products/:category", (schema, request) => {
         const {category,varient}=request.queryParams;
- 
-        console.log(varient)
-        let data=products.filter(item=>item[category]===varient)
+        const kind=request.params.category
+        console.log(kind);
+       
+         if(category==='gender'){
+          var data=products.filter
+          (item=>item[category]===varient && item.gender===kind) 
+        }
+        else if(category==='category' &&(kind==="man"||kind==="woman"||kind==="kid"||kind==="baby")){
+          var data=products.filter
+          (item=>item[category]===varient &&item.gender===kind )
+        }
+        else if(category==='category'){
+          var data=products.filter
+          (item=>item[category]===varient )
+        }
+        else if(category==='tag'){
+          var data=products.filter
+          (item=>item[category]===varient&&item.category===kind )
+        }
+        else{
+          var data=products.filter
+          (item=>item[category]===varient )
+        }
          return data
       })
       this.get("/singleproduct/:id", (schema, request) => {

@@ -2,6 +2,10 @@
     transform: translate(-26px,15px);
     color: rgb(116, 116, 116);
 }
+#SearchIcon1{
+    transform: translate(-15px,30px);
+    color: rgb(116, 116, 116);
+}
 
 .icons{
     font-size: 2.5rem;
@@ -14,6 +18,9 @@
 }
 .shopping_parent{
     position: relative;
+}
+.shopping_parent2{
+    position: absolute;
 }
 .shopping_cart_number{
     width: 25px;
@@ -29,7 +36,23 @@
     top: -2px;
     right: 95px;
 }
-
+.shopping_cart_number1{
+    width: 25px;
+    height: 25px;
+    padding: .8rem;
+    border-radius: 100%;
+    background-color: rgb(221, 9, 9);
+    display: flex;
+    color: white;
+    justify-content:center ;
+    align-items: center;
+    position: absolute;
+    top: -10px !important;
+    right:10px !important;
+}
+.nav{
+    flex-direction: column !important;
+}
 .mynav{
 
     min-height: 5rem;
@@ -37,4 +60,7 @@
 }
 .second{
     margin-right: -70px;
+}
+.navbar{
+    justify-content: center;
 }

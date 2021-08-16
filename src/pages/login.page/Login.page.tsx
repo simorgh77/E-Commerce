@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect, MouseEventHandler} from 'react'
 import { Redirect, RouteComponentProps } from "react-router";
 import "./Login.page.style.css"
 import { Col,Container,Row,Form,Button } from 'react-bootstrap';
@@ -10,17 +10,30 @@ import { Link } from 'react-router-dom';
    const [username,setusername]=useState<string>('')
    const [password,setpassword]=useState<string>('')
    const dispatch = useDispatch<AppDispatch>()
-   const Is_loginogin = useSelector<RootState>(state =>state.persistedReducer.authReducer.Is_login)
+   const Is_login = useSelector<RootState>(state =>state.persistedReducer.authReducer.Is_login)
 
-   if(Is_loginogin){
+   if(Is_login){
      return ( <Redirect to='/'/>)
    }
- const handleSubmit=(e:any)=>{
-   e.preventDefault()
-   
-   dispatch(Login_user({UserName:username,Password:password,Token:'12',RefreshToken:'12',Is_login:true}))
 
-   
+
+ const HandleSubmit=(e:any)=>{
+   e.preventDefault()
+
+   dispatch(Login_user({UserName:username,Password:password,Token:'1234',RefreshToken:'1234',Is_login:true,taha:'13'}))
+// useEffect(() => {
+//       fetch('api/accounts/login',{
+//           method:'POST',
+//           body:JSON.stringify ({username,password}),
+//       }).then(res=>res.json())
+//       .then(data=>{
+//         console.log(data);
+//         })
+ 
+// }, [])
+
+
+
  }
     return (
     <Container className='mt-5'>
@@ -35,7 +48,7 @@ import { Link } from 'react-router-dom';
                 {'ورود/ ثبت نام'}
             </div>
             <div className="information_form mt-4">
-            <Form onSubmit={handleSubmit}>
+            <Form >
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>{"نام کاربری خود را وارد نمایید"}</Form.Label>
     <Form.Control value={username} type="text" 
@@ -49,7 +62,7 @@ import { Link } from 'react-router-dom';
     onChange={(e)=>setpassword(e.target.value)}/>
   </Form.Group>
 
-  <Button variant="primary" type="submit" className='w-100 mb-3' style={{backgroundColor:'#EF394E',border:'none'}}>
+  <Button variant="primary" type="button" onClick={HandleSubmit} className='w-100 mb-3' style={{backgroundColor:'#EF394E',border:'none'}}>
     {"ورود به سایت"}
   </Button>
   <Form.Text className="text-muted pt-3">

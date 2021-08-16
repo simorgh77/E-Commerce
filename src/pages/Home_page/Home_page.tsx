@@ -123,8 +123,7 @@ const Home_page = () => {
               {brands?.map((item: IBrands) => (
                 <Col xs={6} md={3} className='d-flex m-md-0 justify-content-around 
    align-content-around flex-wrap' onClick={() => {
-                    history.push(`/Product_Categories${item.name}
-   ?category=brand&varient=${item.name}`)
+                    history.push(`/Product_Categories${item.name}?category=brand&varient=${item.name}`)
                   }}>
 
                   <Brands src={item.image} />
