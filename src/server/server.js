@@ -234,11 +234,12 @@ const brands=[
 ]
 const auth=[
   {
+    id:'1',
     username:'taha',
     password:'1234',
     role:'admin',
     toke:'1234',
-    refreshtoken:'1234'
+    refreshtoken:'1234',
   }
 ]
 
@@ -288,6 +289,25 @@ auth.map(item=>{
         this.get("/products", (schema, request) => {
           return schema.products.all()
       })
+
+
+
+        this.post("/createuser", (schema, request) => {
+         const newuser=JSON.parse(request.requestBody)
+         
+        return schema.auths.create(newuser) 
+      })
+        this.get("/user", (schema, request) => {
+         
+         
+        return schema.auths.all()
+      })
+
+
+
+
+
+
       this.get("/brands", (schema, request) => {
         return schema.brands.all()
     })
