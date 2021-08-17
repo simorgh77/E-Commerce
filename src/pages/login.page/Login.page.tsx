@@ -1,7 +1,7 @@
 import React,{useState,useEffect, MouseEventHandler} from 'react'
 import { Redirect, RouteComponentProps } from "react-router";
 import "./Login.page.style.css"
-import { Col,Container,Row,Form,Button } from 'react-bootstrap';
+import { Col,Container,Row,Form,Button,Alert } from 'react-bootstrap';
 import {RootState,AppDispatch} from '../../store/store'
 import { Login_user } from '../../store/reducers/auth.reducer/auth.reducer';
 import {useSelector,useDispatch} from 'react-redux'
@@ -11,26 +11,38 @@ import { Link } from 'react-router-dom';
    const [password,setpassword]=useState<string>('')
    const dispatch = useDispatch<AppDispatch>()
    const Is_login = useSelector<RootState>(state =>state.persistedReducer.authReducer.Is_login)
-
+  const [verify_user,setverify_user]=useState<boolean>(true)
    if(Is_login){
      return ( <Redirect to='/'/>)
    }
 
 
- const HandleSubmit=(e:any)=>{
-   e.preventDefault()
+ const HandleSubmit=()=>{
+  
 
-   dispatch(Login_user({UserName:username,Password:password,Token:'1234',RefreshToken:'1234',Is_login:true,taha:'13'}))
-// useEffect(() => {
-//       fetch('api/accounts/login',{
-//           method:'POST',
-//           body:JSON.stringify ({username,password}),
-//       }).then(res=>res.json())
-//       .then(data=>{
-//         console.log(data);
-//         })
- 
-// }, [])
+  
+         async function fetchData() {
+           
+          await fetch('api/accounts/login',{
+                   method:'POST',
+                   body:JSON.stringify ({username,password}),
+               }).then(res=>res.json())
+               .then(data=>{
+
+                
+                setverify_user(data)
+               data&&dispatch(Login_user({UserName:username,
+                  Password:password,Token:'1234',RefreshToken:'1234'
+                  ,Is_login:true,taha:'13'}))
+                 
+                  
+                   }).catch(error=>{
+                     setverify_user(false)
+                   })
+         } 
+         fetchData()
+         
+      
 
 
 
@@ -61,7 +73,12 @@ import { Link } from 'react-router-dom';
     <Form.Control type="password" value={password} 
     onChange={(e)=>setpassword(e.target.value)}/>
   </Form.Group>
-
+{
+  !verify_user&&
+<Alert variant={"danger"}>
+    {"رمز عبور یا نام کاربری را اشتباه وارد کردید"}
+  </Alert>
+}   
   <Button variant="primary" type="button" onClick={HandleSubmit} className='w-100 mb-3' style={{backgroundColor:'#EF394E',border:'none'}}>
     {"ورود به سایت"}
   </Button>
@@ -70,9 +87,9 @@ import { Link } from 'react-router-dom';
     </Form.Text>
 </Form>
 <div className='pt-4'>
-<Link className='pt-4' to='/register'>{'ثبت نام به عنوان کاربر جدید '}</Link>
+<Link className='pt-4' style={{color:'blue'}} to='/register'>{'ثبت نام به عنوان کاربر جدید '}</Link>
 </div>
-            </div>
+         </div>
              
         </Col>
 

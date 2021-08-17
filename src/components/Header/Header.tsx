@@ -18,7 +18,7 @@ import { BsPersonFill } from "react-icons/bs";
 import { BsChevronDown } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { AiOutlineShop } from "react-icons/ai";
-import taha from '../../assest/img/brand.png'
+import taha from '../../assest/img/brand1.png'
 import { Logout_user } from "../../store/reducers/auth.reducer/auth.reducer"
 interface Ichild {
   children: React.ReactNode
@@ -55,10 +55,10 @@ export const Header: React.FC<Ichild> = ({ children }) => {
   }
   return (
     <div className='mynav mt-3'>
-      <Navbar className='myNavbar' expand="lg" >
-        <div className='container-fluid align-items-center '>
-          <Navbar.Brand href="/" >
-            <img style={{ width: '10rem', marginTop: '-25px' }}
+      <Navbar className='myNavbar d-flex ' expand="lg" >
+        <div className='container-fluid align-items-center'>
+          <Navbar.Brand href="/" className=' d-flex justify-content-end ' style={{width:'10rem'}}>
+            <img className='d-flex justify-content-end' style={{ width: '10rem' ,height:'100%', marginTop: '-25px' }}
               src={taha} alt="" />
           </Navbar.Brand>
           <Navbar.Toggle as='button' onClick={handleShow}  />

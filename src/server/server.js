@@ -275,17 +275,14 @@ auth.map(item=>{
       routes() {
         this.namespace = "api"
         
-        this.post('/account/login',(schema,request)=>{
+        this.post('/accounts/login',(schema,request)=>{
 
           const {username,password}=JSON.parse(request.requestBody)
-
-          const data=auth.filter(item=>{
-            if(item.username===username&&item.password===password){
-              return item
-            }
-          })
-
-          return data
+          console.log(username,password);
+         if( auth.find(item=>item.password===password&&item.username===username))
+         return true
+         else
+         return false
         })
 
         this.get("/products", (schema, request) => {
@@ -297,7 +294,6 @@ auth.map(item=>{
       this.get("/products/:category", (schema, request) => {
         const {category,varient}=request.queryParams;
         const kind=request.params.category
-        console.log(kind);
        
          if(category==='gender'){
           var data=products.filter
@@ -323,7 +319,7 @@ auth.map(item=>{
       })
       this.get("/singleproduct/:id", (schema, request) => {
         let id=request.params.id
-        console.log(id);
+     
          return  schema.products.find(id)
       })
 
