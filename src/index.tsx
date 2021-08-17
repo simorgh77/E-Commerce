@@ -10,6 +10,7 @@ import {makeServer} from './server/server'
 import { Provider } from 'react-redux';
 import store,{persistor} from './store/store';
 import { PersistGate } from 'redux-persist/integration/react'
+import AddressContext from './context/address_context/address.context';
 if(process.env.NODE_ENV==="development"){
   makeServer({environment:'development'})
 }
@@ -17,7 +18,9 @@ ReactDOM.render(
   <React.StrictMode>
    <Provider store={store}>
    <PersistGate loading={<div>...loading </div>} persistor={persistor}>
+   <AddressContext>
     <App />
+    </AddressContext>
     </PersistGate>
    </Provider>
   </React.StrictMode>,

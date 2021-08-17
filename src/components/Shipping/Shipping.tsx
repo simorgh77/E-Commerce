@@ -1,17 +1,19 @@
-import React ,{useState,useEffect} from 'react'
+import React ,{useState,useEffect,useContext} from 'react'
 import { Col,Form ,Button,Alert, FormGroup} from 'react-bootstrap'
 import { Link} from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import { useHistory } from 'react-router';
 import { GrStar } from "react-icons/gr";
 import { BiShapePolygon } from 'react-icons/bi';
+import {Address_context} from "../../context/address_context/address.context"
+
 const { shahr, ostan } = require('iran-cities-json');
 interface Ishipping{
   setstepperActive:Function
 }
 const Shipping :React.FC<Ishipping>= ({setstepperActive}) => {
 
-
+  const {state,contextdispatch}:any=useContext(Address_context)
   const [Shipping_info,setShipping_info]=useState({
     province:'',
     city:'',
@@ -96,11 +98,12 @@ const _confirm={
 if(Shipping_info.city&&Shipping_info.province&&Shipping_info.familyName&&Shipping_info.mobile
   &&Shipping_info.plaque&&Shipping_info.postAddress&&Shipping_info.postalCode)
 {
+  contextdispatch({
+    type:'add_address',
+    payload:Shipping_info
+  })
 history.push(`/shopping_page/accept_info`)}
 }
-
-
-
 
     return (
       <div>

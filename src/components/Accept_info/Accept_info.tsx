@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useContext} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState, AppDispatch } from '../../store/store'
 import {Col,Button,InputGroup,FormControl} from 'react-bootstrap'
@@ -8,6 +8,8 @@ import { BiLocationPlus,BiPhone } from "react-icons/bi";
 import {Link} from 'react-router-dom'
 import { BsArrowRight } from "react-icons/bs";
 import { useHistory } from 'react-router';
+import {Address_context} from "../../context/address_context/address.context"
+const { shahr, ostan } = require('iran-cities-json');
 interface Iaccept{
     setstepperActive:Function
   }
@@ -25,16 +27,28 @@ interface Iaccept{
     gender: string,
     tag: string,
     number: number
+    offpercent:number
 }
 const Accept_info:React.FC<Iaccept> = ({setstepperActive}) => {
     const history=useHistory()
     let total_price=0
+    let total_off=0
     const Basket = useSelector<RootState>(state => state.persistedReducer.BasketReducer.products)
     const username = useSelector<RootState>(state => state.persistedReducer.authReducer.UserName)
     const dispatch = useDispatch<AppDispatch>()
+    const {state,contextdispatch}:any=useContext(Address_context)
     useEffect(() => {
         setstepperActive(2)
+
        }, [])
+
+    
+       console.log(state.state);
+       console.log(ostan);
+       const given_province=ostan.find((item:{id:number,name:string})=>item.id===parseInt(state.state.province))
+       const given_city=shahr.find((item:{id:number,name:string})=>item.id===parseInt(state.state.city))
+       console.log(given_city);
+       
        
     return (
         <div style={{color:'#616161'}}>
@@ -78,21 +92,24 @@ const Accept_info:React.FC<Iaccept> = ({setstepperActive}) => {
 
 <Col  md={12}  className='border-top pt-4'>
 
+{
+    <>
 
-            <h4>{"مشخصات گیرنده و زمان ارسال"}</h4>        
+      <h4>{"مشخصات گیرنده و زمان ارسال"}</h4>        
 
-            <p><BiLocationPlus/> {"کرمان - رفسنحان -خیابان شهریار-پلاک 9"}</p>
-            <p> <AiOutlineUser/>{"طاها  خراسانی"}</p>
-            <p><BiPhone/> {"09130812891"}</p>
+            <p><BiLocationPlus/>{given_province.name +'-'+ given_city.name+'-'+state.state.postAddress+"- پلاک"+state.state.plaque}</p>
+            <p> <AiOutlineUser/>{state.state.familyName}</p>
+            <p><BiPhone/> {state.state.mobile}</p>
             <p> <AiOutlineClockCircle/> {"بین 4 تا 10 روز کاری"}</p>
             <p>{"ارسال توسط پست"}</p>
-        
-</Col>
+        </>
+}</Col>
 
                 </Col>
                     
 {(Basket as IProducts[]).map((item, index) => {
                             total_price += parseInt(item.price) * item.number
+                            total_off+=item.offpercent
                         }
                         )}
 
@@ -110,11 +127,11 @@ const Accept_info:React.FC<Iaccept> = ({setstepperActive}) => {
                             </div>
                             <div className='d-flex justify-content-around mt-3'>
                                 <p>{"تخفیف کالاها:"}</p>
-                                <p className='px-3'>{"10درصد"}</p>
+                                <p className='px-3'>{total_off+'درصد'}</p>
                             </div>
                             <div className='d-flex justify-content-around mt-3'>
                                 <p>{"قیمت کل:"}</p>
-                                <p>{Humanize.intComma(total_price * 0.9)} {"تومان"}</p>
+                                <p>{Humanize.intComma(total_price-(total_price *(total_off/100)))} {"تومان"}</p>
                             </div>
 
                             <div className='d-flex justify-content-around mt-3'>
@@ -129,7 +146,7 @@ const Accept_info:React.FC<Iaccept> = ({setstepperActive}) => {
                                 
                                 <p>{"مبلغ قابل پرداخت:"}</p>
 
-                                <p>{Humanize.intComma(12000+total_price)} {"تومان"}</p>
+                                <p>{Humanize.intComma(12000+total_price-(total_price *(total_off/100)))} {"تومان"}</p>
                                 </div> 
 
                                 <div>

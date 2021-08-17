@@ -24,6 +24,7 @@ interface IProducts {
     gender: string,
     tag: string,
     number: number
+    offpercent:number
 }
 const Backet_product = () => {
     const history=useHistory()
@@ -31,6 +32,7 @@ const Backet_product = () => {
     const dispatch = useDispatch<AppDispatch>()
     console.log(Basket);
     let total_price: number = 0
+    let total_off:number=0
     return (
         <div className='w-100 mt-5'>
             <Container className='w-100 mt-5'>
@@ -39,7 +41,7 @@ const Backet_product = () => {
                     <Col md={12} className=' my-2 d-flex flex-wrap justify-content-between'>
 
                         <Col xs={12} md={9} className='d-flex flex-column 
-                  rounded '>
+                  rounded  '>
                             {
                                 (Basket as IProducts[]).map((item, index) => (
 
@@ -87,15 +89,16 @@ const Backet_product = () => {
 
                         {(Basket as IProducts[]).map((item, index) => {
                             total_price += parseInt(item.price) * item.number
+                            total_off+=item.offpercent
                         }
                         )}
 
 
 
 
-                        <Col xs={12} md={2} className='bg-white mt-3 flex-column
-                   sticky-top finish_action rounded m-0 p-0  mx-1 '
-                            style={{ maxHeight: '14rem', minWidth: '18rem', zIndex: 0, backgroundColor: 'rgb(215, 224, 224)' }}>
+                        <Col xs={12} md={2} className='bg-warning mt-3 flex-column
+                   sticky-top finish_action rounded m-0 p-0  '
+                            style={{boxShadow:'5px 5px 15px 5px rgba(0,0,0,0.24)', maxHeight: '14rem', minWidth: '16rem', zIndex: 0, backgroundColor: 'rgb(215, 224, 224)' }}>
 
                             <div className='d-flex justify-content-around mt-3'>
                                 <p>{"قیمت کالاها:"}</p>
@@ -104,15 +107,16 @@ const Backet_product = () => {
                             </div>
                             <div className='d-flex justify-content-around mt-3'>
                                 <p>{"تخفیف کالاها:"}</p>
-                                <p>{"10%"}</p>
+                                <p>{total_off+'%'}</p>
                             </div>
                             <div className='d-flex justify-content-around mt-3'>
                                 <p>{"قیمت کل:"}</p>
-                                <p>{Humanize.intComma(total_price * 0.9)}</p>
+                                <p>{Humanize.intComma(total_price-(total_price * total_off/100))}</p>
                             </div>
 
-                            <div>
-                                <Button onClick={()=>history.push('/shopping_page/shipping')} className='w-100 px-3'
+                            <div className='w-100 text-center'>
+                                <Button  onClick={()=>history.push('/shopping_page/shipping')} 
+                                className='w-50 '
                                     style={{ backgroundColor: '#EF394E', border: 'none' }}>
                                     {"اتمام خرید"}</Button>
                             </div>
