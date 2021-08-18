@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import { Pagination ,Col,Container,Row,Navbar,Nav,NavDropdown,Form} from 'react-bootstrap'
 import ProductCart from "../../components/ProductsCart/ProductsCart"
 import {useParams,Link, useLocation} from "react-router-dom"
@@ -6,13 +6,13 @@ import axios from "axios"
 import { BsFilterRight } from "react-icons/bs";
 import "./Product_categories.style.css"
 import CategoryHook from '../../components/customHooks/CategorieHook'
+import { Search_context } from '../../context/search_contex/search_contex';
 interface IProducts{
   id: string,
   name: string,
   price: number,
   image: string,
   featured: boolean,
-  colors: [],
   company: string,
   description:string ,
   category:string,
@@ -22,32 +22,28 @@ interface IProducts{
 
 
 const Product_Categories = () => {
-const {caregories} =useParams<{caregories:string}>()
-const query=useLocation().search
-
-const [Products,setProducts]= CategoryHook('api/products',caregories,query)
-const [Categoriesproducts, setCategoriesproducts]=useState<IProducts[]>()
-console.log(Products)
+  const {caregories} =useParams<{caregories:string}>()
+  const query=useLocation().search
+  const {state,searchdispatch}:any=useContext(Search_context)
+  const [Products,setProducts]= CategoryHook('api/products',caregories,query)
+  const [Categoriesproducts, setCategoriesproducts]=useState<IProducts[]>()
+  console.log(Products)
+  console.log(state.state);
+  
 
     return (
 <Container className=' ' fluid>
     <Row className='mt-5 w-100 m-0 ' >
- <div className='bg-info text-white text-center w-100'>{caregories}</div>
-
- <Col  md={2} className='d-none d-lg-flex flex-column mt-3 bg-white'>
-<Col md={12} className=''>
+ 
+ <Col  md={2} className='d-none d-lg-flex flex-column mt-3 '>
+<Col md={12} className='bg-white my-3 rounded' style={{minHeight:'5rem'}}>
 <span>{"جستجو در نتایج:"}</span>
 <Form>
   <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Control type="text" placeholder="نام محصول را وارد کنید" />
+    <Form.Control type="text" className='w-75 mx-auto' placeholder="نام محصول را وارد کنید" />
   </Form.Group>
   </Form>
-<span>{"جستجو در برند ها:"}</span>
-<Form>
-  <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Control type="text" placeholder="نام برند را وارد کنید" />
-  </Form.Group>
-  </Form>
+
 </Col>
 <Col md={12} className='bg-white' style={{maxHeight:'10%', overflowY:'scroll'}}>
 <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -74,11 +70,11 @@ console.log(Products)
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
-      <Nav.Link >{"پرفروش ترین "}</Nav.Link>
-      <Nav.Link >      {'مرتبط ترین '}</Nav.Link>
-      <Nav.Link >     {'پر بازدید ترین'}</Nav.Link>
-      <Nav.Link >      {'جدید ترین'}</Nav.Link>
-      <Nav.Link >{'ارزان ترین'}</Nav.Link>
+      <Nav.Link className='filters'>{"پرفروش ترین "}</Nav.Link>
+      <Nav.Link className='filters'>      {'مرتبط ترین '}</Nav.Link>
+      <Nav.Link className='filters'>     {'پر بازدید ترین'}</Nav.Link>
+      <Nav.Link className='filters'>      {'جدید ترین'}</Nav.Link>
+      <Nav.Link className='filters'>{'ارزان ترین'}</Nav.Link>
       
     </Nav>
   </Navbar.Collapse>
@@ -87,14 +83,28 @@ console.log(Products)
  </Col >
  <Col md={10} className='d-flex flex-wrap bg-white w-100'>
  {
- Products&& (Products as unknown as IProducts[]).map((item,index)=>(
- <Col xs={12} md={3} className='d-flex p-3'>
-    <ProductCart item={item}/>
-    </Col>
-  ))
+ state.state? Products&& (Products as unknown as IProducts[] ).map((item:IProducts)=>
+
+ (
+   
+   
+item.name.includes(state.state)&&
+        <Col xs={12} md={3} className='d-flex p-3'>
+         <ProductCart item={item}/>
+         </Col> 
+ ))
+ :Products&& (Products as unknown as IProducts[]).map((item:any)=> (
+
+    <Col xs={12} md={3} className='d-flex p-3'>
+       <ProductCart item={item}/>
+       </Col> 
+
+ ))
 
 }
  
+
+
 
  </Col>
  </Col>

@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import store,{persistor} from './store/store';
 import { PersistGate } from 'redux-persist/integration/react'
 import AddressContext from './context/address_context/address.context';
+import Searchtitle from './context/search_contex/search_contex';
 if(process.env.NODE_ENV==="development"){
   makeServer({environment:'development'})
 }
@@ -19,7 +20,9 @@ ReactDOM.render(
    <Provider store={store}>
    <PersistGate loading={<div>...loading </div>} persistor={persistor}>
    <AddressContext>
+     <Searchtitle>
     <App />
+    </Searchtitle>
     </AddressContext>
     </PersistGate>
    </Provider>

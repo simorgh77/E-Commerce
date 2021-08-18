@@ -5,3 +5,6 @@ Nav.Item{
 .nav-link{
     color: black !important;
 }
+.filters:hover{
+    background-color: blanchedalmond;
+}

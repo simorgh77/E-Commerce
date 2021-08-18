@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import {
   Navbar, Nav, NavDropdown,
   Form, FormControl, Button, Dropdown, Image,Offcanvas
@@ -19,6 +19,7 @@ import { BsChevronDown } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { AiOutlineShop } from "react-icons/ai";
 import taha from '../../assest/img/brand1.png'
+import { Search_context } from '../../context/search_contex/search_contex';
 import { Logout_user } from "../../store/reducers/auth.reducer/auth.reducer"
 interface Ichild {
   children: React.ReactNode
@@ -46,15 +47,20 @@ export const Header: React.FC<Ichild> = ({ children }) => {
   const Basket = useSelector<RootState>(state => state.persistedReducer.BasketReducer.products)
   const Is_login = useSelector<RootState>(state => state.persistedReducer.authReducer.Is_login)
   const userName = useSelector<RootState>(state => state.persistedReducer.authReducer.UserName)
-
-
+  const {state,searchdispatch}:any=useContext(Search_context)
+const [search,setsearch]=useState('')
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setShow(true);
 
   }
+
+  
   return (
     <div className='mynav mt-3'>
+      {
+      console.log(state)
+      }
       <Navbar className='myNavbar d-flex ' expand="lg" >
         <div className='container-fluid align-items-center'>
           <Navbar.Brand href="/" className=' d-flex justify-content-end ' style={{width:'10rem'}}>
@@ -80,6 +86,9 @@ export const Header: React.FC<Ichild> = ({ children }) => {
                       className="mr-2 py-2 pr-5"
                       aria-label="Search"
                       style={{ width: '50vw', height: '8vh', paddingRight: '30px' }}
+                      value={state.searchTitle}
+                      onClick={(e)=>history.push('/Product_Categoriessearch')}
+                      onChange={(e)=>searchdispatch({type:'add_title',payload: e.target.value})}
                     />
                   </Form>
                   <div className='d-flex '>
