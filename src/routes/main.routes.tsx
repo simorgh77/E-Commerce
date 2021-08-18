@@ -7,6 +7,7 @@ import  Product_Categories  from "../pages/Product_Categories/Product_Categories
 import  Error  from "../pages/Error/Error"
 import Shopping_page from "../pages/Shopping_page/Shopping_page"
 import RegisterPage from "../pages/RegisterPage/RegisterPage"
+import Dashboard from "../pages/Dashboard/Dashboard"
 const routes=[
 {
     path:'/',
@@ -48,6 +49,11 @@ const routes=[
     path:'/register',
     exact:false,
     page:RegisterPage
+},
+{
+    path:'/dashboard',
+    exact:false,
+    page:Dashboard
 },
 {
     path:'*',
