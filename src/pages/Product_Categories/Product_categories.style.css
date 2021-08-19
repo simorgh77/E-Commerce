@@ -5,6 +5,11 @@ Nav.Item{
 .nav-link{
     color: black !important;
 }
+.filters{
+    font-size: 15px;
+    margin-bottom: 2px;
+}
 .filters:hover{
-    background-color: blanchedalmond;
+   border-bottom: 1px solid gray;
+   background-color: transparent;
 }
