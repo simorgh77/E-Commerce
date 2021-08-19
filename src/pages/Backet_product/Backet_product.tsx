@@ -96,13 +96,13 @@ const Backet_product = () => {
 
 
 
-                        <Col xs={12} md={2} className='bg-warning mt-3 flex-column
+                        <Col xs={12} md={2} className='bg-secondary mt-3 flex-column
                    sticky-top finish_action rounded m-0 p-0  '
                             style={{boxShadow:'5px 5px 15px 5px rgba(0,0,0,0.24)', maxHeight: '14rem', minWidth: '16rem', zIndex: 0, backgroundColor: 'rgb(215, 224, 224)' }}>
 
                             <div className='d-flex justify-content-around mt-3'>
                                 <p>{"قیمت کالاها:"}</p>
-                                <p>{Humanize.intComma(total_price)}</p>
+                                <p>{Humanize.intComma(total_price)+"تومان"}</p>
 
                             </div>
                             <div className='d-flex justify-content-around mt-3'>
@@ -111,7 +111,7 @@ const Backet_product = () => {
                             </div>
                             <div className='d-flex justify-content-around mt-3'>
                                 <p>{"قیمت کل:"}</p>
-                                <p>{Humanize.intComma(total_price-(total_price * total_off/100))}</p>
+                                <p>{Humanize.intComma(total_price-(total_price * total_off/100))+"تومان"}</p>
                             </div>
 
                             <div className='w-100 text-center'>

@@ -53,9 +53,9 @@ if(!props.varient){   return (
                           {props.item?.description} <BsChevronCompactLeft />
                           </Button>
                       </div>
-                      <div className='w-100 ' >
+                      <div className='w-100 d-none d-lg-block ' >
                         <img src={props.item?.image} alt={`for${props.item?.category}`}
-                        className='w-100 img-fluid'style={{height:'54.5vh'}} /> 
+                        className='w-100 img-fluid'style={{height:'53.8vh'}} /> 
                       </div>
                     </div>
                   </Col>
