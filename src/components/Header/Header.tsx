@@ -64,7 +64,7 @@ const [search,setsearch]=useState('')
       <Navbar className='myNavbar d-flex ' expand="lg" >
         <div className='container-fluid align-items-center'>
           <Navbar.Brand href="/" className=' d-flex justify-content-end ' style={{width:'10rem'}}>
-            <img className='d-flex justify-content-end' style={{ width: '10rem' ,height:'100%', marginTop: '-25px' }}
+            <img className='d-flex justify-content-end' style={{ width: '10rem' ,height:'100%', marginTop: '-50px' }}
               src={taha} alt="" />
           </Navbar.Brand>
           <Navbar.Toggle as='button' onClick={handleShow}  />

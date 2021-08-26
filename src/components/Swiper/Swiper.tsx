@@ -34,6 +34,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 const MySwiper:React.FC<ISlide> =({filter,varient}) => {
 
   const [Products, setProducts] = useState<IProducts[]>()
+
   useEffect(() => {
   async function fetchData() {
     await axios.get('api/products').then(res => {
@@ -64,9 +65,9 @@ console.log(filter);
          Products?.map((item,index)=>(
            item[filter?.category as keyof IProducts]===filter?.kind as string&& 
              
-           <SwiperSlide  className='swiperslide  d-flex h-100 ' >
+           <SwiperSlide  className='swiperslide  d-flex h-100 '>
             
-   <ProductsCart key={index} item={item}/>
+   <ProductsCart key={index} item={item} />
          </SwiperSlide>
    
          ))

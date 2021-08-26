@@ -11,12 +11,12 @@ const ProductsCart = ({item}:any) => {
  
   
     return (
-        <div className='w-100 h-100  d-flex text-center product_cart' >
+        <div className='w-100 h-100 d-flex text-center product_cart align-items-center' >
            <Card className='product_cart_main '  style={{
            cursor:'pointer',minHeight:'18rem',backgroundColor:"transparent",border:'none'}} 
            onClick={()=>history.push(`/Product_Details${item.id}`)}>
 
-             <div className='card-image'>
+             <div className='card-image w-100'>
   <Card.Img variant="top" className="img-fluid product-img  h-100" src={item.image}
   style={{maxWidth:'59%',zIndex:-1}}
   />
