@@ -64,14 +64,16 @@ const [search,setsearch]=useState('')
       <Navbar className='myNavbar d-flex ' expand="lg" >
         <div className='container-fluid align-items-center'>
           <Navbar.Brand href="/" className=' d-flex justify-content-end ' style={{width:'10rem'}}>
-            <img className='d-flex justify-content-end' style={{ width: '10rem' ,height:'100%', marginTop: '-50px' }}
+            <img className='d-flex justify-content-end' style={{ width: '10rem' ,height:'100%',
+             marginTop: '-50px' }}
               src={taha} alt="" />
           </Navbar.Brand>
           <Navbar.Toggle as='button' onClick={handleShow}  />
        
             <Nav
 
-              className="mr-auto d-none d-lg-flex  my-lg-0 w-100 justify-content-around flex-column align-content-between"
+              className="mr-auto d-none d-lg-flex  my-lg-0 w-100 justify-content-around
+               flex-column align-content-between"
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
@@ -82,7 +84,7 @@ const [search,setsearch]=useState('')
                     <BsSearch id='SearchIcon' />
                     <FormControl
                       type="search"
-                      placeholder="Search"
+                      placeholder="دنبال چی میگردی؟"
                       className="mr-2 py-2 pr-5"
                       aria-label="Search"
                       style={{ width: '50vw', height: '8vh', paddingRight: '30px' }}
