@@ -171,7 +171,7 @@ const products=[
   },
   {
   "id": "arqwefsdsfasdfdsdxzda;sadfzcdsfvxvb",
-  "name": "کلاه مدل تابسانی",
+  "name": "کلاه مدل تابستانی",
   "price": '220999',
   "image": "https://cartzilla.createx.studio/img/shop/catalog/12.jpg",
   "brand": "american eagle",
@@ -184,7 +184,22 @@ const products=[
   'offpercent':34,
   'description':"کلاه مناسب بچه های خوب"
   },
-
+  {
+  "id": "arqwefsdsfasdfdssdfsdxzda;sadfzcdsfvxvb",
+  "name": "کلاه مدل تابسانی",
+  "price": '220999',
+  "image": "https://cartzilla.createx.studio/img/shop/catalog/12.jpg",
+  "brand": "american eagle",
+  "isexist": "موجود",
+  "category": "hat",
+  "rate":5,
+  "tag":'newest',
+  "gender":"baby",
+  "number":1,
+  'offpercent':64,
+  'description':"کلاه مناسب نوزاد های خوب"
+  },
+ 
 
  
   
