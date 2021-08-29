@@ -12,8 +12,8 @@ import store,{persistor} from './store/store';
 import { PersistGate } from 'redux-persist/integration/react'
 import AddressContext from './context/address_context/address.context';
 import Searchtitle from './context/search_contex/search_contex';
-if(process.env.NODE_ENV==="development"){
-  makeServer({environment:'development'})
+if(process.env.NODE_ENV==="production"){
+  makeServer({environment:'production'})
 }
 ReactDOM.render(
   <React.StrictMode>
