@@ -11,6 +11,22 @@ display: none;
     align-items: flex-end;
 }
 
-.swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after{
+.swiperslide:hover{
+    box-shadow: 0px 0px 50px 6px rgba(0,0,0,0.15);
+
+}
+.swiperslide:hover .showbtn{
+    transition: all 1s ease-in;
+    display: block !important;
+    justify-content: flex-start;
+    position: relative; 
+    z-index: 1;
+   
+}
+.showbtn{
+    
+    background-color: #EF394E;
+    border: none;
+ 
 
 }

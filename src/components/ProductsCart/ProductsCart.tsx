@@ -12,18 +12,18 @@ const ProductsCart = ({item}:any) => {
   
     return (
         <div className='w-100 h-100 d-flex text-center product_cart align-items-center' >
-           <Card className='product_cart_main '  style={{
+           <Card className='product_cart_main w-100 d-flex flex-fill'  style={{
            cursor:'pointer',minHeight:'18rem',backgroundColor:"transparent",border:'none'}} 
-           onClick={()=>history.push(`/Product_Details${item.id}`)}>
+           >
 
              <div className='card-image w-100'>
   <Card.Img variant="top" className="img-fluid product-img  h-100" src={item.image}
-  style={{maxWidth:'59%',zIndex:-1}}
+  style={{maxWidth:'59%',height:'100vh',zIndex:-1}}
   />
   </div>
   <Card.Body className='d-flex w-100 h-50 flex-column justify-content-between '>
     <Card.Title >{item.name}</Card.Title>
-  
+            
     <Card.Text className=' w-100  d-flex flex-column justify-content-around'>
       <div className='w-100 mb-2'>
      {item.isexist}

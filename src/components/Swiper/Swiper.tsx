@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ProductsCart from '../ProductsCart/ProductsCart';
 import "./Swiper.style.css"
+import { Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom'
 interface IProducts{
     id: string,
     name: string,
@@ -47,8 +49,8 @@ const MySwiper:React.FC<ISlide> =({filter,varient}) => {
   }
   fetchData()
 }, [])
+const history=useHistory()
 
-console.log(filter);
 
   return (
     <Swiper
@@ -64,12 +66,14 @@ console.log(filter);
        {
          Products?.map((item,index)=>(
            item[filter?.category as keyof IProducts]===filter?.kind as string&& 
-             
-           <SwiperSlide  className='swiperslide  d-flex h-100 '>
-            
+             <>
+           <SwiperSlide  className='swiperslide d-flex flex-column h-100 '>
+            <Button className='d-none showbtn' onClick={()=>history.push(`/Product_Details${item.id}`)}>
+              {"مشاهده محصول"}
+            </Button>
    <ProductsCart key={index} item={item} />
          </SwiperSlide>
-   
+   </>
          ))
         }
       
