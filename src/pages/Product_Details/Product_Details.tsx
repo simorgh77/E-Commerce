@@ -181,7 +181,8 @@ const Product_Details = () => {
             </div>
 
             <div className='bg-white'>
-              <CategoriesSwiper varient={true} filter={{ category: 'category', kind: `${Singleproduct?.category}` }} />
+              <CategoriesSwiper varient={true} 
+              filter={{ category: 'category', kind: `${Singleproduct?.category}` }} />
             </div>
 
 
