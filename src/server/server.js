@@ -139,54 +139,57 @@ const products=[
   'offpercent':24,
   'description':"هودی جذاب برای آقایان با سلیقه"
   },
-
-
- 
   {
-  "id": "arqsdwsadfefsdsfadsfsdfdxzcdsfvxvb",
-  "name": "هودی اسپورت مدل قرمز",
-  "price": '110999',
-  "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
-  "brand": "nike",
+  "id": "arqwefsdsfasdfdxzdazcdsfvxvb",
+  "name": "شلواراسلش مدل قری",
+  "price": '520999',
+  "image": "https://cartzilla.createx.studio/img/shop/catalog/14.jpg",
+  "brand": "puma",
   "isexist": "موجود",
-  "category": "shirt",
+  "category": "pant",
+  "rate":5,
+  "tag":'amazing',
+  "gender":"man",
+  "number":1,
+  'offpercent':34,
+  'description':"شلوار اسلش مناسب آقایان با سلیقه"
+  },
+  {
+  "id": "arqwefsdsfasdfdxzda;sadfzcdsfvxvb",
+  "name": "عروسک مدل خرسی",
+  "price": '620999',
+  "image": "https://cartzilla.createx.studio/img/shop/catalog/08.jpg",
+  "brand": "american eagle",
+  "isexist": "موجود",
+  "category": "doll",
   "rate":5,
   "tag":'newest',
   "gender":"kid",
   "number":1,
-  'offpercent':25,
-  'description':"هودی جذاب برای آقایان با سلیقه"
+  'offpercent':34,
+  'description':"عروسک مناسب بچه های خوب"
   },
   {
-  "id": "fdsajkasdf",
-  "name": "هودی اسپورت مدل قرمز",
-  "price": '110999',
-  "image": "https://cartzilla.createx.studio/img/shop/catalog/24.jpg",
-  "brand": "columbia",
+  "id": "arqwefsdsfasdfdsdxzda;sadfzcdsfvxvb",
+  "name": "کلاه مدل تابسانی",
+  "price": '220999',
+  "image": "https://cartzilla.createx.studio/img/shop/catalog/12.jpg",
+  "brand": "american eagle",
   "isexist": "موجود",
-  "category": "shirt",
+  "category": "hat",
   "rate":5,
   "tag":'newest',
-  "gender":"baby",
+  "gender":"kid",
   "number":1,
-  'offpercent':35,
-  'description':"هودی جذاب برای آقایان با سلیقه"
+  'offpercent':34,
+  'description':"کلاه مناسب بچه های خوب"
   },
-  {
-  "id": "fdsajsdfasdfkasdf",
-  "name": "هودی اسپورت مدل قرمز",
-  "price": '180999',
-  "image": "https://images.unsplash.com/photo-1621951753015-740c699ab970?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHRzaGlydHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-  "brand": "columbia",
-  "isexist": "موجود",
-  "category": "shirt",
-  "rate":5,
-  "tag":'newest',
-  "gender":"man",
-  "number":1,
-  'offpercent':45,
-  'description':"هودی جذاب برای آقایان با سلیقه"
-  },
+
+
+ 
+  
+
+
   
   ]
 const brands=[
