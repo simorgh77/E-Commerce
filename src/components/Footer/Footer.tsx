@@ -9,8 +9,8 @@ const Footer = () => {
     <footer className='d-flex flex-column w-100' style={{ backgroundColor: '#2b3445' }}>
 
 
-      <Container className='w-100 h-100'>
-        <Row className='w-100 mx-auto d-flex text-white'>
+      <Container  className='w-100 h-100'>
+        <Row    className='w-100 mx-auto d-flex text-white'>
         <Col xs={12} md={12} style={{fontSize:'110%'}} 
         className='  text-center w-100 d-flex flex-column justify-content-between '>
           <Col xs={9} md={12} className=' mb-3 mt-4 mx-auto'>{"مارا در شبکه های اجتماعی دنبال کنید"}</Col>
@@ -28,13 +28,13 @@ const Footer = () => {
             <li className=''>{"شرایط اقساطی"}</li>
             <li className=''>{"شرایط مرجوعی"}</li>
             </ul></Col>
-          <Col xs={6} md={12} className='d-flex flex-wrap '>
+          <Col xs={6} md={12} className='d-flex p-0 flex-wrap '>
 
-          <ul className='d-flex flex-wrap w-100 justify-content-between '>
-            <li className=''>{"شرایط استفاده"}</li>
-            <li className=''>{"حریم خصوصی"}</li>
-            <li className=''>{"درباره ما"}</li>
-            <li className=''>{"تماس با ما"}</li>
+          <ul className='d-flex flex-wrap w-100   justify-content-between '>
+            <li className='p-0'>{"شرایط استفاده"}</li>
+            <li className='p-0'>{"حریم خصوصی"}</li>
+            <li className='p-0'>{"درباره ما"}</li>
+            <li className='p-0'>{"تماس با ما"}</li>
             </ul>
           </Col>
         </Col>
@@ -43,18 +43,24 @@ const Footer = () => {
 
 
         <Col md={12} className='d-flex'>
-           <Col md={4} className='text-center'><img className=' ' src="https://www.keshmoon.com/images/template/footer/follow-up-icon.svg" alt="" /> <span>{"پیگیری سفارش"}</span></Col>
-           <Col md={4} className='text-center'><img className=' ' src="https://www.keshmoon.com/images/template/footer/shipping-icon.svg" alt="" /> <span>{"اطلاعات ارسال"}</span></Col>
-           <Col md={4} className='text-center'><img className=' ' src="https://www.keshmoon.com/images/template/footer/return-icon.svg" alt="" /> <span>{"اطلاعات مرجوعی"}</span></Col>
+           <Col md={4} className='text-center'><img src="https://www.keshmoon.com/images/template/footer/follow-up-icon.svg" alt="" /> <span>{"پیگیری سفارش"}</span></Col>
+           <Col md={4} className='text-center'><img  src="https://www.keshmoon.com/images/template/footer/shipping-icon.svg" alt="" /> <span>{"اطلاعات ارسال"}</span></Col>
+           <Col md={4} className='text-center'><img  src="https://www.keshmoon.com/images/template/footer/return-icon.svg" alt="" /> <span>{"اطلاعات مرجوعی"}</span></Col>
         </Col>
-        <Col  md={12} className='d-flex flex-column justify-content-center mt-5'>
-<Col md={6}></Col>
-          <Form>
-  <Form.Group className="mb-3 w-75 mx-auto" controlId="formBasicEmail">
-    <Form.Control type="email" className='text-center' placeholder="برای پیگیری اخبار ایمیل خود را وارد نمایید" />
+        <Col  md={12} className='d-flex flex-wrap justify-content-center mt-5'>
+<Col xs={12} md={8} className='d-flex  '>
+
+          <Form className='w-100'>
+  <Form.Group className="mb-3 " controlId="formBasicEmail">
+    <Form.Control type="email" className='text-center w-100'
+     placeholder="برای پیگیری اخبار ایمیل خود را وارد نمایید" />
+          
   </Form.Group>
   </Form>
-          <input type="button" value="ثبت ایمیل" className='btn btn-success  mx-auto ' />
+</Col>
+<Col xs={12} md={2} className=' '>
+<input type="button" value="ثبت ایمیل" className='btn btn-success mb-2 w-100' />  
+</Col>
         </Col>
 
         </Row>
@@ -65,7 +71,7 @@ const Footer = () => {
 
 
       <div className="copyright text-white w-100 bg-dark text-center p-3 sticky-bottom">
-        کلیه حقوق سایت متعلق به طه خراسانی میباشد
+        @کلیه حقوق سایت متعلق به طه خراسانی میباشد
       </div>
     </footer>
   )

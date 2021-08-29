@@ -10,3 +10,7 @@ ul li{
 .follow_up{
 
 }
+ol, ul {
+    padding-left: 0rem !important;
+}
+
