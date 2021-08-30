@@ -6,6 +6,7 @@ import ProductsCart from '../ProductsCart/ProductsCart';
 import "./Swiper.style.css"
 import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom'
+
 interface IProducts{
     id: string,
     name: string,
@@ -68,10 +69,8 @@ const history=useHistory()
            item[filter?.category as keyof IProducts]===filter?.kind as string&& 
              <>
            <SwiperSlide  className='swiperslide d-flex flex-column h-100 '>
-            <Button className='d-none showbtn' onClick={()=>history.push(`/Product_Details${item.id}`)}>
-              {"مشاهده محصول"}
-            </Button>
    <ProductsCart key={index} item={item} />
+           
          </SwiperSlide>
    </>
          ))

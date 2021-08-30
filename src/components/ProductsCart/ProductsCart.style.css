@@ -6,3 +6,23 @@
 align-items: center;
 }
 
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem 0rem 1rem;
+}
+.showbtn{
+    visibility: hidden;
+    background-color: #EF394E;
+    border: none;
+ 
+
+}
+
+#product_cart:hover .showbtn{
+    transition: all 1s ease-in;
+    visibility: visible;
+    justify-content: flex-start;
+    position: relative; 
+    z-index: 1;
+   
+}

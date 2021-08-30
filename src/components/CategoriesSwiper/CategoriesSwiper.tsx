@@ -49,13 +49,14 @@ if(!props.varient){   return (
                         <Button className={`for${props.item?.category}_btn w-100 rounded-0`} 
                         style={{backgroundColor:props.item?.btn_color,border:'none'}}
                         variant="outline-secondary"
-                         onClick={()=>history.push(`Product_Categories${props.item?.category}?category=gender&varient=${props.item?.category}`)}>
+                         onClick=
+                         {()=>history.push(`Product_Categories${props.item?.category}?category=gender&varient=${props.item?.category}`)}>
                           {props.item?.description} <BsChevronCompactLeft />
                           </Button>
                       </div>
                       <div className='w-100 d-none d-lg-block ' >
                         <img src={props.item?.image} alt={`for${props.item?.category}`}
-                        className='w-100 img-fluid'style={{height:'54vh'}} /> 
+                        className='w-100 img-fluid'style={{height:'50vh'}} /> 
                       </div>
                     </div>
                   </Col>

@@ -5,12 +5,12 @@
     left:0vw;
     min-width: 16rem;
     border-radius: 5px;
-    min-height: 10rem;
+    max-height: 20rem;
     z-index: 10;
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.59);
     border-bottom: 1px solid rgb(46, 64, 82);
     padding: 1rem;
-    
+    overflow-y: scroll;
 }
 
 .basket-mini img{
